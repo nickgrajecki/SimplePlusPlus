@@ -1,14 +1,26 @@
 {
-  "name": "simmpleplusplus",
+  "name": "simpleplusplus",
   "version": "1.0.0",
   "description": "Healthcare application",
-  "main": "simpleplus.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "author": "Nick Grajecki",
-  "license": "ISC",
+  "main": "server.js",
   "dependencies": {
+    "body-parser": "^1.18.3",
+    "ejs": "^2.6.1",
     "express": "^4.16.3"
-  }
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nickgrajecki/SimplePlusPlus.git"
+  },
+  "author": "Nick",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nickgrajecki/SimplePlusPlus/issues"
+  },
+  "homepage": "https://github.com/nickgrajecki/SimplePlusPlus#readme"
 }

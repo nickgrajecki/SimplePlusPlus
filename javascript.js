@@ -1,7 +1,9 @@
 
-function readConfig() {
+function readConfig(configJSON) {
     var iconCount = 8;
-    var config = require('./read');
+    // var config = require('./read');
+    // console.log(configJSON);
+    var config = configJSON;
     
     // var config = {
     //     "firstaid": true,
@@ -120,6 +122,14 @@ function readConfig() {
 
     $('#mainscreen').css('font-size', textsize + 'px');
     $('.icontext').css('font-size', textsize + 'px');
+}
+
+function readJSON() {
+    var my_json;
+    $.getJSON('/config.json', function (json) {
+        my_json = json;
+        readConfig(my_json);
+    });
 }
 
 function textSize() {

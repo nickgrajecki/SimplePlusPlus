@@ -1,14 +1,25 @@
-const http = require('http');
+var express = require('express');
+var bodyParser = require('body-parser');
+var fs = require('fs');
 
-const hostname = '127.0.0.1';
-const port = 3000;
+var app = express();
+var urlencodedParser = bodyParser.urlencoded({ extended: false });
+app.use(express.static(__dirname));
+app.set('view engine', 'ejs');
 
-const server = http.createServer((req, res) => {
-  res.statusCode = 200;
-  res.setHeader('Content-Type', 'text/plain');
-  res.end('Hello World\n');
+app.get('/', function(req, res){
+  var data = JSON.parse(decodeURI(fs.readFileSync('config.json', 'utf8')));
+  res.render('home', {data: data});
 });
 
-server.listen(port, hostname, () => {
-  console.log(`Server running at http://${hostname}:${port}/`);
+app.get('/:name', function(req, res){
+  var data = {age: 29, job: 'ninja', hobby: ['eating', 'fighting', 'fooding']};
+  res.render('module', {name: req.params.name, data: data});
 });
+
+app.post('/feedback', urlencodedParser, function(req, res){
+  res.render('module', {name: req.params.name, data: data});
+})
+
+app.listen(3000);
+
