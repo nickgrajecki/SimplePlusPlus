@@ -1,0 +1,10 @@
+{
+    "firstaid": true,
+    "emergency": true,
+    "video": false,
+    "presc": false,
+    "hospital": true,
+    "symptom": true,
+    "nutrition": true,
+    "diary": true
+}

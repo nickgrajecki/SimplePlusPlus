@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Simple++ Module</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/stylesheet.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp"
+        crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script type="text/javascript" src="javascript.js"></script>
+
+</head>
+
+<body onload="resizeIndividualModule()">
+    <div id="mainscreen">
+        <div id="topbar">
+            <span class="textleft">Simple++</span>
+            <span class="textcenter">Home</span>
+            <span class="textright">Welcome, insert_username!</span>
+        </div>
+
+        <div id="iconscreen1">
+            <img src="module.png" id="modimg"><center>Module Contents Here</center>
+
+        </div>
+
+        <div id="bottombar">
+
+            <a href="homescreen.html">
+                <div class="bottomicons">
+                    <i class="fas fa-home fa-4x"></i>
+                    <span class="icontext">Home</span>
+                </div>
+            </a>
+
+            <a href="support.html">
+                <div class="bottomicons">
+                    <i class="fas fa-hands-helping fa-4x"></i>
+                    <span class="icontext">Simple++ Help</span>
+                </div>
+            </a>
+
+            <div class="bottomicons trigger">
+                <i class="fas fa-search-plus fa-4x"></i>
+                <span class="icontext">Enlarge</span>
+                <div class="modal">
+                    <div class="modal-content">
+                        <h2>Please select your text size:
+                            <br>
+                            <input type="range" value="0" min="16" max="28">
+                        </h2>
+                        <script>textSize();</script>
+                    </div>
+                </div>
+            </div>
+
+            <a href="settings.html">
+                <div class="bottomicons">
+                    <i class="fas fa-cog fa-4x"></i>
+                    <span class="icontext">Settings</span>
+                </div>
+            </a>
+
+        </div>
+
+</body>
+
+</html>
