@@ -3,23 +3,6 @@ a {
 	text-decoration: none;
 }
 
-input[type='checkbox'] {
-    width:27px;
-    height:27px;
-    background:white;
-    border-radius:5px;
-	border:2px solid #555;
-	display: inline-block;
-}
-input[type='checkbox']:checked {
-	background: #abd;
-	column-count: 3;
-}
-
-label {
-	float: left;
-}
-
 input[type=submit]{
 	width: 70px;
 	height: 30px;

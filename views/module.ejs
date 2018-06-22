@@ -19,22 +19,10 @@
             <span class="textleft">Simple++</span>
             <span class="textcenter">Home</span>
             <span class="textright">Welcome, insert_username!
-                <%= data.age %>
             </span>
         </div>
         <div id="iconscreen1">
-            <img src="module.png" id="modimg">
-            <center>Module Contents Here
-                <%= name %>
-            </center>
-            <h3>Hobbies</h3>
-            <ul>
-                <% data.hobby.forEach(function(item){ %>
-                    <li>
-                        <%= item %>
-                    </li>
-                    <% }); %>
-            </ul>
+            <%- content %>
         </div>
         <% include partials/bottom.ejs %>
     </div>

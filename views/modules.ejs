@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Simple++ Settings</title>
+    <meta charset="utf-8">
+    <meta id="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/stylesheet.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp"
+        crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script type="text/javascript" src="javascript.js"></script>
+
+</head>
+
+<body onload="resizeModuleSelect()">
+    <div id="mainscreen">
+        <div id="topbar">
+            <span class="textleft">Simple++</span>
+            <span class="textcenter">Settings</span>
+            <span class="textright">Welcome, insert_userid!</span>
+        </div>
+
+        <div class="modulescreen">
+            <div id="iconscreen1">
+                <span id="moduleheader">Choose your modules:</span>
+
+                <form action="/modules" method="post">
+
+                    <div class="pickicons" id="firstaid">
+                        <input type="checkbox" name="firstaidc"/>
+                            <i class="fas fa-medkit fa-4x"></i>
+                            <span class="icontext">First Aid</span>
+                    </div>
+
+                    <div class="pickicons" id="video">
+                            <input type="checkbox" name="videoc"/>
+                        <i class="fas fa-video fa-4x"></i>
+                        <span class="icontext">Video Appointment</span>
+                    </div>
+                    </a>
+
+                    <div class="pickicons" id="presc">
+                            <input type="checkbox" name="prescc"/>
+                        <i class="fas fa-prescription-bottle fa-4x"></i>
+                        <span class="icontext">Prescriptions</span>
+                    </div>
+                    </a>
+
+                    <div class="pickicons" id="hospital">
+                            <input type="checkbox" name="hospitalc"/>
+                        <i class="fas fa-hospital fa-4x"></i>
+                        <span class="icontext">Local Aid</span>
+                    </div>
+                    </a>
+
+                    <div class="pickicons" id="diary">
+                            <input type="checkbox" name="diaryc"/>
+                        <i class="fas fa-book fa-4x"></i>
+                        <span class="icontext">Health Diary</span>
+                    </div>
+                    </a>
+
+                    <div class="pickicons" id="nutrition">
+                            <input type="checkbox" name="nutritionc"/>
+                        <i class="fas fa-utensils fa-4x"></i>
+                        <span class="icontext">Nutrition</span>
+                    </div>
+                    </a>
+
+                    <div class="pickicons" id="symptom">
+                            <input type="checkbox" name="symptomc"/>
+                        <i class="fas fa-user-md fa-4x"></i>
+                        <span class="icontext">Symptom Checker</span>
+                    </div>
+                    </a>
+
+                    <div class="pickicons" id="emergency">
+                            <input type="checkbox" name="emergencyc"/>
+                        <i class="fas fa-exclamation-triangle fa-4x"></i>
+                        <span class="icontext">Emergency</span>
+                    </div>
+                    </a>
+                    <input type="submit">
+                </form>
+
+            </div>
+        </div>
+        <% include partials/bottom.ejs %>
+    </div>
+
+</body>
+
+</html>
