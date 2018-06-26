@@ -90,4 +90,4 @@ app.post('/nutrition', urlencodedParser, function (req, res) {
 });
 
 //Port
-app.listen(3000);
+app.listen(process.env.PORT || 3000);
