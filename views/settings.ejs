@@ -18,7 +18,7 @@
         <div id="topbar">
             <span class="textleft">Simple++</span>
             <span class="textcenter">Settings</span>
-            <span class="textright">Welcome, insert_userid!</span>
+            <span class="textright">Welcome <%= name %>!</span>
         </div>
 
         <div class="settingscreen">
@@ -34,12 +34,10 @@
                     <span class="icontext">Assistive Feedback</span>
                 </div>
             </a>
-            <a href="other.html">
                 <div class="settingoption" id="other">
                     <i class="fas fa-check-square fa-10x"></i>
                     <span class="icontext">Other</span>
                 </div>
-            </a>
         </div>
 
         <% include partials/bottom.ejs %>

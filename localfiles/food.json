@@ -1,1 +1,11 @@
-{"food":"aaa"}
+{
+    "food": [
+        "Tomato",
+        "Cucumber",
+        "Beans",
+        "A",
+        "Red",
+        "Green",
+        "Reeeee"
+    ]
+}

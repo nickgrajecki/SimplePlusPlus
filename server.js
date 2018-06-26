@@ -21,7 +21,7 @@ app.post('/', urlencodedParser, function (req, res) {
 
 //Login
 app.get('/', function (req, res) {
-  if (!details.name.length) {
+  if (details.name == undefined) {
     res.render('login');
   } else {
     res.render('home', { name: details.name});
@@ -29,22 +29,18 @@ app.get('/', function (req, res) {
 });
 
 app.get('/index', function (req, res) {
-  console.log(details.name);
   res.render('home', { name: details.name });
 });
 
 app.get('/settings', function (req, res) {
-  console.log(details.name);
   res.render('settings', { name: details.name });
 });
 
 app.get('/support', function (req, res) {
-  console.log(details.name);
   res.render('support', { name: details.name });
 });
 
 app.get('/feedback', function (req, res) {
-  console.log(details.name);
   res.render('feedback', { name: details.name });
 });
 
@@ -61,7 +57,7 @@ app.post('/modules', urlencodedParser, function (req, res) {
 
 //First aid module
 app.get('/firstaid', function (req, res) {
-  fs.readFile(__dirname + '/sp_modules/firstaid/main.html', 'utf8', function (err, html) {
+  fs.readFile(__dirname + '/external_modules/firstaid/main.html', 'utf8', function (err, html) {
     if (err) {
       throw err
     } else {
@@ -72,11 +68,11 @@ app.get('/firstaid', function (req, res) {
 
 //Process firstaid module
 app.post('/firstaid', urlencodedParser, function (req, res) {
-  require('./sp_modules/firstaid/firstaidnode')(req, res);
+  require('./external_modules/firstaid/firstaidnode')(req, res);
 });
 
 app.get('/nutrition', function (req, res) {
-  fs.readFile(__dirname + '/sp_modules/nutrition/main.html', 'utf8', function (err, html) {
+  fs.readFile(__dirname + '/external_modules/nutrition/main.html', 'utf8', function (err, html) {
     if (err) {
       throw err
     } else {
@@ -86,7 +82,7 @@ app.get('/nutrition', function (req, res) {
 });
 
 app.post('/nutrition', urlencodedParser, function (req, res) {
-  require('./sp_modules/nutrition/nutritionnode')(req, res);
+  require('./external_modules/nutrition/nutritionnode')(req, res);
 });
 
 //Port

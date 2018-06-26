@@ -17,7 +17,7 @@ module.exports = function (req, res) {
             console.log(data[0].username);
             res.render('home', { name: data[0].username });
         } else {
-            res.redirect('/', { message: 'Please put in a name' });
+            res.render('login', { message: 'Please put in a name' });
         }
     });
 }
