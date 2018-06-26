@@ -1,13 +1,15 @@
 var fs = require('fs');
-var path = require('path');
-var detailsFile = './details.json';
+var detailsFile = './localfiles/details.json';
 
-var name = fs.readFile(detailsFile, function (err, data) {
-    if (err) throw err;
-    console.log(data.name);
-    //console.log(detailsFile);
-    return data.name;
-});
+try {
+    fs.readFile(detailsFile, function (err, data) {
+        if (err) throw err;
+        if (data.length){
+        data = JSON.parse(data);
+        module.exports.name = data.name;
+        }
+    });
+} catch (ex) {
+    console.log(ex);
+}
 
-//console.log(name);
-module.exports.name = name;

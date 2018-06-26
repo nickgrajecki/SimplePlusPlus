@@ -1,7 +1,7 @@
 {
   "name": "simpleplusplus",
   "version": "1.0.0",
-  "description": "Healthcare application",
+  "description": "Healthcare app",
   "main": "server.js",
   "dependencies": {
     "body-parser": "^1.18.3",
@@ -20,7 +20,7 @@
     "type": "git",
     "url": "git+https://github.com/nickgrajecki/SimplePlusPlus.git"
   },
-  "author": "Nick",
+  "author": "Nick Grajecki",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/nickgrajecki/SimplePlusPlus/issues"

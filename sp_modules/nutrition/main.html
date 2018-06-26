@@ -1,8 +1,11 @@
 <div id="iconscreen1">
     <p id="toptext">What did you eat yesterday?</p>
-   <form method="post" action="/firstaid">
+    <form method="post" action="/nutrition">
         <input id="fooddiary" type="text" name="fooddiary">
         <input id="submit" type="submit">
     </form>
-    <script src="nutrition.js"></script>
+    <p id="foodlist"></p>
+    <div id="detailsdiv"></div>
+    <script src="/sp_modules/nutrition/nutrition.js"></script>
+    <script>food()</script>
 </div>

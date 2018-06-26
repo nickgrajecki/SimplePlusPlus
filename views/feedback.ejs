@@ -2,9 +2,9 @@
 <html lang="en">
 
 <head>
-    <title>Simple++ Module</title>
+    <title>Simple++ Feedback</title>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta id="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="css/stylesheet.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp"
         crossorigin="anonymous">
@@ -13,19 +13,30 @@
 
 </head>
 
-<body onload="resizeIndividualModule()">
+<body>
     <div id="mainscreen">
         <div id="topbar">
             <span class="textleft">Simple++</span>
-            <span class="textcenter">Home</span>
-            <span class="textright">Welcome <%= name %>!!
-            </span>
+            <span class="textcenter">Feedback</span>
+            <span class="textright">Welcome, insert_userid!</span>
         </div>
-        <div id="iconscreen1">
-            <%- content %>
+
+        <div class="settingscreen">
+            <div class="settingoption">
+                Change feedback type:sadsadsa
+                <ul>
+                    <li>None</li>
+                    <li>Audio</li>
+                    <li>Tactila</li>
+                    <li>Audiotactile</li>
+                </ul>
+            </div>
         </div>
+
         <% include partials/bottom.ejs %>
+
     </div>
+
 </body>
 
 </html>

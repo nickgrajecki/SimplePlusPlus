@@ -28,7 +28,7 @@
                     <span class="icontext">Choose modules</span>
                 </div>
             </a>
-            <a href="feedback.html">
+            <a href="/feedback">
                 <div class="settingoption" id="feedback">
                     <i class="fas fa-assistive-listening-systems fa-10x"></i>
                     <span class="icontext">Assistive Feedback</span>
@@ -42,43 +42,8 @@
             </a>
         </div>
 
-        <div id="bottombar">
-            <a href="/">
-                <div class="bottomicons">
-                    <i class="fas fa-home fa-4x"></i>
-                    <span class="icontext">Home</span>
-                </div>
-            </a>
-
-            <a href="support.html">
-                <div class="bottomicons">
-                    <i class="fas fa-hands-helping fa-4x"></i>
-                    <span class="icontext">Simple++ Help</span>
-                </div>
-            </a>
-
-            <div class="bottomicons trigger">
-                <i class="fas fa-search-plus fa-4x"></i>
-                <span class="icontext">Enlarge</span>
-                <div class="modal">
-                    <div class="modal-content">
-                        <h2>Please select your text size:</h2>
-                        <br>
-                        <input type="range" value="0" min="16" max="28">
-                        <br>
-                        <br>
-                        <script>textSize();</script>
-                    </div>
-                </div>
-            </div>
-
-            <div class="bottomicons">
-                <a href="homescreen.html">
-                    <i class="fas fa-arrow-alt-circle-left fa-4x"></i>
-                    <span class="icontext">Go Back</span>
-                </a>
-            </div>
-        </div>
+        <% include partials/bottom.ejs %>
+        
     </div>
 </body>
 
