@@ -7,7 +7,7 @@ var bodyParser = require('body-parser');
 var urlencodedParser = bodyParser.urlencoded({ extended: false });
 
 var fs = require('fs');
-var details = require('./spp_modules/readdetails');
+var details = require('./spp_modules/userDetails');
 
 //Set up view engine and render CSS/JS
 app.use(express.static(path.join(__dirname, 'public')));
@@ -51,7 +51,7 @@ app.get('/modules', function (req, res) {
 
 //Process module selection
 app.post('/modules', urlencodedParser, function (req, res) {
-  require('./spp_modules/moduleselect')(req);
+  require('./spp_modules/moduleSelect')(req);
   res.render('modules', { name: details.name });
 })
 
@@ -72,11 +72,11 @@ app.post('/firstaid', urlencodedParser, function (req, res) {
 });
 
 app.get('/nutrition', function (req, res) {
-  fs.readFile(__dirname + '/external_modules/nutrition/main.html', 'utf8', function (err, html) {
+  fs.readFile(__dirname + '/external_modules/nutrition/main.ejs', 'utf8', function (err, html) {
     if (err) {
       throw err
     } else {
-      res.render('module', { content: html, name: details.name });
+      res.render('module', { content: html, name: details.name, foods: 'Arbuz' });
     }
   });
 });

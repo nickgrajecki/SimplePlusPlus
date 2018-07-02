@@ -1,6 +1,6 @@
 var fs = require("fs");
 var detailsFile = "./localfiles/details.json";
-var details = require(__dirname + "/../../spp_modules/readdetails");
+var details = require(__dirname + "/../../spp_modules/userDetails");
 
 module.exports = function(req, res) {
   var name = details.name;

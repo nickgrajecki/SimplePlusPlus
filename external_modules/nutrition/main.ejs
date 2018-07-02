@@ -1,0 +1,12 @@
+<div class="module">
+    <p id="toptext">What did you eat yesterday?</p>
+    <form method="post" action="/nutrition">
+        <input id="fooddiary" type="text" name="fooddiary">
+        <input id="submit" type="submit">
+    </form>
+    <div id="foodlist"></div>
+    <div id="detailsdiv"></div>
+    <script src="/external_modules/nutrition/nutrition.js"></script>
+    <script>food()</script>
+    <%- foods %>
+</div>
