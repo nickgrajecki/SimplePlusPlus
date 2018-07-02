@@ -51,7 +51,7 @@ app.get('/modules', function (req, res) {
 
 //Process module selection
 app.post('/modules', urlencodedParser, function (req, res) {
-  require('./spp_modules/moduleSelect')(req);
+  require('/spp_modules/moduleSelect')(req);
   res.render('modules', { name: details.name });
 })
 
