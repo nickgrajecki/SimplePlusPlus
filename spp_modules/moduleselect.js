@@ -1,5 +1,5 @@
 var fs = require('fs');
-var file = './localfiles/config.json';
+var file = './localfiles/selectedmodules.json';
 
 module.exports = function (req) {
     var firstaid = req.body.firstaidc;

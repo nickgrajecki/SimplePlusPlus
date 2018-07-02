@@ -1,10 +1,3 @@
 {
-    "firstaid": true,
-    "video": false,
-    "presc": false,
-    "hospital": false,
-    "diary": true,
-    "nutrition": true,
-    "symptom": false,
-    "emergency": false
+    "fontsize": "20px"
 }
