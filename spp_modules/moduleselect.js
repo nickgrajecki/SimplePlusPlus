@@ -15,6 +15,7 @@ module.exports = function (req) {
         video = false;
     }
 
+    
     var presc = req.body.prescc;
     if (presc === "on") {
         presc = true;
