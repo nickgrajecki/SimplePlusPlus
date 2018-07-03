@@ -41,7 +41,7 @@ module.exports = function(app) {
 
   //Process module selection
   app.post("/modules", urlencodedParser, function(req, res) {
-    require(__dirname + "/spp_modules/moduleSelect")(req);
+    require(__dirname + "/moduleSelect")(req);
     res.render("modules", { name: details.name });
   });
 };

@@ -18,7 +18,8 @@
         <div id="topbar">
             <span class="textleft">Simple++</span>
             <span class="textcenter">Settings</span>
-            <span class="textright">Welcome, <%= name %>!</span>
+            <span class="textright">Welcome,
+                <%= name %>!</span>
         </div>
 
         <div class="modulescreen">
@@ -26,61 +27,73 @@
                 <span id="moduleheader">Choose your modules:</span>
 
                 <form action="/modules" method="post">
+                    <div id="checkboxes">
 
-                    <div class="pickicons" id="firstaid">
-                        <input type="checkbox" name="firstaidc"/>
-                            <i class="fas fa-medkit fa-4x"></i>
-                            <span class="icontext">First Aid</span>
-                    </div>
+                        <input type="checkbox" name="firstaidc" id="firstaidc" />
+                        <label class="whatever" for="firstaidc">
+                            <div class="white">
+                                <i class="fas fa-medkit fa-4x"></i>
+                                <span class="icontext">First Aid</span>
+                            </div>
+                        </label>
 
-                    <div class="pickicons" id="video">
-                            <input type="checkbox" name="videoc"/>
-                        <i class="fas fa-video fa-4x"></i>
-                        <span class="icontext">Video Appointment</span>
-                    </div>
-                    </a>
+                        <input type="checkbox" name="videoc" id="videoc" />
+                        <label class="whatever" for="videoc">
+                            <div class="white">
+                                <i class="fas fa-video fa-4x"></i>
+                                <span class="icontext">Video Appointment</span>
+                            </div>
+                        </label>
 
-                    <div class="pickicons" id="presc">
-                            <input type="checkbox" name="prescc"/>
-                        <i class="fas fa-prescription-bottle fa-4x"></i>
-                        <span class="icontext">Prescriptions</span>
-                    </div>
-                    </a>
+                        <input type="checkbox" name="prescc" id="prescc" />
+                        <label class="whatever" for="prescc">
+                            <div class="white">
+                                <i class="fas fa-prescription-bottle fa-4x"></i>
+                                <span class="icontext">Prescriptions</span>
+                            </div>
+                        </label>
 
-                    <div class="pickicons" id="hospital">
-                            <input type="checkbox" name="hospitalc"/>
-                        <i class="fas fa-hospital fa-4x"></i>
-                        <span class="icontext">Local Aid</span>
-                    </div>
-                    </a>
+                        <input type="checkbox" id="hospitalc" name="hospitalc"  />
+                        <label class="whatever" for="hospitalc">
+                            <div class="white">
+                                <i class="fas fa-hospital fa-4x"></i>
+                                <span class="icontext">Local Aid</span>
+                            </div>
+                        </label>
 
-                    <div class="pickicons" id="diary">
-                            <input type="checkbox" name="diaryc"/>
-                        <i class="fas fa-book fa-4x"></i>
-                        <span class="icontext">Health Diary</span>
-                    </div>
-                    </a>
+                        <input type="checkbox" id="diaryc" name="diaryc" />
+                        <label class="whatever" for="diaryc">
+                            <div class="white">
+                                <i class="fas fa-book fa-4x"></i>
+                                <span class="icontext">Health Diary</span>
+                            </div>
+                        </label>
 
-                    <div class="pickicons" id="nutrition">
-                            <input type="checkbox" name="nutritionc"/>
-                        <i class="fas fa-utensils fa-4x"></i>
-                        <span class="icontext">Nutrition</span>
-                    </div>
-                    </a>
+                        <input type="checkbox" id="nutritionc" name="nutritionc" />
+                        <label class="whatever" for="nutritionc">
+                            <div class="white">
+                                <i class="fas fa-utensils fa-4x"></i>
+                                <span class="icontext">Nutrition</span>
+                            </div>
+                        </label>
 
-                    <div class="pickicons" id="symptom">
-                            <input type="checkbox" name="symptomc"/>
-                        <i class="fas fa-user-md fa-4x"></i>
-                        <span class="icontext">Symptom Checker</span>
-                    </div>
-                    </a>
+                        <input type="checkbox" id="symptomc" name="symptomc" />
+                        <label class="whatever" for="symptomc">
+                            <div class="white">
+                                <i class="fas fa-user-md fa-4x"></i>
+                                <span class="icontext">Symptom Checker</span>
+                            </div>
+                        </label>
 
-                    <div class="pickicons" id="emergency">
-                            <input type="checkbox" name="emergencyc"/>
-                        <i class="fas fa-exclamation-triangle fa-4x"></i>
-                        <span class="icontext">Emergency</span>
+                        <input type="checkbox" id="emergencyc" name="emergencyc" />
+                        <label class="whatever" for="emergencyc">
+                            <div class="white">
+                                <i class="fas fa-exclamation-triangle fa-4x"></i>
+                                <span class="icontext">Emergency</span>
+                            </div>
+                        </label>
+
                     </div>
-                    </a>
                     <input type="submit">
                 </form>
 
