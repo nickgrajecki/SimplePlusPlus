@@ -6,7 +6,7 @@ var path = require("path");
 //Set up view engine and render CSS/JS
 app.use(express.static(path.join(__dirname, "public")));
 app.use(express.static(__dirname));
-app.set('views', [path.join(__dirname, 'views'), path.join(__dirname, 'views/includes/')]);
+app.set('views', [path.join(__dirname, 'views'), path.join(__dirname, 'views/partials/')]);
 app.set("view engine", "ejs");
 
 require("./spp_modules/routes")(app);

@@ -10,15 +10,4 @@ function firstAid() {
             $("#details").append("<h2>Please fill in your details</h2>");
         }
     });
-    $.getJSON('/../../localfiles/food.json', function (json) {
-        async: false;
-        if (json !== null) {
-            var loop = $("#food").append("<h3>Yesterday you ate:<br><span class='highlight'>");
-            for (var i = 0; i < json.food.length; i++) {
-                var obj = json.food[i];
-                $("#food").append(obj + ", ");
-            }
-            ($("#food").append("</span></h3>"));
-        }
-    });
 }

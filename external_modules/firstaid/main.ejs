@@ -1,0 +1,31 @@
+<%- include partials/moduletop %>
+
+    <div id="iconscreen1">
+        <div class="module">
+            <p id="toptext">Amend your information:</p>
+            <form method="post" action="/firstaid">
+                Age
+                <br>
+                <input id="age" type="text" name="age">
+                <br>Height
+                <br>
+                <input id="userheight" type="text" name="userheight">
+                <br>
+                <br>
+                <input id="submit" type="submit">
+            </form>
+            <br>
+            <div id="details"></div>
+            <div id="food">Yesterday you ate:<br>
+                <% for (var i = 0; i < foods.length; i++) { %>
+                    <li>
+                        <%= foods[i].fooditem %>
+                    </li>
+                    <% } %>
+            </div>
+            <script type='text/javascript' src="/external_modules/firstaid/firstaid.js"></script>
+            <script>firstAid()</script>
+        </div>
+    </div>
+
+    <%- include partials/modulebottom %>

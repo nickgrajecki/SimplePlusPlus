@@ -1,14 +1,4 @@
 function food() {
-    $.getJSON('/../../localfiles/food.json', function (json) {
-        if (json !== null) {
-            $("#foodlist").append("<h3>Food log:<br><span class='highlight'>");
-            for (var i = 0; i < json.food.length; i++){
-                var obj = json.food[i];
-                $("#foodlist").append(obj + ", ");
-            }
-            $("#foodlist").append("</span></h3>");
-        }
-    });
     $.getJSON('/../../localfiles/details.json', function (json) {
         if (json.age.length) {
             var name = json.name;

@@ -5,12 +5,17 @@ var db = require(__dirname + "/../../spp_modules/dbconnect");
 var details = require(__dirname + "/../../spp_modules/userDetails");
 
 module.exports = function(app) {
-
   app.get("/nutrition", function(req, res) {
-    res.render(__dirname + "/main", {
-      name: details.name,
-      foods: "Arbuz"
-    });
+    var dbFood = db.food;
+    dbFood.find({}, { _id: 0, __v: 0 }, function(err, foods) {
+        if (err) throw err;
+        console.log(foods);
+        res.render(__dirname + "/main", {
+          name: details.name,
+          foods: foods
+        });
+      })
+    
   });
 
   app.post("/nutrition", urlencodedParser, function(req, res) {

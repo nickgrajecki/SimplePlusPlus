@@ -17,5 +17,12 @@ var foodSchema = new mongoose.Schema({
 var dbUser = mongoose.model("User", userSchema);
 var dbFood = mongoose.model("Food", foodSchema);
 
+var getFood = dbFood.find({}, { _id: 0, __v: 0 }, function(err, foods) {
+  if (err) throw err;
+  return foods;
+}).exec();
+console.log(getFood);
+
+module.exports.getFood = getFood;
 module.exports.user = dbUser;
 module.exports.food = dbFood;
