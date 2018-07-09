@@ -4,7 +4,10 @@ var fs = require("fs");
 var db = require(__dirname + "/../../spp_modules/dbconnect");
 var details = require(__dirname + "/../../spp_modules/userDetails");
 
+
+//Set up routing for main routing ifile
 module.exports = function(app) {
+  //Main page
   app.get("/nutrition", function(req, res) {
     var dbFood = db.food;
     dbFood.find({}, { _id: 0, __v: 0 }, function(err, foods) {
@@ -17,7 +20,7 @@ module.exports = function(app) {
       })
     
   });
-
+  //After submmitting form
   app.post("/nutrition", urlencodedParser, function(req, res) {
     var dbFood = db.food;
     var food = req.body.fooddiary;

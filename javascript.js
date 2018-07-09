@@ -1,3 +1,4 @@
+//Using a JSON file/object, adjust layout
 function readConfig(configJSON) {
   var iconCount = 8;
   var config = configJSON;
@@ -52,6 +53,7 @@ function readConfig(configJSON) {
     iconCount--;
   }
 
+  //Based on amount of icons on screen, adapt layout
   if (iconCount > 4 && iconCount < 8) {
     $(".icons").css("width", "21%");
     $(".icons").css("margin-left", "1.3em");
@@ -108,7 +110,8 @@ function readConfig(configJSON) {
   $(".icontext").css("font-size", textsize + "px");
 }
 
-function readJSON() {
+//Read JSON file with selected modules
+function readModules() {
   var my_json;
   $.getJSON("/localfiles/selectedmodules.json", function(json) {
     my_json = json;
@@ -116,6 +119,7 @@ function readJSON() {
   });
 }
 
+//Retrieve saved fontsize
 function getFontsize() {
     $.getJSON("/localfiles/config.json", function(json) {
     var font = json.fontsize;
@@ -123,6 +127,7 @@ function getFontsize() {
     });
   }
 
+//Popup box for textsize
 function textSize() {
   var iconCount = localStorage.getItem("modules");
   var modal = document.querySelector(".modal");
@@ -191,6 +196,7 @@ function textSize() {
   });
 }
 
+//Individual page layout resize - Support page
 function resizeSupport() {
   var textsize = localStorage.getItem("fontsize");
   $("#mainscreen").css("font-size", textsize + "px");
@@ -208,16 +214,11 @@ function resizeSupport() {
   }
 }
 
+//Individual page layout resize - Settings page
 function resizeSettings() {
   var textsize = localStorage.getItem("fontsize");
   $(".icontext").css("font-size", textsize + "px");
   $("#mainscreen").css("font-size", textsize + "px");
-  // $('.settingoption').css('font-size', textsize + 'px');
-  // $('.settingoption').css('width', '21%');
-  // $('.settingoption').css('margin-left', '1em');
-  // $('.settingoption').css('margin-right', '1em');
-  // $('.settingoption').css('padding-top', '0.1em');
-  // $('#settingscreen').css('padding-top', '0.3em');
 
   if (textsize > 21) {
     $(".icontext").css("margin-top", "0.1em");
@@ -226,6 +227,7 @@ function resizeSettings() {
   }
 }
 
+//Individual page layout resize - Module Select page
 function resizeModuleSelect() {
   var textsize = localStorage.getItem("fontsize");
   $(".icontext").css("font-size", textsize + "px");
@@ -246,6 +248,7 @@ function resizeModuleSelect() {
   }
 }
 
+//Individual page layout resize - external modules
 function resizeIndividualModule() {
   var textsize = localStorage.getItem("fontsize");
   $(".icontext").css("font-size", textsize + "px");
@@ -255,55 +258,4 @@ function resizeIndividualModule() {
   } else {
     $(".icontext").css("margin-top", "0.5em");
   }
-}
-
-function pickModules() {
-  if (document.getElementById("faC").checked) {
-    localStorage.setItem("firstaidcheck", true);
-  } else {
-    localStorage.setItem("firstaidcheck", false);
-  }
-
-  if (document.getElementById("vC").checked) {
-    localStorage.setItem("videocheck", true);
-  } else {
-    localStorage.setItem("videocheck", false);
-  }
-
-  if (document.getElementById("pC").checked) {
-    localStorage.setItem("prescriptioncheck", true);
-  } else {
-    localStorage.setItem("prescriptioncheck", false);
-  }
-
-  if (document.getElementById("laC").checked) {
-    localStorage.setItem("hospitalcheck", true);
-  } else {
-    localStorage.setItem("hospitalcheck", false);
-  }
-
-  if (document.getElementById("hdC").checked) {
-    localStorage.setItem("healthdiarycheck", true);
-  } else {
-    localStorage.setItem("healthdiarycheck", false);
-  }
-
-  if (document.getElementById("nC").checked) {
-    localStorage.setItem("nutritioncheck", true);
-  } else {
-    localStorage.setItem("nutritioncheck", false);
-  }
-
-  if (document.getElementById("scC").checked) {
-    localStorage.setItem("symptomcheck", true);
-  } else {
-    localStorage.setItem("symptomcheck", false);
-  }
-
-  if (document.getElementById("eC").checked) {
-    localStorage.setItem("emergencycheck", true);
-  } else {
-    localStorage.setItem("emergencycheck", false);
-  }
-  alert("Form submitted!");
 }

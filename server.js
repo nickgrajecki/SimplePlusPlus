@@ -9,6 +9,7 @@ app.use(express.static(__dirname));
 app.set('views', [path.join(__dirname, 'views'), path.join(__dirname, 'views/partials/')]);
 app.set("view engine", "ejs");
 
+//Import all routing for app and modules
 require("./spp_modules/routes")(app);
 require("./external_modules/firstaid/routes")(app);
 require("./external_modules/nutrition/routes")(app);

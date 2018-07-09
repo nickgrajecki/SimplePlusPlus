@@ -1,6 +1,5 @@
 var bodyParser = require("body-parser");
 var urlencodedParser = bodyParser.urlencoded({ extended: false });
-var fs = require("fs");
 var details = require(__dirname + "/../spp_modules/userDetails");
 
 module.exports = function(app) {
@@ -18,6 +17,7 @@ module.exports = function(app) {
     }
   });
 
+  //Page routing
   app.get("/index", function(req, res) {
     res.render("home", { name: details.name });
   });

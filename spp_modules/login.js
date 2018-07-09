@@ -4,7 +4,9 @@ var fs = require("fs");
 var detailsFile = __dirname + "/../localfiles/details.json";
 
 module.exports = function(req, res) {
+  //Get name from form
   var name = req.body.username;
+  //Find name in Mongo
   var sendname = dbUser.find({ username: name }, { _id: 0, username: 1 });
   sendname.exec(function(err, data) {
     console.log(data);

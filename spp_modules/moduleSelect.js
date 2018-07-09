@@ -1,8 +1,12 @@
 var fs = require('fs');
 var file = './localfiles/selectedmodules.json';
 
+
 module.exports = function (req) {
+
+    //Read user selection
     var firstaid = req.body.firstaidc;
+    //If checked
     if (firstaid === "on") {
         firstaid = true;
     } else {
@@ -15,7 +19,6 @@ module.exports = function (req) {
         video = false;
     }
 
-    
     var presc = req.body.prescc;
     if (presc === "on") {
         presc = true;
@@ -54,7 +57,9 @@ module.exports = function (req) {
     } else {
         emergency = false;
     }
+    //Create new JSON object 
     var obj = { firstaid: firstaid, video: video, presc: presc, hospital: hospital, diary: diary, nutrition: nutrition, symptom: symptom, emergency: emergency };
+    //Save it to file
     fs.writeFileSync(file, JSON.stringify(obj));
     console.log(obj);
 }

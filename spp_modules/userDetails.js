@@ -4,6 +4,8 @@ var db = require("./dbconnect");
 var dbUser = db.user;
 var name;
 
+
+//Read user details file
 try {
   fs.readFile(detailsFile, function(err, data) {
     if (err) throw err;
@@ -17,6 +19,7 @@ try {
   console.log(ex);
 }
 
+//Update user age in MongoDB
 module.exports.updateAge = function(newAge) {
   dbUser.findOneAndUpdate(
     { username: name},
@@ -27,6 +30,7 @@ module.exports.updateAge = function(newAge) {
   );
 };
 
+//Update user height in MongoDB
 module.exports.updateHeight = function(newHeight) {
   dbUser.findOneAndUpdate(
     { username: name},
