@@ -111,7 +111,7 @@ function readConfig(configJSON) {
 }
 
 //Read JSON file with selected modules
-function readModules() {
+function readJSON() {
   var my_json;
   $.getJSON("/localfiles/selectedmodules.json", function(json) {
     my_json = json;
