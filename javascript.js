@@ -60,21 +60,18 @@ function readConfig(configJSON) {
     $(".icons").css("margin-right", "1em");
     $(".icons").css("margin-top", "1em");
   } else if (iconCount == 4) {
-    $(".icons").css("width", "350px");
-    $(".icons").css("margin-left", "100px");
-    $(".icons").css("margin-right", "80px");
-    $(".icons").css("padding-left", "40px");
-    $(".icons").css("padding-right", "40px");
-    $(".icons").css("padding-top", "7px");
-    $(".icons").css("margin-top", "17px");
+    $(".icons").css("width", "30%");
+    $(".icons").css("margin-left", "10%");
+    $(".icons").css("margin-right", "5%");
+    $(".icons").css("margin-top", "1%");
   } else if (iconCount == 3) {
     $(".icons").css("width", "25%");
     $(".icons").css("margin-left", "5%");
     $(".icons").css("margin-right", "1%");
-    $(".icons").css("margin-top", "4%");
-    $(".icons").css("margin-bottom", "10px");
+    $(".icons").css("margin-top", "5%");
+    $(".icons").css("margin-bottom", "5%");
     $(".icons").css("padding-top", "5%");
-    $(".icons").css("padding-bottom", "5%");
+    $(".icons").css("padding-bottom", "3%");
   } else if (iconCount > 1 && iconCount < 3) {
     $(".icons").css("width", "400px");
     $(".icons").css("margin-left", "80px");
@@ -121,11 +118,11 @@ function readJSON() {
 
 //Retrieve saved fontsize
 function getFontsize() {
-    $.getJSON("/localfiles/config.json", function(json) {
+  $.getJSON("/localfiles/config.json", function(json) {
     var font = json.fontsize;
     return font;
-    });
-  }
+  });
+}
 
 //Popup box for textsize
 function textSize() {
@@ -149,46 +146,51 @@ function textSize() {
   $("input").on("mousemove", function() {
     var textsize = $(this).val();
 
-    if (textsize > 21) {
-      $(".icontext").css("margin-top", "0.1em");
-      $(".pickicons").css("margin-top", "0.1em");
-      $("#moduleheader").css("margin-bottom", "5%");
-      $(".pickicons").css("width", "22%");
-      $(".pickicons").css("margin-left", "1.3em");
-      $(".pickicons").css("margin-right", "0.1em");
+    if (textsize > 31) {
+      $(".icontext").css("margin-top", "0.2%");
+      $(".icons").css("margin-top", "0.2%");
+      $(".icons").css("margin-bottom", "0.2%");
+      $("#moduleheader").css("margin-bottom", "2%");
     } else {
-      $(".icontext").css("margin-top", "0.5em");
-      $(".icontext").css("margin-top", "0.5em");
-      $("#moduleheader").css("margin-bottom", "3%");
-      $(".pickicons").css("width", "19%");
-      $(".pickicons").css("margin-left", "2em");
-      $(".pickicons").css("margin-right", "2em");
+      // $(".icontext").css("margin-top", "0.5%");
+      // $(".icontext").css("margin-top", "0.5%");
+      // $("#moduleheader").css("margin-bottom", "3%");
     }
+
     if (iconCount > 6) {
       $("#mainscreen").css("font-size", textsize + "px");
       $(".icontext").css("font-size", textsize + "px");
       if (textsize > 23) {
-        $(".icons").css("margin-left", "1.3em");
-        $(".icons").css("margin-right", "1em");
-
-        $("#iconscreen1").css("padding-top", "0.3em");
+        // $(".icons").css("margin-left", "2%");
+        // $(".icons").css("margin-right", "1%");
+        // $("#iconscreen1").css("padding-top", "0.3%");
+        // $("#iconscreen1").css("padding-bottom", "5%");
+        // $(".bottomicons").css("margin-top", "0.01%");
       } else {
-        $(".icons").css("width", "21%");
-        $(".icons").css("margin-left", "1.3em");
-        $(".icons").css("margin-right", "1em");
-        $(".icons").css("margin-top", "1.5em");
-        $("#iconscreen1").css("padding-top", "1em");
+        // $(".icons").css("width", "21%");
+        // $(".icons").css("margin-left", "1.3%");
+        // $(".icons").css("margin-right", "1%");
+        // $(".icons").css("margin-top", "1.5%");
+        // $("#iconscreen1").css("padding-top", "1%");
       }
     } else if (iconCount > 4 && iconCount < 7) {
       $("#mainscreen").css("font-size", textsize + "px");
       $(".icontext").css("font-size", textsize + "px");
-      $(".icons").css("margin-top", "1.1em");
+      $(".icons").css("margin-top", "1.1%");
       if (textsize > 20) {
-        $(".icons").css("margin-top", "0.6em");
+        $(".icons").css("margin-top", "0.6%");
       }
+    } else if (iconCount == 4) {
+      $("#mainscreen").css("font-size", textsize + "px");
+      $(".icontext").css("font-size", textsize + "px");
+      $(".icons").css("margin-top", "1.1%");
     } else {
       $("#mainscreen").css("font-size", textsize + "px");
       $(".icontext").css("font-size", textsize + "px");
+      $(".icons").css("margin-top", "5%");
+      $(".icons").css("margin-bottom", "5%");
+      $(".icons").css("padding-top", "5%");
+      $(".icons").css("padding-bottom", "3%");
     }
     if (textsize < 30) {
       localStorage.setItem("fontsize", textsize);
