@@ -29,6 +29,15 @@ a {
   font-size: 12vw;
 }
 
+.fontselectscreen {
+  font-size: 7vw;
+}
+
+.fonthelp {
+  font-size: 7vw;
+}
+
+
 .whatever {
   margin-left: 2em;
   margin-right: 2em;
@@ -151,6 +160,12 @@ input[type="range"]::-webkit-slider-thumb {
   font-size: 20px;
 }
 
+.bottomtext {
+  display: block;
+  margin-top: 1%;
+  font-size: 1.5vw;
+}
+
 .bottomicons {
   margin-left: 1%;
   margin-right: 1%;
@@ -165,7 +180,7 @@ input[type="range"]::-webkit-slider-thumb {
 #bottombar {
   position: absolute;
   display: block;
-  padding-top: 0%;
+  padding-top: 0.2%;
   width: 100%;
   height: 14%;
   background-color: rgb(28, 159, 219);
@@ -276,14 +291,22 @@ input[type="range"]::-webkit-slider-thumb {
   width: 24rem;
   border-radius: 0.5rem;
 }
+
+.show-modal {
+  opacity: 1;
+  visibility: visible;
+  transform: scale(1);
+  transition: visibility 0s linear 0s, opacity 0.25s 0s, transform 0.25s;
+}
+
 .icons:active {
   background-color: #3e8e41;
 }
 
 .settingscreen {
   display: inline-block;
-  padding-bottom: 0px;
-  padding-top: 20px;
+  padding-bottom: 9%;
+  padding-top: 1%;
   font-family: Arial, Helvetica, sans-serif;
   font-size: 20px;
   width: 100%;
@@ -323,9 +346,16 @@ input[type="range"]::-webkit-slider-thumb {
 
 .modulescreen {
   display: inline-flex;
-  padding-bottom: 0px;
-  padding-top: 2.5%;
+  padding-top: 3%;
   font-family: Arial, Helvetica, sans-serif;
+  font-size: 20px;
+  width: 100%;
+}
+
+.supportscreen {
+  display: inline-flex;
+  padding-bottom: 9%;
+  padding-top: 4.7%;
   font-size: 20px;
   width: 100%;
 }

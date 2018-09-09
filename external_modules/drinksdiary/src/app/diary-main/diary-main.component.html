@@ -1,0 +1,78 @@
+<div class="container-fluid">
+  <div id="view-pane">
+    <div class="row">
+      <div class="col-lg-8" class="col-md-8" class="col-sm-8" class="col-xs-8" id="component-log-pane">
+        <div class="drinks-log">
+          <!--
+          <div class="add-entry-div">  
+            <p class="tooltips-disabled" [class.tooltips-enabled]="tooltips">
+              Tapping the white boxes below will bring up a keyboard.
+            </p>
+            
+            <label>Drink name: </label>
+            <input #drinkName />
+            <br>
+            <label>Size:</label>
+            <div class="size-options">
+              <fa name="coffee" class="large-drink" id="largeSelected" (click)="selectedLargeSize()"></fa>
+              <fa name="coffee" class="medium-drink" id="mediumSelected" (click)="selectedMediumSize()"></fa>
+              <fa name="coffee" class="small-drink" id="smallSelected" (click)="selectedSmallSize()"></fa>
+            </div>
+            <button class="input-button" (click)="add(drinkName.value);">
+              Add
+            </button>
+         
+          
+        </div> -->
+        
+        <div class="title-h-element">
+          <span>
+            Add an entry
+          </span>
+        </div>
+        
+        <p class="tooltips-disabled" [class.tooltips-enabled]="tooltips">
+          Tap the white box below to show a list.<br>
+          Tap an icon of a mug to select the size of your drink. <br>
+          After selecting a name and size, press 'add' to enter this into your diary.
+        </p>
+
+        <ul class="diary-entry-list">
+          <div class="add-entry-div">
+          <select id="selectMenu" data-style="btn-new">
+            <option value="Water" selected="selected">Water</option>
+            <option value="Fruit Juice" selected="selected">Fruit Juice</option>
+            <option value="Tea" selected="selected">Tea</option>
+            <option value="Coffee" selected="selected">Coffee</option>
+            <option value="Alcoholic" selected="selected">Alcoholic</option>
+            <option value="Milk" selected="selected">Milk</option>
+          </select>
+
+          <div class="size-options">
+            <fa name="coffee" class="large-drink" id="largeSelected" (click)="selectedLargeSize()"></fa>
+            <fa name="coffee" class="medium-drink" id="mediumSelected" (click)="selectedMediumSize()"></fa>
+            <fa name="coffee" class="small-drink" id="smallSelected" (click)="selectedSmallSize()"></fa>
+          </div>
+
+          <button class="input-button" (click)="add();">
+            Add
+          </button>
+
+        </div>
+
+        <div class="title-h-element">
+            <span>
+              Your Diary
+            </span>
+          </div>
+
+          <li *ngFor="let drink of drinks" (click)="onSelect(drink)" class="log-li">
+                {{drink.name}}
+          </li>
+        </ul>
+        </div>
+      </div>
+      <app-diary-entry [drink]="selectedDrink"></app-diary-entry>
+    </div>
+  </div>
+</div>

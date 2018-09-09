@@ -1,0 +1,26 @@
+<div class="container-fluid">
+  <div class="row" id="view-pane">
+    <div class="col-lg-12" class="col-md-12" class="col-sm-12" class="col-xs-12">
+      <div class="title-h-element">
+        <span>
+          Help Page
+        </span>
+      </div>
+      <div class="info">
+        <p class="tooltips-disabled" [class.tooltips-enabled]="tooltips">
+          You can change the page colours by tapping the options below.
+        </p>
+        <div id="enableMessageToggle">
+          Help messages are on.
+        </div>
+        <div id="disableMessageToggle">
+          Help messages are off.
+        </div>
+      </div>
+      <ul class="option-list">
+        <li (click)="tooltipsOn()" (click)="enableMessage()" id="option-button"> Tap this button to turn help messages on </li>
+        <li (click)="tooltipsOff()"(click)="disableMessage()" id="option-button"> Tap this button to turn help messages off </li>
+      </ul>
+    </div>
+  </div>
+</div>

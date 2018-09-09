@@ -1,0 +1,311 @@
+@import "~bootstrap/dist/css/bootstrap.min.css";
+@import "~font-awesome/css/font-awesome.css";
+
+/* Previous bootstrap version in package.json: "^4.1.1" */
+
+html {
+    height:100%;
+}
+
+body {
+    font-family: 'Nunito', sans-serif;
+    text-decoration:none;
+    height:100%;
+    font-size: 16pt;
+}
+
+.main-app-wrapper {
+    height:100%;
+    background-color:rgb(215,215,215);
+} 
+
+.main-app-wrapper #view-pane {
+    background-color:rgb(245,245,245);
+}
+
+.alt-main-app-wrapper {
+    height:100%;
+    background-color:rgb(215,215,215);
+}
+
+.alt-main-app-wrapper #view-pane {
+    background-color: rgba(255, 255, 235, 0.775);
+}
+
+a {
+    text-decoration:none;
+    height:100%;
+    margin:0;
+}
+
+a:visited, a:after, a:active, a:focus, a:link, a:hover  {
+    text-decoration:none;
+    color:white;
+}
+
+.nav-bar {
+    height:20.5vh;
+}
+
+#homescreen-h-element, #diary-h-element, #customise-h-element, #help-h-element {
+    text-align:center;
+    height:100%;
+    padding:0.2em;
+    overflow:hidden;
+    border-top-left-radius: 175px 30px;
+    border-top-right-radius: 20px 10px;
+    box-shadow: 7px 0px 2px 0 rgba(0, 0, 0, 0.1);
+}
+
+#homescreen-h-element {
+    background-color:rgba(3, 78, 132, 0.3);
+}
+
+#diary-h-element {
+    background-color:rgba(210, 105, 30, 0.3);
+}
+
+#customise-h-element{
+    background-color: rgba(0, 155, 119, 0.3);
+}
+
+#help-h-element {
+    background-color:rgba(183, 107, 163, 0.3);
+}
+
+/* Should probably just give these h2 tags a unique class to clean this up */
+
+#homescreen-h-element a h2, #diary-h-element a h2, #customise-h-element a h2, #help-h-element a h2 {
+    display:inline-block;
+    font-size:3.4vw;
+    margin-left:7%;
+    margin-top:0.8em;
+}
+
+fa {
+    font-size:4vw;
+    display:inline;
+    padding:0;
+    margin:0;
+}
+
+.intro-text {
+    margin-bottom:5%;
+    padding:0;
+    text-align:left;
+}
+
+/* 
+!important declarations are messy.
+It would be better to find another way to achieve this, time permitting.
+*/
+
+.selected-home-element, .selected-diary-element, .selected-customise-element, .selected-help-element {
+    box-shadow: 12px 0px 2px rgba(0, 0, 0, 0.5) !important;
+}
+
+.selected-home-element {
+    background-color:rgb(0, 85, 146) !important;
+}
+
+.selected-diary-element {
+    background-color: rgb(218, 107, 28) !important;
+}
+
+.selected-customise-element {
+    background-color:rgb(0, 172, 132) !important;
+}
+
+.selected-help-element {
+    background-color:rgb(196, 109, 172) !important;
+}
+
+.title-h-element {
+    text-align: center;
+    text-decoration:underline;
+    font-size: 20pt;
+    margin-top:1.5%;
+    margin-bottom:2%;
+}
+
+#homescreen-col {
+    text-align:center;
+}
+
+#homescreen-col-alt {
+    margin-top:1.2%;
+    font-size:16pt;
+}
+
+#homescreen-row {
+    margin-bottom:5%;
+}
+
+.info {
+    font-size:16pt;
+    margin:3%;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.option-list {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    text-align:center;
+}
+
+li {
+    padding: 5%;
+    border-bottom: 1px solid #C0C0C0;
+    border-top: 1px solid #C0C0C0;
+    border-radius:5px;
+    margin: 0;
+    font-size: 16pt;
+    cursor:pointer;
+}
+
+.alt-li {
+    border:0;
+}
+
+.add-entry-div {
+    text-align:center;
+}
+
+input {
+    display:inline;
+    max-width:20vw;
+}
+
+.row { 
+    margin: 0;
+    padding: 0;
+}
+
+#view-pane {
+    background-color:white;
+    height: 85vh;
+    border-radius:5px;
+    box-shadow: 10px 4px 8px 10px rgba(0, 0, 0, 0.25), 0 6px 20px 0 rgba(0, 0, 0, 0.2);
+    overflow:auto;
+    /* the above box shadow styling is from: https://www.w3schools.com/css/css3_shadows.asp */
+}
+
+input {
+    display:inline-block;
+    vertical-align:middle;
+    margin-left:15px
+}
+
+.size-options {
+    display:inline;
+    margin-left:1.5%;
+    margin-right:1.5%;
+}
+
+.large-drink {
+    font-size:70px;
+    margin: 0 2% 0 7%;
+}
+
+.medium-drink {
+    font-size:50px;
+    margin: 0 2% 0 2%;
+}
+
+.small-drink {
+    font-size:35px;
+    margin: 0 2% 0 2%;
+}
+
+button {
+    display: inline-block;
+    padding: 1.75% 7%;
+    border: 0;
+    margin:0;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); 
+    font-size: 16pt;
+}
+
+#option-button {
+    display: block;
+    text-align: center;
+    color: black;
+    border: 3px solid black;
+    border-radius: 20px;
+    box-shadow: 0 9px #999;
+    margin-top:3%;
+    outline: none;
+    padding: 4% 25%;
+}
+
+#option-button:active {
+  background-color: #999;
+  box-shadow: 0 5px #666;
+  transform: translateY(15px);
+}
+
+.input-button {
+    margin-left:6%;
+}
+
+.tooltips-disabled {
+    display:none;
+    margin:0;
+}
+
+.tooltips-enabled {
+    display:block;
+    margin:0;
+    padding:0;
+    font-size:16pt;
+}
+
+#enableMessageToggle, #disableMessageToggle {
+    display:none;
+}
+
+select {
+    font-size:2.5vw;
+    margin-left: 1vw;
+}
+
+/* Media Queries */
+
+@media screen and (max-width:700px) {
+    .app-component-fa {
+        display:none;
+    }
+    .title-h-element {
+        font-size: 16pt;
+    }
+    .title-h-element span {
+        display:none;
+    }
+}
+
+@media screen and (orientation: portrait) {
+    html {
+      transform: rotate(-90deg);
+      transform-origin: left top;
+      width: 100vh;
+      overflow-x: hidden;
+      position: absolute;
+      top: 100%;
+      left: 0;
+    }
+  }
+
+  /* 
+  Courtesy of: 
+  https://css-tricks.com/snippets/css/orientation-lock/
+
+  Normally, locking the orientation of an app is a poor idea.
+  It has been done in this context exclusively because the app is designed for older or technically inexperienced users.
+  Research discussed in my dissertation indicates that these users are likely to be confused or overwhelmed by moving elements.
+  */

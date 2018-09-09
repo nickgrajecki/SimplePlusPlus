@@ -1,0 +1,25 @@
+<div class="col-lg-4" class="col-md-4" class="col-sm-4" class="col-xs-4" *ngIf="drink">
+  <div class="title-h-element">
+    Details
+  </div>
+  <ul>
+    <li class="alt-li">
+      Entry Number: {{ drink.id }}
+    </li>
+    <li class="alt-li">
+      Name: {{ drink.name }}
+    </li>
+    <li class="alt-li">
+      Size: {{ drink.size }}
+    </li>
+    <li class="button-li" class="alt-li">
+      <button class="delete" (click)="remove()" title="Tap here to remove this from your diary">Remove</button>
+    </li>
+  </ul>
+  <p class="tooltips-disabled" [class.tooltips-enabled]="tooltips">
+    This part of the page will show the details of the last drink you tapped.
+  </p>
+</div>
+
+<!-- Displays details of an entry selected by the user in the diary-main component
+This component is a child of the diary-main parent component -->

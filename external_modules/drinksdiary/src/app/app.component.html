@@ -1,0 +1,42 @@
+<div class="main-app-wrapper" [class.alt-main-app-wrapper]="newColour">
+  <div class="container-fluid">
+    <nav>
+      <div class="row" id="nav-bar">
+        <div class="col-lg-3" class="col-md-3" class="col-sm-3" class="col-xs-3" id="homescreen-h-element" [class.selected-home-element]="homeColour">
+          <a routerLink="/homescreen" (click)="hSelect()">
+            <fa name="home" class="app-component-fa"></fa>
+            <h2>
+              Home
+            </h2>
+          </a>
+        </div>
+        <div class="col-lg-3" class="col-md-3" class="col-sm-3" class="col-xs-3" id="diary-h-element" [class.selected-diary-element]="diaryColour">
+          <a routerLink="/diary-main" (click)="dSelect()">
+            <fa name="book" class="app-component-fa"></fa>
+            <h2>
+              Diary
+            </h2>
+          </a>
+        </div>
+        <div class="col-lg-3" class="col-md-3" class="col-sm-3" class="col-xs-3" id="customise-h-element" [class.selected-customise-element]="customiseColour">
+          <a routerLink="/customise" (click)="cSelect()">
+            <fa name="paint-brush" class="app-component-fa"></fa>
+            <h2>
+              Customise
+            </h2>
+          </a>
+        </div>
+        <div class="col-lg-3" class="col-md-3" class="col-sm-3" class="col-xs-3" id="help-h-element" [class.selected-help-element]="helpColour">
+          <a routerLink="/help" (click)="helpSelect()">
+            <fa name="question-circle" class="app-component-fa"></fa>
+            <h2>
+              Help
+            </h2>
+          </a>
+        </div>
+      </div>
+    </nav>
+  </div>
+<router-outlet></router-outlet>
+<!--<app-message-tray></app-message-tray>-->
+</div>

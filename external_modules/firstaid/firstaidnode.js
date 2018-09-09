@@ -1,11 +1,12 @@
 var fs = require("fs");
 var detailsFile = "./localfiles/details.json";
 var details = require(__dirname + "/../../spp_modules/userDetails");
+var xss = require("xss");
 
 module.exports = function(req, res) {
   var name = details.name;
-  var age = req.body.age;
-  var height = req.body.userheight;
+  var age = xss(req.body.age);
+  var height = xss(req.body.userheight);
 
   details.updateAge(age);
   details.updateHeight(height);
