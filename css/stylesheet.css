@@ -137,8 +137,8 @@ input[type="range"]::-webkit-slider-thumb {
 }
 #iconscreen1 {
   display: block;
-  padding-bottom: 1.5%;
-  padding-top: 2%;
+  padding-bottom: 1%;
+  padding-top: 1%;
 }
 
 .icons {
