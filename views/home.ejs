@@ -10,10 +10,10 @@
         crossorigin="anonymous">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script type="text/javascript" src="javascript.js"></script>
-
+    <script type="text/javascript" src="zounds.min.js"></script>
 </head>
 
-<body onload="readJSON()">
+<body onclick="zounds.playURL('click.mp3');" onload="readJSON()">
 
     <div id="mainscreen">
         <div id="topbar">
@@ -26,7 +26,7 @@
         <div id="iconscreen1">
 
             <a href="/firstaid">
-                <div class="icons" id="firstaid">
+                <div class="icons" id="firstaid" >
                     <i class="fontbody fas fa-medkit"></i>
                     <span class="icontext">First Aid</span>
                 </div>
@@ -34,7 +34,7 @@
 
             <div class="icons" id="video">
                 <i class="fontbody fas fa-video"></i>
-                <span class="icontext">Video</span>
+                <span class="icontext" >Video</span>
             </div>
 
             <div class="icons" id="presc">
