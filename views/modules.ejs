@@ -10,6 +10,7 @@
         crossorigin="anonymous">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script type="text/javascript" src="javascript.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 
 </head>
 
@@ -22,80 +23,77 @@
                 <%= name %>!</span>
         </div>
 
-        <div class="modulescreen">
-            <div id="iconscreen1">
-                <form action="/modules" method="post">
-                    <div id="checkboxes">
+        <div class="container-fluid" id="modulescreen">
+            <form action="/modules" method="post">
+                <div id="checkboxes">
+                    <input type="checkbox" name="firstaidc" id="firstaidc" />
+                    <label class="mselect" for="firstaidc">
+                        <div class="white">
+                            <i class="fontselectscreen fas fa-medkit"></i>
+                            <span class="icontext">First Aid</span>
+                        </div>
+                    </label>
 
-                        <input type="checkbox" name="firstaidc" id="firstaidc" />
-                        <label class="mselect" for="firstaidc">
-                            <div class="white">
-                                <i class="fontselectscreen fas fa-medkit"></i>
-                                <span class="icontext">First Aid</span>
-                            </div>
-                        </label>
+                    <input type="checkbox" name="videoc" id="videoc" />
+                    <label class="mselect" for="videoc">
+                        <div class="white">
+                            <i class="fontselectscreen fas fa-video"></i>
+                            <span class="icontext">Video</span>
+                        </div>
+                    </label>
 
-                        <input type="checkbox" name="videoc" id="videoc" />
-                        <label class="mselect" for="videoc">
-                            <div class="white">
-                                <i class="fontselectscreen fas fa-video"></i>
-                                <span class="icontext">Video Appointment</span>
-                            </div>
-                        </label>
+                    <input type="checkbox" name="prescc" id="prescc" />
+                    <label class="mselect" for="prescc">
+                        <div class="white">
+                            <i class="fontselectscreen fas fa-prescription-bottle"></i>
+                            <span class="icontext">Prescriptions</span>
+                        </div>
+                    </label>
 
-                        <input type="checkbox" name="prescc" id="prescc" />
-                        <label class="mselect" for="prescc">
-                            <div class="white">
-                                <i class="fontselectscreen fas fa-prescription-bottle"></i>
-                                <span class="icontext">Prescriptions</span>
-                            </div>
-                        </label>
+                    <input type="checkbox" id="hospitalc" name="hospitalc" />
+                    <label class="mselect" for="hospitalc">
+                        <div class="white">
+                            <i class="fontselectscreen fas fa-hospital"></i>
+                            <span class="icontext">Local Aid</span>
+                        </div>
+                    </label>
 
-                        <input type="checkbox" id="hospitalc" name="hospitalc"  />
-                        <label class="mselect" for="hospitalc">
-                            <div class="white">
-                                <i class="fontselectscreen fas fa-hospital"></i>
-                                <span class="icontext">Local Aid</span>
-                            </div>
-                        </label>
+                    <input type="checkbox" id="diaryc" name="diaryc" />
+                    <label class="mselect" for="diaryc">
+                        <div class="white">
+                            <i class="fontselectscreen fas fa-book"></i>
+                            <span class="icontext">Health Diary</span>
+                        </div>
+                    </label>
 
-                        <input type="checkbox" id="diaryc" name="diaryc" />
-                        <label class="mselect" for="diaryc">
-                            <div class="white">
-                                <i class="fontselectscreen fas fa-book"></i>
-                                <span class="icontext">Health Diary</span>
-                            </div>
-                        </label>
+                    <input type="checkbox" id="nutritionc" name="nutritionc" />
+                    <label class="mselect" for="nutritionc">
+                        <div class="white">
+                            <i class="fontselectscreen fas fa-utensils"></i>
+                            <span class="icontext">Nutrition</span>
+                        </div>
+                    </label>
 
-                        <input type="checkbox" id="nutritionc" name="nutritionc" />
-                        <label class="mselect" for="nutritionc">
-                            <div class="white">
-                                <i class="fontselectscreen fas fa-utensils"></i>
-                                <span class="icontext">Nutrition</span>
-                            </div>
-                        </label>
+                    <input type="checkbox" id="symptomc" name="symptomc" />
+                    <label class="mselect" for="symptomc">
+                        <div class="white">
+                            <i class="fontselectscreen fas fa-user-md"></i>
+                            <span class="icontext">Symptoms</span>
+                        </div>
+                    </label>
 
-                        <input type="checkbox" id="symptomc" name="symptomc" />
-                        <label class="mselect" for="symptomc">
-                            <div class="white">
-                                <i class="fontselectscreen fas fa-user-md"></i>
-                                <span class="icontext">Symptom Checker</span>
-                            </div>
-                        </label>
+                    <input type="checkbox" id="emergencyc" name="emergencyc" />
+                    <label class="mselect" for="emergencyc">
+                        <div class="white">
+                            <i class="fontselectscreen fas fa-exclamation-triangle"></i>
+                            <span class="icontext">Emergency</span>
+                        </div>
+                    </label>
 
-                        <input type="checkbox" id="emergencyc" name="emergencyc" />
-                        <label class="mselect" for="emergencyc">
-                            <div class="white">
-                                <i class="fontselectscreen fas fa-exclamation-triangle"></i>
-                                <span class="icontext">Emergency</span>
-                            </div>
-                        </label>
+                </div>
+                <input type="submit">
+            </form>
 
-                    </div>
-                    <input type="submit">
-                </form>
-
-            </div>
         </div>
         <% include partials/bottom.ejs %>
     </div>

@@ -54,11 +54,17 @@ function readConfig(configJSON) {
   }
 
   //Based on amount of icons on screen, adapt layout
-  if (iconCount > 4 && iconCount < 8) {
-    $(".icons").css("width", "21%");
-    $(".icons").css("margin-left", "1.3em");
+  if (iconCount == 6) {
+    $(".icons").css("width", "25%");
+    $(".icons").css("margin-left", "5%");
     $(".icons").css("margin-right", "1em");
     $(".icons").css("margin-top", "1em");
+  }
+  if (iconCount == 5) {
+    $(".icons").css("width", "25%");
+    $(".icons").css("margin-left", "5%");
+    $(".icons").css("margin-right", "2%");
+    $(".icons").css("margin-top", "1%");
   } else if (iconCount == 4) {
     $(".icons").css("width", "30%");
     $(".icons").css("margin-left", "10%");
@@ -66,45 +72,46 @@ function readConfig(configJSON) {
     $(".icons").css("margin-top", "1%");
   } else if (iconCount == 3) {
     $(".icons").css("width", "25%");
+    $(".icons").css("height", "22vw");
     $(".icons").css("margin-left", "5%");
     $(".icons").css("margin-right", "1%");
+    $(".icons").css("padding-top", "3%");
+    $(".icons").css("margin-top", "2%");
+  } else if (iconCount == 2) {
+    $(".icons").css("width", "41%");
+    $(".icons").css("height", "22vw");
+    $(".icons").css("margin-left", "5%");
+    $(".icons").css("padding-top", "4%");
     $(".icons").css("margin-top", "5%");
-    $(".icons").css("margin-bottom", "5%");
-    $(".icons").css("padding-top", "5%");
-    $(".icons").css("padding-bottom", "3%");
-  } else if (iconCount > 1 && iconCount < 3) {
-    $(".icons").css("width", "400px");
-    $(".icons").css("margin-left", "80px");
-    $(".icons").css("margin-right", "80px");
-    $(".icons").css("padding-left", "30px");
-    $(".icons").css("padding-right", "30px");
-    $(".icons").css("padding-top", "70px");
-    $(".icons").css("padding-bottom", "40px");
-    $(".icons").css("font-size", "20px");
-    $("#iconscreen1").css("padding-top", "60px");
+    $("#iconscreen1").css("padding-top", "7%");
   } else if (iconCount == 1) {
-    $(".icons").css("width", "400px");
-    $(".icons").css("margin-left", "240px");
-    $(".icons").css("margin-right", "180px");
-    $(".icons").css("padding-left", "200px");
-    $(".icons").css("padding-right", "200px");
-    $(".icons").css("padding-top", "70px");
-    $(".icons").css("padding-bottom", "40px");
-    $(".icons").css("font-size", "20px");
-    $("#iconscreen1").css("padding-top", "60px");
+    $(".icons").css("width", "50%");
+    $(".icons").css("height", "25vw");
+    $(".icons").css("margin-top", "5%");
+    $(".icons").css("margin-left", "25%");
+    $(".icons").css("margin-right", "5%");
+    $(".icons").css("padding-top", "5%");
+    $(".icons").css("padding-bottom", "5%");
+    $(".icons").css("font-size", "1vw");
+    $("#iconscreen1").css("padding-top", "5%");
   }
 
   localStorage.setItem("modules", iconCount);
   var textsize = localStorage.getItem("fontsize");
+  var topbar = localStorage.getItem("topbar");
+  var bottombar = localStorage.getItem("bottombar");
+  var iconscreen = localStorage.getItem("iconscreen");
+  var paddingtop = localStorage.getItem("paddingtop");
+  var margintop = localStorage.getItem("margintop");
 
-  if (textsize > 21) {
-    $(".icontext").css("margin-top", "0.1em");
-  } else {
-    $(".icontext").css("margin-top", "0.5em");
-  }
-
-  $("#mainscreen").css("font-size", textsize + "px");
-  $(".icontext").css("font-size", textsize + "px");
+  $("#mainscreen").css("font-size", textsize + "vw");
+  $(".icontext").css("font-size", textsize + "vw");
+  $(".bottomtext").css("font-size", textsize + "vw");
+  $("#topbar").css("height", topbar);
+  $("#iconscreen1").css("height", iconscreen);
+  $("#bottombar").css("height", bottombar);
+  $("#iconscreen1").css("padding-top", paddingtop);
+  $(".icontext").css("margin-top", margintop);
 }
 
 //Read JSON file with selected modules
@@ -127,11 +134,11 @@ function getFontsize() {
 //Popup box for textsize
 function textSize() {
   var iconCount = localStorage.getItem("modules");
-  var modal = document.querySelector(".modal");
+  var modal = document.querySelector(".modalslider");
   var trigger = document.querySelector(".trigger");
 
   function toggleModal() {
-    modal.classList.toggle("show-modal");
+    modal.classList.toggle("show-modalslider");
   }
 
   function windowOnClick(event) {
@@ -145,64 +152,105 @@ function textSize() {
 
   $("input").on("mousemove", function() {
     var textsize = $(this).val();
+    var topbar = "3%";
+    var bottombar = "13.5%";
+    var iconscreen = "83.5%";
+    var settingscreen = "83.5%";
+    var modulesscreen = "83.5%";
+    var paddingtop = "2%";
+    var margintop = "1%";
 
-    if (textsize > 31) {
-      $(".icontext").css("margin-top", "0.2%");
-      $(".icons").css("margin-top", "0.2%");
-      $(".icons").css("margin-bottom", "0.2%");
-      $("#moduleheader").css("margin-bottom", "2%");
-    } else {
-      // $(".icontext").css("margin-top", "0.5%");
-      // $(".icontext").css("margin-top", "0.5%");
-      // $("#moduleheader").css("margin-bottom", "3%");
+    $("#topbar").css("height", "3%");
+    $("#iconscreen1").css("height", "83.5%");
+    $(".icontext").css("margin-top", "1%");
+    $("#bottombar").css("height", "13.5%");
+
+    if (textsize > 1.2) {
+      $("#topbar").css("height", "4%");
+      $("#bottombar").css("height", "14.5%");
+      $("#iconscreen1").css("height", "81.5%");
+      $("#settingscreen").css("height", "81.5%");
+      $("#modulescreen").css("height", "81.5%");
+      topbar = "4%";
+      bottombar = "14%";
+      iconscreen = "81.5%";
+      settingscreen = "81.5%";
+      modulesscreen = "81.5%";
+    }
+
+    if (textsize > 1.7) {
+      $("#topbar").css("height", "5%");
+      $("#iconscreen1").css("height", "79.5%");
+      $("#bottombar").css("height", "15.5%");
+      $("#settingscreen").css("height", "79.5%");
+      $("#modulescreen").css("height", "79.5%");
+      topbar = "5%";
+      bottombar = "15.5%";
+      iconscreen = "79.5%";
+      settingscreen = "79.5%";
+      modulesscreen = "79.5%";
+    }
+
+    if (textsize > 2) {
+      $("#topbar").css("height", "7%");
+      $("#iconscreen1").css("height", "76.5%");
+      $("#settingscreen").css("height", "76.5%");
+      $("#modulescreen").css("height", "76.5%");
+      $("#iconscreen1").css("padding-top", "1%");
+      $("#bottombar").css("height", "16.5%");
+      $(".icontext").css("margin-top", "0.1%");
+      $(".mselect").css("margin-top", "0.1%");
+      topbar = "7%";
+      bottombar = "16.5%";
+      iconscreen = "76.5%";
+      settingscreen = "76.5%";
+      modulesscreen = "76.5%";
+      paddingtop = "1%";
+      margintop = "0.1%";
     }
 
     if (iconCount > 6) {
-      $("#mainscreen").css("font-size", textsize + "px");
-      $(".icontext").css("font-size", textsize + "px");
-      if (textsize > 23) {
-        // $(".icons").css("margin-left", "2%");
-        // $(".icons").css("margin-right", "1%");
-        // $("#iconscreen1").css("padding-top", "0.3%");
-        // $("#iconscreen1").css("padding-bottom", "5%");
-        // $(".bottomicons").css("margin-top", "0.01%");
-      } else {
-        // $(".icons").css("width", "21%");
-        // $(".icons").css("margin-left", "1.3%");
-        // $(".icons").css("margin-right", "1%");
-        // $(".icons").css("margin-top", "1.5%");
-        // $("#iconscreen1").css("padding-top", "1%");
-      }
+      $("#mainscreen").css("font-size", textsize + "vw");
+      $(".icontext").css("font-size", textsize + "vw");
+      $(".bottomtext").css("font-size", textsize + "vw");
     } else if (iconCount > 4 && iconCount < 7) {
-      $("#mainscreen").css("font-size", textsize + "px");
-      $(".icontext").css("font-size", textsize + "px");
+      $("#mainscreen").css("font-size", textsize + "vw");
+      $(".icontext").css("font-size", textsize + "vw");
+      $(".bottomtext").css("font-size", textsize + "vw");
       $(".icons").css("margin-top", "1.1%");
       if (textsize > 20) {
         $(".icons").css("margin-top", "0.6%");
       }
     } else if (iconCount == 4) {
-      $("#mainscreen").css("font-size", textsize + "px");
-      $(".icontext").css("font-size", textsize + "px");
+      $("#mainscreen").css("font-size", textsize + "vw");
+      $(".icontext").css("font-size", textsize + "vw");
+      $(".bottomtext").css("font-size", textsize + "vw");
       $(".icons").css("margin-top", "1.1%");
     } else {
-      $("#mainscreen").css("font-size", textsize + "px");
-      $(".icontext").css("font-size", textsize + "px");
+      $("#mainscreen").css("font-size", textsize + "vw");
+      $(".icontext").css("font-size", textsize + "vw");
+      $(".bottomtext").css("font-size", textsize + "vw");
       $(".icons").css("margin-top", "5%");
       $(".icons").css("margin-bottom", "5%");
       $(".icons").css("padding-top", "5%");
       $(".icons").css("padding-bottom", "3%");
     }
-    if (textsize < 30) {
-      localStorage.setItem("fontsize", textsize);
-    }
+    localStorage.setItem("fontsize", textsize);
+    localStorage.setItem("topbar", topbar);
+    localStorage.setItem("iconscreen", iconscreen);
+    localStorage.setItem("settingscreen", settingscreen);
+    localStorage.setItem("modulesscreen", modulesscreen);
+    localStorage.setItem("bottombar", bottombar);
+    localStorage.setItem("margintop", margintop);
+    localStorage.setItem("paddingtop", paddingtop);
   });
 }
 
 //Individual page layout resize - Support page
 function resizeSupport() {
   var textsize = localStorage.getItem("fontsize");
-  $("#mainscreen").css("font-size", textsize + "px");
-  $(".icontext").css("font-size", textsize + "px");
+  $("#mainscreen").css("font-size", textsize + "vw");
+  $(".icontext").css("font-size", textsize + "vw");
   $(".icons").css("width", "21%");
   $(".icons").css("margin-left", "1em");
   $(".icons").css("margin-right", "1em");
@@ -219,42 +267,38 @@ function resizeSupport() {
 //Individual page layout resize - Settings page
 function resizeSettings() {
   var textsize = localStorage.getItem("fontsize");
-  $(".icontext").css("font-size", textsize + "px");
-  $("#mainscreen").css("font-size", textsize + "px");
+  var topbar = localStorage.getItem("topbar");
+  var bottombar = localStorage.getItem("bottombar");
+  var settingscreen = localStorage.getItem("settingscreen")
 
-  if (textsize > 21) {
-    $(".icontext").css("margin-top", "0.1em");
-  } else {
-    $(".icontext").css("margin-top", "0.5em");
-  }
+  $("#settingscreen").css("height", settingscreen);
+  $("#mainscreen").css("font-size", textsize + "vw");
+  $(".icontext").css("font-size", textsize + "vw");
+  $(".bottomtext").css("font-size", textsize + "vw");
+  $("#topbar").css("height", topbar);
+  $("#bottombar").css("height", bottombar);
 }
 
 //Individual page layout resize - Module Select page
 function resizeModuleSelect() {
   var textsize = localStorage.getItem("fontsize");
-  $(".icontext").css("font-size", textsize + "px");
-  $("#mainscreen").css("font-size", textsize + "px");
-  if (textsize > 20) {
-    $(".pickicons").css("margin-top", "0.1em");
-    $(".icontext").css("margin-top", "0.1em");
-    $(".pickicons").css("width", "22%");
-    $(".pickicons").css("margin-left", "1.3em");
-    $(".pickicons").css("margin-right", "0.1em");
-    $("#moduleheader").css("margin-bottom", "5%");
-  } else {
-    $(".icontext").css("margin-top", "0.5em");
-    $("#moduleheader").css("margin-bottom", "3%");
-    $(".pickicons").css("width", "19%");
-    $(".pickicons").css("margin-left", "2em");
-    $(".pickicons").css("margin-right", "2em");
-  }
+  var topbar = localStorage.getItem("topbar");
+  var bottombar = localStorage.getItem("bottombar");
+  var modulesscreen = localStorage.getItem("modulesscreen")
+
+  $("#modulescreen").css("height", modulesscreen);
+  $("#mainscreen").css("font-size", textsize + "vw");
+  $(".icontext").css("font-size", textsize + "vw");
+  $(".bottomtext").css("font-size", textsize + "vw");
+  $("#topbar").css("height", topbar);
+  $("#bottombar").css("height", bottombar);
 }
 
 //Individual page layout resize - external modules
 function resizeIndividualModule() {
   var textsize = localStorage.getItem("fontsize");
-  $(".icontext").css("font-size", textsize + "px");
-  $("#mainscreen").css("font-size", textsize + "px");
+  $(".icontext").css("font-size", textsize + "vw");
+  $("#mainscreen").css("font-size", textsize + "vw");
   if (textsize > 20) {
     $(".icontext").css("margin-top", "0.1em");
   } else {
