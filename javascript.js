@@ -150,13 +150,14 @@ function textSize() {
   trigger.addEventListener("click", toggleModal);
   window.addEventListener("click", windowOnClick);
 
-  $("input").on("mousemove", function() {
+  $("#fontslider").on("mousemove" || "touchmove", function() {
     var textsize = $(this).val();
     var topbar = "3%";
     var bottombar = "13.5%";
     var iconscreen = "83.5%";
     var settingscreen = "83.5%";
     var modulesscreen = "83.5%";
+    var individualmodule = "83.5%";
     var paddingtop = "2%";
     var margintop = "1%";
 
@@ -171,11 +172,14 @@ function textSize() {
       $("#iconscreen1").css("height", "81.5%");
       $("#settingscreen").css("height", "81.5%");
       $("#modulescreen").css("height", "81.5%");
+      $(".extmodulescreen").css("height", "81.5%");
+
       topbar = "4%";
       bottombar = "14%";
       iconscreen = "81.5%";
       settingscreen = "81.5%";
       modulesscreen = "81.5%";
+      individualmodule = "81.5%";
     }
 
     if (textsize > 1.7) {
@@ -184,11 +188,13 @@ function textSize() {
       $("#bottombar").css("height", "15.5%");
       $("#settingscreen").css("height", "79.5%");
       $("#modulescreen").css("height", "79.5%");
+      $(".extmodulescreen").css("height", "79.5%");
       topbar = "5%";
       bottombar = "15.5%";
       iconscreen = "79.5%";
       settingscreen = "79.5%";
       modulesscreen = "79.5%";
+      individualmodule = "79.5%";
     }
 
     if (textsize > 2) {
@@ -196,6 +202,7 @@ function textSize() {
       $("#iconscreen1").css("height", "76.5%");
       $("#settingscreen").css("height", "76.5%");
       $("#modulescreen").css("height", "76.5%");
+      $(".extmodulescreen").css("height", "76.5%");
       $("#iconscreen1").css("padding-top", "1%");
       $("#bottombar").css("height", "16.5%");
       $(".icontext").css("margin-top", "0.1%");
@@ -207,6 +214,7 @@ function textSize() {
       modulesscreen = "76.5%";
       paddingtop = "1%";
       margintop = "0.1%";
+      individualmodule = "76.5%";
     }
 
     if (iconCount > 6) {
@@ -240,6 +248,7 @@ function textSize() {
     localStorage.setItem("iconscreen", iconscreen);
     localStorage.setItem("settingscreen", settingscreen);
     localStorage.setItem("modulesscreen", modulesscreen);
+    localStorage.setItem("individualmodule", individualmodule);
     localStorage.setItem("bottombar", bottombar);
     localStorage.setItem("margintop", margintop);
     localStorage.setItem("paddingtop", paddingtop);
@@ -297,11 +306,13 @@ function resizeModuleSelect() {
 //Individual page layout resize - external modules
 function resizeIndividualModule() {
   var textsize = localStorage.getItem("fontsize");
-  $(".icontext").css("font-size", textsize + "vw");
+  var topbar = localStorage.getItem("topbar");
+  var bottombar = localStorage.getItem("bottombar");
+  var individualmodule = localStorage.getItem("individualmodule")
+
+  $(".extmodulescreen").css("height", individualmodule);
   $("#mainscreen").css("font-size", textsize + "vw");
-  if (textsize > 20) {
-    $(".icontext").css("margin-top", "0.1em");
-  } else {
-    $(".icontext").css("margin-top", "0.5em");
-  }
+  $(".bottomtext").css("font-size", textsize + "vw");
+  $("#topbar").css("height", topbar);
+  $("#bottombar").css("height", bottombar);  
 }

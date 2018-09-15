@@ -1,5 +1,12 @@
-html,body{
+html,
+body {
   height: 100%;
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+
 }
 
 a {
@@ -78,6 +85,10 @@ input[type="range"]::-webkit-slider-thumb {
   box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
 }
 
+::-webkit-scrollbar { 
+  display: none; 
+}
+
 #mainscreen {
   position: relative;
   background-color: #ffe7d3;
@@ -104,6 +115,7 @@ input[type="range"]::-webkit-slider-thumb {
   background-color: rgb(28, 159, 219);
   color: white;
   text-align: center;
+  margin-top: 1px;
 }
 
 .bottomtext {
@@ -199,6 +211,14 @@ input[type="range"]::-webkit-slider-thumb {
   font-weight: bold;
   font-size: 1vw;
   justify-content: center;
+}
+
+.extmodulescreen {
+  display: block;
+  height: 83.5%;
+  padding-bottom: 4.5%;
+  padding-top: 2%;
+  overflow: auto;
 }
 
 .module {
@@ -341,7 +361,7 @@ input[type="range"]::-webkit-slider-thumb {
 }
 
 @media (max-width: 640px) {
-  .bottomtext{
+  .bottomtext {
     display: none;
   }
   .fontbottom {
