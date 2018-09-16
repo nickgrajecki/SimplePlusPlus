@@ -1,23 +1,29 @@
 <%- include partials/moduletop %>
 <div class="container-fluid extmodulescreen">
-        <p id="toptext">What did you eat yesterday?</p>
-        <form method="post" action="/nutrition">
-            <input id="fooddiary" type="text" name="fooddiary">
-            <input id="submit" type="submit">
-        </form>
-        <div id="foodlist"><b>Food Log</b>:
-            <ul>
-                <% for (var i = 0; i < foods.length; i++) { %>
-                    <li>
-                        (<%= foods[i].date %>)
-                        <%= foods[i].fooditem %>
-                    </li>
-                    <br>
-                    <% } %>
-            </ul>
+    <div class="modrow">
+        <div class="modcolumn">
+            <p id="toptext">What did you eat yesterday?</p>
+            <form method="post" action="/nutrition">
+                <input id="fooddiary" type="text" name="fooddiary">
+                <input id="submit" type="submit">
+            </form>
         </div>
-        <div id="detailsdiv"></div>
-        <script src="/external_modules/nutrition/nutrition.js"></script>
-        <script>food()</script>
+        <div class="modcolumn">
+                <b>Food Log</b><br>
+            <div id="foodlist">
+                <ul>
+                    <% for (var i = 0; i < foods.length; i++) { %>
+                    <li>
+                        <%= foods[i] %>
+                    </li>
+                    <% } %>
+                </ul>
+            </div>
+            <div id="detailsdiv"></div>
+            <script src="/external_modules/nutrition/nutrition.js"></script>
+            <script>food()</script>
+        </div>
     </div>
-    <%- include partials/modulebottom %>
+</div>
+
+<%- include partials/modulebottom %>

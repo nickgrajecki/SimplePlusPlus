@@ -19,24 +19,29 @@ try {
   console.log(ex);
 }
 
-//Update user age in MongoDB
-module.exports.updateAge = function(newAge) {
-  dbUser.findOneAndUpdate(
-    { username: name},
-    { $set: { age: newAge } },
-    function(err) {
-      if (err) return console.error(err);
-    }
-  );
-};
+// try {
+  
+//   fs.writeFileSync(detailsFile, JSON.stringify(obj));
+// }
 
-//Update user height in MongoDB
-module.exports.updateHeight = function(newHeight) {
-  dbUser.findOneAndUpdate(
-    { username: name},
-    { $set: { height: newHeight } },
-    function(err) {
-      if (err) return console.error(err);
-    }
-  );
-};
+// //Update user age in MongoDB
+// module.exports.updateAge = function(newAge) {
+//   dbUser.findOneAndUpdate(
+//     { username: name},
+//     { $set: { age: newAge } },
+//     function(err) {
+//       if (err) return console.error(err);
+//     }
+//   );
+// };
+
+// //Update user height in MongoDB
+// module.exports.updateHeight = function(newHeight) {
+//   dbUser.findOneAndUpdate(
+//     { username: name},
+//     { $set: { height: newHeight } },
+//     function(err) {
+//       if (err) return console.error(err);
+//     }
+//   );
+// };

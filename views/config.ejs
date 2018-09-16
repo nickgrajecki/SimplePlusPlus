@@ -23,25 +23,35 @@
                 <%= name %>!</span>
         </div>
 
-        <div class="container-fluid" id="settingscreen">
-            <div class="settingoption" id="modules" onclick="document.location.href='/modules';">
-                <i class="fontbody fas fa-check-square"></i>
-                <span class="icontext">Choose modules</span>
-            </div>
-            <div class="settingoption" id="feedback" onclick="document.location.href='/config';">
-                <i class="fontbody fas fa-assistive-listening-systems"></i>
-                <span class="icontext">Assistive Feedback</span>
-            </div>
+        <div class="container-fluid" id="optionsscreen">
+                <form action="/config" method="post">
+                    <div id="checkboxes">
 
-            <div class="settingoption" id="other">
-                <i class="fontbody fas fa-check-square"></i>
-                <span class="icontext">Other</span>
-            </div>
+                        <input type="checkbox" name="soundchoice" id="soundchoice"/>
+                        <label class="configoption" for="soundchoice">
+                            <div class="white">
+                                <i class="fontselectscreen fas fa-volume-up"></i>
+                                <span class="icontext">Sound</span>
+                            </div>
+                        </label>
+    
+                        <input type="checkbox" name="animationchoice" id="animationchoice" />
+                        <label class="configoption" for="animationchoice">
+                            <div class="white">
+                                <i class="fontselectscreen fas fa-video-slash"></i>
+                                <span class="icontext">Animation</span>
+                            </div>
+                        </label>
+       
+                    </div>
+                    <input type="submit">
+                </form>
         </div>
 
         <% include partials/bottom.ejs %>
 
     </div>
+
 </body>
 
 </html>

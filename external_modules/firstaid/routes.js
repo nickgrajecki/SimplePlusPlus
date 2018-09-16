@@ -1,23 +1,28 @@
-var bodyParser = require('body-parser');
+var bodyParser = require("body-parser");
 var urlencodedParser = bodyParser.urlencoded({ extended: false });
-var db = require(__dirname + "/../../spp_modules/dbconnect");
 var details = require(__dirname + "/../../spp_modules/userDetails");
+var foodList = "./localfiles/food.json";
+var fs = require("fs");
 
-var todayDate = new Date().toISOString().replace('-', '/').split('T')[0].replace('-', '/');
 
 module.exports = function(app) {
-    
   //First aid module
   app.get("/firstaid", function(req, res) {
-    var dbFood = db.food;
-    dbFood.find({'date': todayDate}, { _id: 0, __v: 0, date: 0}, function(err, foods) {
+    try {
+      fs.readFile(foodList, function(err, data) {
         if (err) throw err;
-        console.log(foods);
-        res.render(__dirname + "/main", {
-          name: details.name,
-          foods: foods
-        });
-      })
+        if (data.length) {
+          foods = JSON.parse(data);
+          console.log(foods);
+          res.render(__dirname + "/main", {
+            name: details.name,
+            foods: foods
+          });
+        }
+      });
+    } catch (ex) {
+      console.log(ex);
+    }
   });
 
   //Process firstaid module

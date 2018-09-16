@@ -3,16 +3,21 @@ function loadBars() {
   $("#topbar").show();
 }
 
-function failedClick() {
+function clickSound() {
   setTimeout(function() {
     zounds.playURL("click.mp3");
+  }, 100);
+}
+
+function clickAnimation() {
+  setTimeout(function() {
     $("#mainscreen")
       .css("background-color", "white")
-      .fadeIn(1000);
+      .fadeIn(100);
     setTimeout(function() {
       $("#mainscreen")
         .css("background-color", "#cfcac4")
-        .fadeIn(1000);
+        .fadeIn(100);
     }, 500);
   }, 100);
 }
@@ -73,6 +78,14 @@ function readConfig(configJSON) {
   }
 
   //Based on amount of icons on screen, adapt layout
+
+  if (iconCount > 6) {
+    $(".icons").css("width", "21%");
+    $(".icons").css("margin-left", "2%");
+    $(".icons").css("margin-right", "1%");
+    $(".icons").css("margin-top", "0.5%");
+  }
+
   if (iconCount == 6) {
     $(".icons").css("width", "25%");
     $(".icons").css("margin-left", "5%");
@@ -130,10 +143,26 @@ function readConfig(configJSON) {
   $("#iconscreen1").css("padding-top", paddingtop);
   $(".icontext").css("margin-top", margintop);
 
-  $(function() {
-    $("#iconscreen1")
-      .fadeIn(300)
-      .show();
+  $.getJSON("/localfiles/config.json", function(json) {
+    var soundOn = json.sound;
+    var animationOn = json.animation;
+    localStorage.setItem("sound", soundOn);
+    localStorage.setItem("animation", animationOn);
+
+    if (soundOn == true) {
+      $("#iconscreen1").on("click", clickSound);
+    }
+
+    if (animationOn == true) {
+      $("#iconscreen1").on("click", clickAnimation);
+      $(function() {
+        $("#iconscreen1")
+          .fadeIn(300)
+          .show();
+      });
+    } else {
+      $("#iconscreen1").show();
+    }
   });
 }
 
@@ -143,6 +172,14 @@ function readJSON() {
   $.getJSON("/localfiles/selectedmodules.json", function(json) {
     my_json = json;
     readConfig(my_json);
+  });
+}
+
+function readSettingsAnimation() {
+  var settingsJSON;
+  $.getJSON("/localfiles/config.json", function(json) {
+    settingsJSON = json;
+    return settingsJSON.animation;
   });
 }
 
@@ -181,6 +218,7 @@ function textSize() {
     var modulesscreen = "83.5%";
     var individualmodule = "83.5%";
     var supportscreen = "83.5%";
+    var optionsscreen = "83.5";
     var paddingtop = "2%";
     var margintop = "1%";
 
@@ -191,32 +229,36 @@ function textSize() {
     if (textsize > 1.2) {
       $("#bottombar").css("height", "14.5%");
       $("#iconscreen1").css("height", "82.5%");
-      $("#settingscreen").css("height", "81.5%");
-      $("#modulescreen").css("height", "81.5%");
-      $("#supportscreen").css("height", "81.5%");
-      $(".extmodulescreen").css("height", "81.5%");
+      $("#settingscreen").css("height", "82.5%");
+      $("#modulescreen").css("height", "82.5%");
+      $("#supportscreen").css("height", "82.5%");
+      $(".extmodulescreen").css("height", "82.5%");
+      $("#optionsscreen").css("height", "82.5%");
 
-      bottombar = "15%";
+      bottombar = "14.5%";
       iconscreen = "82.5%";
       settingscreen = "82.5%";
       modulesscreen = "82.5%";
       individualmodule = "82.5%";
       supportscreen = "82.5%";
+      optionsscreen = "82.5%";
     }
 
     if (textsize > 1.7) {
       $("#iconscreen1").css("height", "79.5%");
-      $("#bottombar").css("height", "16.5%");
+      $("#bottombar").css("height", "17.5%");
       $("#settingscreen").css("height", "79.5%");
       $("#modulescreen").css("height", "79.5%");
       $("#supportscreen").css("height", "79.5%");
       $(".extmodulescreen").css("height", "79.5%");
+      $("#optionsscreen").css("height", "79.5%");
       bottombar = "17.5%";
       iconscreen = "79.5%";
       settingscreen = "79.5%";
       modulesscreen = "79.5%";
       supportscreen = "79.5%";
       individualmodule = "79.5%";
+      optionsscreen = "79.5%";
     }
 
     if (textsize > 2) {
@@ -228,6 +270,7 @@ function textSize() {
       $("#bottombar").css("height", "18%");
       $(".icontext").css("margin-top", "0.2%");
       $(".mselect").css("margin-top", "0.1%");
+      $("#optionsscreen").css("height", "79%");
       bottombar = "18%";
       iconscreen = "79%";
       settingscreen = "79%";
@@ -236,6 +279,7 @@ function textSize() {
       paddingtop = "1%";
       margintop = "0.1%";
       individualmodule = "79%";
+      optionsscreen = "79%";
     }
 
     if (iconCount > 6) {
@@ -273,6 +317,7 @@ function textSize() {
     localStorage.setItem("bottombar", bottombar);
     localStorage.setItem("margintop", margintop);
     localStorage.setItem("paddingtop", paddingtop);
+    localStorage.setItem("optionsscreen", optionsscreen);
   });
 }
 
@@ -281,17 +326,22 @@ function resizeSupport() {
   var textsize = localStorage.getItem("fontsize");
   var bottombar = localStorage.getItem("bottombar");
   var supportscreen = localStorage.getItem("supportscreen");
+  var animationOn = localStorage.getItem("animation");
 
   $("#supportscreen").css("height", supportscreen);
-  $("#mainscreen").css("font-size", textsize + "vw");
   $(".icontext").css("font-size", textsize + "vw");
   $(".bottomtext").css("font-size", textsize + "vw");
   $("#bottombar").css("height", bottombar);
-  $(function() {
+
+  if (animationOn == "true") {
+    $("#supportscreen").on("click", clickAnimation);
     $("#supportscreen")
       .fadeIn(500)
       .show();
-  });
+  } else {
+    $("#supportscreen").show();
+  }
+  console.log(animationOn);
 }
 
 //Individual page layout resize - Settings page
@@ -299,17 +349,29 @@ function resizeSettings() {
   var textsize = localStorage.getItem("fontsize");
   var bottombar = localStorage.getItem("bottombar");
   var settingscreen = localStorage.getItem("settingscreen");
+  var optionsscreen = localStorage.getItem("optionsscreen");
+  var animationOn = localStorage.getItem("animation");
 
   $("#settingscreen").css("height", settingscreen);
-  $("#mainscreen").css("font-size", textsize + "vw");
+  $("#optionsscreen").css("height", optionsscreen);
   $(".icontext").css("font-size", textsize + "vw");
   $(".bottomtext").css("font-size", textsize + "vw");
   $("#bottombar").css("height", bottombar);
-  $(function() {
-    $("#settingscreen")
-      .fadeIn(500)
-      .show();
-  });
+
+  if (animationOn == "true") {
+    $("#settingscreen").on("click", clickAnimation);
+    $(function() {
+      $("#settingscreen")
+        .fadeIn(500)
+        .show();
+      $("#optionsscreen")
+        .fadeIn(500)
+        .show();
+    });
+  } else {
+    $("#settingscreen").show();
+    $("#optionsscreen").show();
+  }
 }
 
 //Individual page layout resize - Module Select page
@@ -317,18 +379,20 @@ function resizeModuleSelect() {
   var textsize = localStorage.getItem("fontsize");
   var bottombar = localStorage.getItem("bottombar");
   var modulesscreen = localStorage.getItem("modulesscreen");
+  var animationOn = localStorage.getItem("animation");
 
   $("#modulescreen").css("height", modulesscreen);
-  $("#mainscreen").css("font-size", textsize + "vw");
   $(".icontext").css("font-size", textsize + "vw");
   $(".bottomtext").css("font-size", textsize + "vw");
   $("#bottombar").css("height", bottombar);
 
-  $(function() {
+  if (animationOn == "true") {
     $("#modulescreen")
       .fadeIn(500)
       .show();
-  });
+  } else {
+    $("#modulescreen").show();
+  }
 }
 
 //Individual page layout resize - external modules

@@ -15,16 +15,15 @@
         crossorigin="anonymous">
 </head>
 
-<body onload="readJSON(); loadBars()"  >
+<body onload="readJSON(); loadBars()">
 
     <div id="mainscreen">
         <div id="topbar">
             <span class="textleft">Simple++</span>
-            <span class="textright">Welcome
-                <%= name %>!</span>
+            <span class="textright">Welcome!</span>
         </div>
 
-        <div class="container-fluid" id="iconscreen1" onclick="failedClick()">
+        <div class="container-fluid" id="iconscreen1">
             <div class="icons" id="firstaid" onclick="document.location.href='/firstaid';">
                 <i class="fontbody fas fa-medkit"></i>
                 <span class="icontext">FIRST AID</span>
@@ -37,7 +36,7 @@
 
             <div class="icons" id="presc">
                 <i class="fontbody fas fa-prescription-bottle"></i>
-                <span class="icontext">PRESCRIPTIONS</span>
+                <span class="icontext">PRESCRIPTION</span>
             </div>
 
             <div class="icons" id="hospital">

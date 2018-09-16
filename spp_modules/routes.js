@@ -30,8 +30,13 @@ module.exports = function(app) {
     res.render("support", { name: details.name });
   });
 
-  app.get("/feedback", function(req, res) {
-    res.render("feedback", { name: details.name });
+  app.get("/config", function(req, res) {
+    res.render("config", { name: details.name });
+  });
+
+  app.post("/config", urlencodedParser, function(req, res) {
+    require(__dirname + "/configSelect")(req);
+    res.render("config", { name: details.name });
   });
 
   //Module selection under settings redirect
@@ -44,4 +49,4 @@ module.exports = function(app) {
     require(__dirname + "/moduleSelect")(req);
     res.render("modules", { name: details.name });
   });
-};
+}

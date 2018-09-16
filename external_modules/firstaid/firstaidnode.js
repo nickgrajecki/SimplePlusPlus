@@ -8,8 +8,8 @@ module.exports = function(req, res) {
   var age = xss(req.body.age);
   var height = xss(req.body.userheight);
 
-  details.updateAge(age);
-  details.updateHeight(height);
+  // details.updateAge(age);
+  // details.updateHeight(height);
 
   var obj = { name: name, age: age, height: height };
   console.log(obj)
