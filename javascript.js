@@ -72,16 +72,16 @@ function readConfig(configJSON) {
     $(".icons").css("margin-top", "1%");
   } else if (iconCount == 4) {
     $(".icons").css("width", "30%");
-    $(".icons").css("margin-left", "10%");
+    $(".icons").css("margin-left", "11%");
     $(".icons").css("margin-right", "5%");
-    $(".icons").css("margin-top", "1%");
+    $(".icons").css("margin-top", "1.5%");
   } else if (iconCount == 3) {
     $(".icons").css("width", "25%");
     $(".icons").css("height", "22vw");
     $(".icons").css("margin-left", "5%");
     $(".icons").css("margin-right", "1%");
     $(".icons").css("padding-top", "3%");
-    $(".icons").css("margin-top", "2%");
+    $(".icons").css("margin-top", "6%");
   } else if (iconCount == 2) {
     $(".icons").css("width", "41%");
     $(".icons").css("height", "22vw");
