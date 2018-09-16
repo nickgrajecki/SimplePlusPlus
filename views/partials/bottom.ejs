@@ -1,38 +1,32 @@
-        <div id="bottombar">
+<div id="bottombar">
 
-            <a href="/index">
-                <div class="bottomicons">
-                    <i class="fontbottom fas fa-home"></i>
-                    <span class="bottomtext">Home</span>
-                </div>
-            </a>
+    <div class="bottomicons" onclick="document.location.href='/index';">
+        <i class="fontbottom fas fa-home"></i>
+        <span class="bottomtext">Home</span>
+    </div>
 
-            <a href="/support">
-                <div class="bottomicons">
-                    <i class="fontbottom fas fa-hands-helping"></i>
-                    <span class="bottomtext">Help</span>
-                </div>
-            </a>
+    <div class="bottomicons" onclick="document.location.href='/support';">
+        <i class="fontbottom fas fa-hands-helping"></i>
+        <span class="bottomtext">Help</span>
+    </div>
 
-            <div class="bottomicons trigger">
-                <i class="fontbottom fas fa-search-plus"></i>
-                <span class="bottomtext">Enlarge</span>
-                <div class="modalslider">
-                    <div class="modalslider-content">
-                        <h2>Please select your text size:
-                            <br>
-                            <input id="fontslider" type="range" step="0.1" value="0" min="1" max="2.5">
-                        </h2>
-                        <script>textSize();</script>
-                    </div>
-                </div>
+    <div class="bottomicons trigger">
+        <i class="fontbottom fas fa-search-plus"></i>
+        <span class="bottomtext">Enlarge</span>
+        <div class="modalslider">
+            <div class="modalslider-content">
+                <h2>Please select your text size:
+                    <br>
+                    <input id="fontslider" type="range" step="0.1" value="0" min="1" max="2.5">
+                </h2>
+                <script>textSize();</script>
             </div>
-
-            <a href="/settings">
-                <div class="bottomicons">
-                    <i class="fontbottom fas fa-cog"></i>
-                    <span class="bottomtext">Settings</span>
-                </div>
-            </a>
-
         </div>
+    </div>
+
+    <div class="bottomicons" onclick="document.location.href='/settings';">
+        <i class="fontbottom fas fa-cog"></i>
+        <span class="bottomtext">Settings</span>
+    </div>
+
+</div>

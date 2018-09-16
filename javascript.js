@@ -1,6 +1,20 @@
-function loadBars(){
+function loadBars() {
   $("#bottombar").show();
   $("#topbar").show();
+}
+
+function failedClick() {
+  setTimeout(function() {
+    zounds.playURL("click.mp3");
+    $("#mainscreen")
+      .css("background-color", "white")
+      .fadeIn(1000);
+    setTimeout(function() {
+      $("#mainscreen")
+        .css("background-color", "#cfcac4")
+        .fadeIn(1000);
+    }, 500);
+  }, 100);
 }
 
 //Using a JSON file/object, adjust layout
@@ -103,7 +117,6 @@ function readConfig(configJSON) {
 
   localStorage.setItem("modules", iconCount);
   var textsize = localStorage.getItem("fontsize");
-  var topbar = localStorage.getItem("topbar");
   var bottombar = localStorage.getItem("bottombar");
   var iconscreen = localStorage.getItem("iconscreen");
   var paddingtop = localStorage.getItem("paddingtop");
@@ -112,14 +125,15 @@ function readConfig(configJSON) {
   $("#mainscreen").css("font-size", textsize + "vw");
   $(".icontext").css("font-size", textsize + "vw");
   $(".bottomtext").css("font-size", textsize + "vw");
-  $("#topbar").css("height", topbar);
   $("#iconscreen1").css("height", iconscreen);
   $("#bottombar").css("height", bottombar);
   $("#iconscreen1").css("padding-top", paddingtop);
   $(".icontext").css("margin-top", margintop);
 
   $(function() {
-    $("#iconscreen1").fadeIn(300).show();
+    $("#iconscreen1")
+      .fadeIn(300)
+      .show();
   });
 }
 
@@ -161,7 +175,6 @@ function textSize() {
 
   $("#fontslider").on("mousemove" || "touchmove", function() {
     var textsize = $(this).val();
-    var topbar = "3%";
     var bottombar = "13.5%";
     var iconscreen = "83.5%";
     var settingscreen = "83.5%";
@@ -171,39 +184,34 @@ function textSize() {
     var paddingtop = "2%";
     var margintop = "1%";
 
-    $("#topbar").css("height", "3%");
     $("#iconscreen1").css("height", "83.5%");
     $(".icontext").css("margin-top", "1%");
     $("#bottombar").css("height", "13.5%");
 
     if (textsize > 1.2) {
-      $("#topbar").css("height", "4%");
       $("#bottombar").css("height", "14.5%");
-      $("#iconscreen1").css("height", "81.5%");
+      $("#iconscreen1").css("height", "82.5%");
       $("#settingscreen").css("height", "81.5%");
       $("#modulescreen").css("height", "81.5%");
       $("#supportscreen").css("height", "81.5%");
       $(".extmodulescreen").css("height", "81.5%");
 
-      topbar = "4%";
-      bottombar = "14%";
-      iconscreen = "81.5%";
-      settingscreen = "81.5%";
-      modulesscreen = "81.5%";
-      individualmodule = "81.5%";
-      supportscreen = "81.5%"
+      bottombar = "15%";
+      iconscreen = "82.5%";
+      settingscreen = "82.5%";
+      modulesscreen = "82.5%";
+      individualmodule = "82.5%";
+      supportscreen = "82.5%";
     }
 
     if (textsize > 1.7) {
-      $("#topbar").css("height", "5%");
       $("#iconscreen1").css("height", "79.5%");
-      $("#bottombar").css("height", "15.5%");
+      $("#bottombar").css("height", "16.5%");
       $("#settingscreen").css("height", "79.5%");
       $("#modulescreen").css("height", "79.5%");
       $("#supportscreen").css("height", "79.5%");
       $(".extmodulescreen").css("height", "79.5%");
-      topbar = "5%";
-      bottombar = "15.5%";
+      bottombar = "17.5%";
       iconscreen = "79.5%";
       settingscreen = "79.5%";
       modulesscreen = "79.5%";
@@ -212,25 +220,22 @@ function textSize() {
     }
 
     if (textsize > 2) {
-      $("#topbar").css("height", "7%");
-      $("#iconscreen1").css("height", "76.5%");
-      $("#settingscreen").css("height", "76.5%");
-      $("#modulescreen").css("height", "76.5%");
-      $("#supportscreen").css("height", "76.5%");
-      $(".extmodulescreen").css("height", "76.5%");
-      $("#iconscreen1").css("padding-top", "0.5%");
-      $("#bottombar").css("height", "16.5%");
+      $("#iconscreen1").css("height", "79%");
+      $("#settingscreen").css("height", "79%");
+      $("#modulescreen").css("height", "79%");
+      $("#supportscreen").css("height", "79%");
+      $(".extmodulescreen").css("height", "79%");
+      $("#bottombar").css("height", "18%");
       $(".icontext").css("margin-top", "0.2%");
       $(".mselect").css("margin-top", "0.1%");
-      topbar = "7%";
-      bottombar = "16.5%";
-      iconscreen = "76.5%";
-      settingscreen = "76.5%";
-      modulesscreen = "76.5%";
-      supportscreen = "76.5%";
+      bottombar = "18%";
+      iconscreen = "79%";
+      settingscreen = "79%";
+      modulesscreen = "79%";
+      supportscreen = "79%";
       paddingtop = "1%";
       margintop = "0.1%";
-      individualmodule = "76.5%";
+      individualmodule = "79%";
     }
 
     if (iconCount > 6) {
@@ -260,7 +265,6 @@ function textSize() {
       $(".icons").css("padding-bottom", "3%");
     }
     localStorage.setItem("fontsize", textsize);
-    localStorage.setItem("topbar", topbar);
     localStorage.setItem("iconscreen", iconscreen);
     localStorage.setItem("settingscreen", settingscreen);
     localStorage.setItem("modulesscreen", modulesscreen);
@@ -275,7 +279,6 @@ function textSize() {
 //Individual page layout resize - Support page
 function resizeSupport() {
   var textsize = localStorage.getItem("fontsize");
-  var topbar = localStorage.getItem("topbar");
   var bottombar = localStorage.getItem("bottombar");
   var supportscreen = localStorage.getItem("supportscreen");
 
@@ -283,18 +286,17 @@ function resizeSupport() {
   $("#mainscreen").css("font-size", textsize + "vw");
   $(".icontext").css("font-size", textsize + "vw");
   $(".bottomtext").css("font-size", textsize + "vw");
-  $("#topbar").css("height", topbar);
   $("#bottombar").css("height", bottombar);
-  $(function () {
-    $('#supportscreen').fadeIn(500).show();
-});
-
+  $(function() {
+    $("#supportscreen")
+      .fadeIn(500)
+      .show();
+  });
 }
 
 //Individual page layout resize - Settings page
 function resizeSettings() {
   var textsize = localStorage.getItem("fontsize");
-  var topbar = localStorage.getItem("topbar");
   var bottombar = localStorage.getItem("bottombar");
   var settingscreen = localStorage.getItem("settingscreen");
 
@@ -302,17 +304,17 @@ function resizeSettings() {
   $("#mainscreen").css("font-size", textsize + "vw");
   $(".icontext").css("font-size", textsize + "vw");
   $(".bottomtext").css("font-size", textsize + "vw");
-  $("#topbar").css("height", topbar);
   $("#bottombar").css("height", bottombar);
-  $(function () {
-    $('#settingscreen').fadeIn(500).show();
-});
+  $(function() {
+    $("#settingscreen")
+      .fadeIn(500)
+      .show();
+  });
 }
 
 //Individual page layout resize - Module Select page
 function resizeModuleSelect() {
   var textsize = localStorage.getItem("fontsize");
-  var topbar = localStorage.getItem("topbar");
   var bottombar = localStorage.getItem("bottombar");
   var modulesscreen = localStorage.getItem("modulesscreen");
 
@@ -320,24 +322,23 @@ function resizeModuleSelect() {
   $("#mainscreen").css("font-size", textsize + "vw");
   $(".icontext").css("font-size", textsize + "vw");
   $(".bottomtext").css("font-size", textsize + "vw");
-  $("#topbar").css("height", topbar);
   $("#bottombar").css("height", bottombar);
 
-  $(function () {
-    $('#modulescreen').fadeIn(500).show();
-});
+  $(function() {
+    $("#modulescreen")
+      .fadeIn(500)
+      .show();
+  });
 }
 
 //Individual page layout resize - external modules
 function resizeIndividualModule() {
   var textsize = localStorage.getItem("fontsize");
-  var topbar = localStorage.getItem("topbar");
   var bottombar = localStorage.getItem("bottombar");
   var individualmodule = localStorage.getItem("individualmodule");
 
   $(".extmodulescreen").css("height", individualmodule);
   $("#mainscreen").css("font-size", textsize + "vw");
   $(".bottomtext").css("font-size", textsize + "vw");
-  $("#topbar").css("height", topbar);
   $("#bottombar").css("height", bottombar);
 }

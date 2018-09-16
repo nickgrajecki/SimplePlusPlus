@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>Simple++</title>
+    <title>Simple++ Home</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/stylesheet.css">
@@ -15,25 +15,20 @@
         crossorigin="anonymous">
 </head>
 
-<body onclick="zounds.playURL('click.mp3');" onload="readJSON(); loadBars()">
+<body onload="readJSON(); loadBars()"  >
 
     <div id="mainscreen">
         <div id="topbar">
             <span class="textleft">Simple++</span>
-            <span class="textcenter">Home</span>
             <span class="textright">Welcome
                 <%= name %>!</span>
         </div>
 
-        <div class="container-fluid" id="iconscreen1">
-
-            <a href="/firstaid">
-                <div class="icons" id="firstaid">
-                    <i class="fontbody fas fa-medkit"></i>
-                    <span class="icontext">FIRST AID</span>
-                </div>
-            </a>
-
+        <div class="container-fluid" id="iconscreen1" onclick="failedClick()">
+            <div class="icons" id="firstaid" onclick="document.location.href='/firstaid';">
+                <i class="fontbody fas fa-medkit"></i>
+                <span class="icontext">FIRST AID</span>
+            </div>
 
             <div class="icons" id="video">
                 <i class="fontbody fas fa-video"></i>
@@ -55,12 +50,10 @@
                 <span class="icontext">DIARY</span>
             </div>
 
-            <a href="/nutrition">
-                <div class="icons" id="nutrition">
+                <div class="icons" id="nutrition" onclick="document.location.href='/nutrition';">
                     <i class="fontbody fas fa-utensils"></i>
                     <span class="icontext">NUTRITION</span>
                 </div>
-            </a>
 
             <div class="icons" id="symptom">
                 <i class="fontbody fas fa-user-md"></i>

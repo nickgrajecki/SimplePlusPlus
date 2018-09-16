@@ -10,7 +10,8 @@
         crossorigin="anonymous">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script type="text/javascript" src="javascript.js"></script>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+        crossorigin="anonymous">
 
 </head>
 
@@ -18,31 +19,28 @@
     <div id="mainscreen">
         <div id="topbar">
             <span class="textleft">Simple++</span>
-            <span class="textcenter">Settings</span>
-            <span class="textright">Welcome <%= name %>!</span>
+            <span class="textright">Welcome
+                <%= name %>!</span>
         </div>
 
         <div class="container-fluid" id="settingscreen">
-            <a href="/modules">
-                <div class="settingoption" id="modules">
-                    <i class="fontbody fas fa-check-square"></i>
-                    <span class="icontext">Choose modules</span>
-                </div>
-            </a>
-            <a href="/feedback">
-                <div class="settingoption" id="feedback">
-                    <i class="fontbody fas fa-assistive-listening-systems"></i>
-                    <span class="icontext">Assistive Feedback</span>
-                </div>
-            </a>
-                <div class="settingoption" id="other">
-                    <i class="fontbody fas fa-check-square"></i>
-                    <span class="icontext">Other</span>
-                </div>
+            <div class="settingoption" id="modules" onclick="document.location.href='/modules';">
+                <i class="fontbody fas fa-check-square"></i>
+                <span class="icontext">Choose modules</span>
+            </div>
+            <div class="settingoption" id="feedback" onclick="document.location.href='/feedback';">
+                <i class="fontbody fas fa-assistive-listening-systems"></i>
+                <span class="icontext">Assistive Feedback</span>
+            </div>
+
+            <div class="settingoption" id="other">
+                <i class="fontbody fas fa-check-square"></i>
+                <span class="icontext">Other</span>
+            </div>
         </div>
 
         <% include partials/bottom.ejs %>
-        
+
     </div>
 </body>
 

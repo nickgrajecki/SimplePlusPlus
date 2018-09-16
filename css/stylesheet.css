@@ -4,6 +4,11 @@ body {
   /* font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; */
 }
 
+h1{
+  font-family: "Arial";
+  font-weight: bold;
+}
+
 html {
   position: relative;
   min-height: 100%;
@@ -36,17 +41,21 @@ body {
 }
 
 .textleft {
+  width: 33%;
   float: left;
   padding-left: 2%;
+  font-size: 1vw;
 }
 .textright {
+  width:33%;
   float: right;
   padding-right: 2%;
+  font-size: 1vw;
 }
 
 .textcenter {
-  display: inline-block;
-  padding-right: 1%;
+  width: 33%;
+  font-size: 1vw;
 }
 
 #checkboxes input[type="checkbox"] {
@@ -97,6 +106,11 @@ input[type="range"]::-webkit-slider-thumb {
   height: 100%;
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 1vw;
+  transition:background-color 0.5s ease;
+}
+
+.clicked {
+  background: white;
 }
 
 #topbar {
@@ -148,7 +162,7 @@ input[type="range"]::-webkit-slider-thumb {
   height: 83.5%;
   padding-bottom: 4.5%;
   padding-top: 2%;
-  /* display: none; */
+  display: none;
 }
 
 .icons {
