@@ -11,10 +11,11 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script type="text/javascript" src="javascript.js"></script>
     <script type="text/javascript" src="zounds.min.js"></script>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+        crossorigin="anonymous">
 </head>
 
-<body onclick="zounds.playURL('click.mp3');" onload="readJSON()">
+<body onclick="zounds.playURL('click.mp3');" onload="readJSON(); loadBars()">
 
     <div id="mainscreen">
         <div id="topbar">
@@ -27,47 +28,48 @@
         <div class="container-fluid" id="iconscreen1">
 
             <a href="/firstaid">
-                <div class="icons" id="firstaid" >
+                <div class="icons" id="firstaid">
                     <i class="fontbody fas fa-medkit"></i>
-                    <span class="icontext">First Aid</span>
+                    <span class="icontext">FIRST AID</span>
                 </div>
             </a>
 
+
             <div class="icons" id="video">
                 <i class="fontbody fas fa-video"></i>
-                <span class="icontext" >Video</span>
+                <span class="icontext">VIDEO</span>
             </div>
 
             <div class="icons" id="presc">
                 <i class="fontbody fas fa-prescription-bottle"></i>
-                <span class="icontext">Prescriptions</span>
+                <span class="icontext">PRESCRIPTIONS</span>
             </div>
 
             <div class="icons" id="hospital">
                 <i class="fontbody fas fa-hospital"></i>
-                <span class="icontext">Local Aid</span>
+                <span class="icontext">LOCAL AID</span>
             </div>
 
             <div class="icons" id="diary">
                 <i class="fontbody fas fa-book"></i>
-                <span class="icontext">Diary</span>
+                <span class="icontext">DIARY</span>
             </div>
 
             <a href="/nutrition">
                 <div class="icons" id="nutrition">
                     <i class="fontbody fas fa-utensils"></i>
-                    <span class="icontext">Nutrition</span>
+                    <span class="icontext">NUTRITION</span>
                 </div>
             </a>
 
             <div class="icons" id="symptom">
                 <i class="fontbody fas fa-user-md"></i>
-                <span class="icontext">Symptoms</span>
+                <span class="icontext">SYMPTOMS</span>
             </div>
             <a href="bshome.html">
                 <div class="icons" id="emergency">
                     <i class="fontbody fas fa-exclamation-triangle"></i>
-                    <span class="icontext">Emergency</span>
+                    <span class="icontext">EMERGENCY</span>
                 </div>
             </a>
         </div>

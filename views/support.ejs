@@ -10,10 +10,12 @@
         crossorigin="anonymous">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script type="text/javascript" src="javascript.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
 
 </head>
 
-<body onload="resizeSupport();">
+<body onload="resizeSupport(); loadBars()">
 
     <div id="mainscreen">
         <div id="topbar">
@@ -22,8 +24,7 @@
             <span class="textright">Welcome <%= name %>!</span>
         </div>
 
-        <div class="supportscreen">
-
+        <div class="container-fluid" id="supportscreen">
                 <div class="iconssupport" id="livechat">
                     <i class="fonthelp fas fa-comments"></i>
                     <span class="icontext">Live Chat</span>

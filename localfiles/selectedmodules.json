@@ -1,1 +1,1 @@
-{"firstaid":true,"video":true,"presc":false,"hospital":false,"diary":false,"nutrition":true,"symptom":false,"emergency":false}
+{"firstaid":true,"video":true,"presc":true,"hospital":false,"diary":true,"nutrition":true,"symptom":true,"emergency":false}

@@ -1,3 +1,8 @@
+function loadBars(){
+  $("#bottombar").show();
+  $("#topbar").show();
+}
+
 //Using a JSON file/object, adjust layout
 function readConfig(configJSON) {
   var iconCount = 8;
@@ -112,6 +117,10 @@ function readConfig(configJSON) {
   $("#bottombar").css("height", bottombar);
   $("#iconscreen1").css("padding-top", paddingtop);
   $(".icontext").css("margin-top", margintop);
+
+  $(function() {
+    $("#iconscreen1").fadeIn(300).show();
+  });
 }
 
 //Read JSON file with selected modules
@@ -158,6 +167,7 @@ function textSize() {
     var settingscreen = "83.5%";
     var modulesscreen = "83.5%";
     var individualmodule = "83.5%";
+    var supportscreen = "83.5%";
     var paddingtop = "2%";
     var margintop = "1%";
 
@@ -172,6 +182,7 @@ function textSize() {
       $("#iconscreen1").css("height", "81.5%");
       $("#settingscreen").css("height", "81.5%");
       $("#modulescreen").css("height", "81.5%");
+      $("#supportscreen").css("height", "81.5%");
       $(".extmodulescreen").css("height", "81.5%");
 
       topbar = "4%";
@@ -180,6 +191,7 @@ function textSize() {
       settingscreen = "81.5%";
       modulesscreen = "81.5%";
       individualmodule = "81.5%";
+      supportscreen = "81.5%"
     }
 
     if (textsize > 1.7) {
@@ -188,12 +200,14 @@ function textSize() {
       $("#bottombar").css("height", "15.5%");
       $("#settingscreen").css("height", "79.5%");
       $("#modulescreen").css("height", "79.5%");
+      $("#supportscreen").css("height", "79.5%");
       $(".extmodulescreen").css("height", "79.5%");
       topbar = "5%";
       bottombar = "15.5%";
       iconscreen = "79.5%";
       settingscreen = "79.5%";
       modulesscreen = "79.5%";
+      supportscreen = "79.5%";
       individualmodule = "79.5%";
     }
 
@@ -202,16 +216,18 @@ function textSize() {
       $("#iconscreen1").css("height", "76.5%");
       $("#settingscreen").css("height", "76.5%");
       $("#modulescreen").css("height", "76.5%");
+      $("#supportscreen").css("height", "76.5%");
       $(".extmodulescreen").css("height", "76.5%");
-      $("#iconscreen1").css("padding-top", "1%");
+      $("#iconscreen1").css("padding-top", "0.5%");
       $("#bottombar").css("height", "16.5%");
-      $(".icontext").css("margin-top", "0.1%");
+      $(".icontext").css("margin-top", "0.2%");
       $(".mselect").css("margin-top", "0.1%");
       topbar = "7%";
       bottombar = "16.5%";
       iconscreen = "76.5%";
       settingscreen = "76.5%";
       modulesscreen = "76.5%";
+      supportscreen = "76.5%";
       paddingtop = "1%";
       margintop = "0.1%";
       individualmodule = "76.5%";
@@ -249,6 +265,7 @@ function textSize() {
     localStorage.setItem("settingscreen", settingscreen);
     localStorage.setItem("modulesscreen", modulesscreen);
     localStorage.setItem("individualmodule", individualmodule);
+    localStorage.setItem("supportscreen", supportscreen);
     localStorage.setItem("bottombar", bottombar);
     localStorage.setItem("margintop", margintop);
     localStorage.setItem("paddingtop", paddingtop);
@@ -258,19 +275,20 @@ function textSize() {
 //Individual page layout resize - Support page
 function resizeSupport() {
   var textsize = localStorage.getItem("fontsize");
+  var topbar = localStorage.getItem("topbar");
+  var bottombar = localStorage.getItem("bottombar");
+  var supportscreen = localStorage.getItem("supportscreen");
+
+  $("#supportscreen").css("height", supportscreen);
   $("#mainscreen").css("font-size", textsize + "vw");
   $(".icontext").css("font-size", textsize + "vw");
-  $(".icons").css("width", "21%");
-  $(".icons").css("margin-left", "1em");
-  $(".icons").css("margin-right", "1em");
-  $(".icons").css("padding-top", "1em");
-  $("#iconscreen1").css("padding-top", "0.3em");
+  $(".bottomtext").css("font-size", textsize + "vw");
+  $("#topbar").css("height", topbar);
+  $("#bottombar").css("height", bottombar);
+  $(function () {
+    $('#supportscreen').fadeIn(500).show();
+});
 
-  if (textsize > 21) {
-    $(".icontext").css("margin-top", "0.1em");
-  } else {
-    $(".icontext").css("margin-top", "0.5em");
-  }
 }
 
 //Individual page layout resize - Settings page
@@ -278,7 +296,7 @@ function resizeSettings() {
   var textsize = localStorage.getItem("fontsize");
   var topbar = localStorage.getItem("topbar");
   var bottombar = localStorage.getItem("bottombar");
-  var settingscreen = localStorage.getItem("settingscreen")
+  var settingscreen = localStorage.getItem("settingscreen");
 
   $("#settingscreen").css("height", settingscreen);
   $("#mainscreen").css("font-size", textsize + "vw");
@@ -286,6 +304,9 @@ function resizeSettings() {
   $(".bottomtext").css("font-size", textsize + "vw");
   $("#topbar").css("height", topbar);
   $("#bottombar").css("height", bottombar);
+  $(function () {
+    $('#settingscreen').fadeIn(500).show();
+});
 }
 
 //Individual page layout resize - Module Select page
@@ -293,7 +314,7 @@ function resizeModuleSelect() {
   var textsize = localStorage.getItem("fontsize");
   var topbar = localStorage.getItem("topbar");
   var bottombar = localStorage.getItem("bottombar");
-  var modulesscreen = localStorage.getItem("modulesscreen")
+  var modulesscreen = localStorage.getItem("modulesscreen");
 
   $("#modulescreen").css("height", modulesscreen);
   $("#mainscreen").css("font-size", textsize + "vw");
@@ -301,6 +322,10 @@ function resizeModuleSelect() {
   $(".bottomtext").css("font-size", textsize + "vw");
   $("#topbar").css("height", topbar);
   $("#bottombar").css("height", bottombar);
+
+  $(function () {
+    $('#modulescreen').fadeIn(500).show();
+});
 }
 
 //Individual page layout resize - external modules
@@ -308,11 +333,11 @@ function resizeIndividualModule() {
   var textsize = localStorage.getItem("fontsize");
   var topbar = localStorage.getItem("topbar");
   var bottombar = localStorage.getItem("bottombar");
-  var individualmodule = localStorage.getItem("individualmodule")
+  var individualmodule = localStorage.getItem("individualmodule");
 
   $(".extmodulescreen").css("height", individualmodule);
   $("#mainscreen").css("font-size", textsize + "vw");
   $(".bottomtext").css("font-size", textsize + "vw");
   $("#topbar").css("height", topbar);
-  $("#bottombar").css("height", bottombar);  
+  $("#bottombar").css("height", bottombar);
 }
