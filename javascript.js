@@ -210,7 +210,7 @@ function textSize() {
   trigger.addEventListener("click", toggleModal);
   window.addEventListener("click", windowOnClick);
 
-  $("#fontslider").on("mousemove" || "touchmove", function() {
+  $("#fontslider").on("mousemove touchmove", function() {
     var textsize = $(this).val();
     var bottombar = "13.5%";
     var iconscreen = "83.5%";
