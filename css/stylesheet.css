@@ -186,24 +186,7 @@ input[type="range"]::-webkit-slider-thumb {
   padding-top: 0.01%;
   width: 100%;
   height: 13.5%;
-  background-image: -webkit-linear-gradient(
-    #0983d4cc,
-    #005c99da
-  ) !important; /* Chrome 10+, Saf5.1+ */
-  background-image: -moz-linear-gradient(
-    #0983d4cc,
-    #005c99da
-  ) !important; /* FF3.6 */
-  background-image: -ms-linear-gradient(
-    #0983d4cc,
-    #005c99da
-  ) !important; /* IE10 */
-  background-image: -o-linear-gradient(
-    #0983d4cc,
-    #005c99da
-  ) !important; /* Opera 11.10+ */
-  background-image: linear-gradient(#0983d4cc, #005c99da) !important;
-  background-image: linear-gradient(#0983d4cc, #005c99da);
+  background:-webkit-linear-gradient(top, #0983d4cc, #005c99da);
   color: white;
   text-align: center;
   border-top-right-radius: 2vw;
