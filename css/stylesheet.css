@@ -164,9 +164,9 @@ input[type="range"]::-webkit-slider-thumb {
   transition: background-color 0.5s ease;
 }
 
-.clicked {
+/* .clicked {
   background: white;
-}
+} */
 
 #topbar {
   background: #0983d4cc;
