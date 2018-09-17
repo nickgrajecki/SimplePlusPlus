@@ -71,20 +71,7 @@ body {
   clear: both;
 }
 
-.configoption {
-  margin-left: 12%;
-  margin-right: 7%;
-  padding-top: 3.5%;
-  margin-top: 7%;
-  display: inline-block;
-  text-align: center;
-  border-radius: 20px;
-  width: 25%;
-  height: 17vw;
-  font-weight: bold;
-  font-size: 1vw;
-  justify-content: center;
-}
+
 
 input[type="text"] {
   margin-top: 1%;
@@ -336,9 +323,22 @@ input[type="range"]::-webkit-slider-thumb {
 #optionsscreen {
   display: block;
   height: 83.5%;
-  padding-bottom: 4.5%;
-  padding-top: 2%;
   display: none;
+}
+
+.configoption {
+  margin-left: 12%;
+  margin-right: 7%;
+  padding-top: 3.5%;
+  margin-top: 7%;
+  display: inline-block;
+  text-align: center;
+  border-radius: 20px;
+  width: 25%;
+  height: 17vw;
+  font-weight: bold;
+  font-size: 1vw;
+  justify-content: center;
 }
 
 .modalslider {

@@ -210,6 +210,15 @@ function textSize() {
   trigger.addEventListener("click", toggleModal);
   window.addEventListener("click", windowOnClick);
 
+  $("#modalslider-content").on("mouseup", function() {
+    toggleModal();
+  });
+
+  $("#fontslider").on("touchend", function() {
+    toggleModal();
+  });
+
+
   $("#fontslider").on("mousemove touchmove", function() {
     var textsize = $(this).val();
     var bottombar = "13.5%";
@@ -218,7 +227,7 @@ function textSize() {
     var modulesscreen = "83.5%";
     var individualmodule = "83.5%";
     var supportscreen = "83.5%";
-    var optionsscreen = "83.5";
+    var optionsscreen = "83.5%";
     var paddingtop = "2%";
     var margintop = "1%";
 
