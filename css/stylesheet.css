@@ -86,23 +86,23 @@ body {
   justify-content: center;
 }
 
-input[type=text] {
+input[type="text"] {
   margin-top: 1%;
   margin-bottom: 3%;
-  
+
   padding: 0;
   height: 30px;
   position: relative;
   left: 0;
   outline: none;
-  border-color: rgba(0,0,0,.15);
+  border-color: rgba(0, 0, 0, 0.15);
   background-color: white;
 }
 
-#submit{
+#submit {
   width: 20%;
   height: 20%;
-  margin-bottom:5%;
+  margin-bottom: 5%;
 }
 
 #checkboxes input[type="checkbox"] {
@@ -169,7 +169,7 @@ input[type="range"]::-webkit-slider-thumb {
 }
 
 #topbar {
-  background-color: #0983d4cc;
+  background: #0983d4cc;
   font-family: "Arial";
   text-align: center;
   height: 3%;
@@ -186,11 +186,23 @@ input[type="range"]::-webkit-slider-thumb {
   padding-top: 0.01%;
   width: 100%;
   height: 13.5%;
-        background-image: -webkit-linear-gradient(#0983d4cc, #005c99da) !important; /* Chrome 10+, Saf5.1+ */
-        background-image:    -moz-linear-gradient(#0983d4cc, #005c99da) !important; /* FF3.6 */
-        background-image:     -ms-linear-gradient(#0983d4cc, #005c99da) !important; /* IE10 */
-        background-image:      -o-linear-gradient(#0983d4cc, #005c99da) !important; /* Opera 11.10+ */
-        background-image:         linear-gradient(#0983d4cc, #005c99da) !important;
+  background-image: -webkit-linear-gradient(
+    #0983d4cc,
+    #005c99da
+  ) !important; /* Chrome 10+, Saf5.1+ */
+  background-image: -moz-linear-gradient(
+    #0983d4cc,
+    #005c99da
+  ) !important; /* FF3.6 */
+  background-image: -ms-linear-gradient(
+    #0983d4cc,
+    #005c99da
+  ) !important; /* IE10 */
+  background-image: -o-linear-gradient(
+    #0983d4cc,
+    #005c99da
+  ) !important; /* Opera 11.10+ */
+  background-image: linear-gradient(#0983d4cc, #005c99da) !important;
   background-image: linear-gradient(#0983d4cc, #005c99da);
   color: white;
   text-align: center;
@@ -457,7 +469,7 @@ input[type="range"]::-webkit-slider-thumb {
   background-color: darkorange;
 }
 
-.toptext{
+.toptext {
   background-color: green;
   justify-content: center;
   text-align: center;
@@ -505,7 +517,6 @@ input[type="range"]::-webkit-slider-thumb {
 
 /* Small height screens */
 @media (max-height: 700px) and (min-width: 1000px) {
-
   .bottomtext {
     display: none;
   }
@@ -532,7 +543,7 @@ input[type="range"]::-webkit-slider-thumb {
     justify-content: center;
   }
 
-  #iconscreen1{
+  #iconscreen1 {
     height: 89%;
   }
   #bottombar {
@@ -540,5 +551,3 @@ input[type="range"]::-webkit-slider-thumb {
     height: 7%;
   }
 }
-
-
