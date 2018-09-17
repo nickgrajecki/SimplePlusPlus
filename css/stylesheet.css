@@ -138,7 +138,7 @@ input[type="range"] {
 }
 
 input[type="range"]::-webkit-slider-thumb {
-  border: 1px solid #000000;
+  border: 1px solid #005c99da;
   height: 50px;
   width: 50px;
   border-radius: 3px;
@@ -147,7 +147,7 @@ input[type="range"]::-webkit-slider-thumb {
   padding-top: 50px;
   padding-left: 10px;
   padding-right: 10px;
-  box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+  box-shadow: 1px 1px 1px #005c99da, 0px 0px 1px #0d0d0d;
 }
 
 ::-webkit-scrollbar {
@@ -186,6 +186,11 @@ input[type="range"]::-webkit-slider-thumb {
   padding-top: 0.01%;
   width: 100%;
   height: 13.5%;
+        background-image: -webkit-linear-gradient(#0983d4cc, #005c99da) !important; /* Chrome 10+, Saf5.1+ */
+        background-image:    -moz-linear-gradient(#0983d4cc, #005c99da) !important; /* FF3.6 */
+        background-image:     -ms-linear-gradient(#0983d4cc, #005c99da) !important; /* IE10 */
+        background-image:      -o-linear-gradient(#0983d4cc, #005c99da) !important; /* Opera 11.10+ */
+        background-image:         linear-gradient(#0983d4cc, #005c99da) !important;
   background-image: linear-gradient(#0983d4cc, #005c99da);
   color: white;
   text-align: center;
