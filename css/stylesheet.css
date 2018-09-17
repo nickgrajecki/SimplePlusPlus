@@ -156,6 +156,7 @@ input[type="range"]::-webkit-slider-thumb {
 
 #mainscreen {
   position: relative;
+  background-color: #e8e7e6;
   width: 100%;
   height: 100%;
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -221,7 +222,6 @@ input[type="range"]::-webkit-slider-thumb {
   padding-bottom: 4.5%;
   padding-top: 2%;
   display: none;
-  background-color: #e8e7e6;
 }
 
 .icons {
