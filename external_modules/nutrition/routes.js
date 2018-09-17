@@ -3,6 +3,7 @@ var urlencodedParser = bodyParser.urlencoded({ extended: false });
 var fs = require("fs");
 var details = require(__dirname + "/../../spp_modules/userDetails");
 var foodList = "./localfiles/food.json";
+var xss = require("xss");
 
 //Set up routing for main routing ifile
 module.exports = function(app) {
@@ -27,7 +28,7 @@ module.exports = function(app) {
 
   //After submmitting form
   app.post("/nutrition", urlencodedParser, function(req, res) {
-    var food = req.body.fooddiary;
+    var food = xss(req.body.fooddiary);
     var insertDate = new Date()
       .toISOString()
       .replace("-", "/")

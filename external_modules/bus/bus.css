@@ -1,0 +1,486 @@
+@import url('https://fonts.googleapis.com/css?family=Oswald:300,400|Roboto:100,300,400|Montserrat:100,200,400|Cambo');
+
+html, body, #map {
+    height: 100%;
+    top: -3px;
+    margin: 0;
+    padding: 0;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+legend {
+    display: none;
+}
+
+#menu {
+    font-family: 'Roboto', san-serif;
+    font-weight: 100;
+    /*text-align: center;*/
+    font-size: 25px;
+    overflow: hidden;
+    /*max-width: 420px;*/
+    margin: 0 auto;
+    padding: 0.5%;
+    background-color: #1c2f2f;
+    color: #fff;
+}
+
+h1 {
+    font-size: 25px;
+    text-align: center;
+}
+
+.form-group > input {
+    border: solid 1px #939393;
+    border-radius: 4px;
+    width: 90%;
+}
+
+.form-group > input:focus, .form-group > select:focus {
+    outline: 3px solid #1bc693;
+    /*border-radius: 4px;*/
+}
+
+.menu {
+    top: 5px;
+}
+
+h1 {
+    font-weight: normal;
+}
+
+form label {
+    display: block;
+    font-family: 'Roboto', san-serif;
+    /*font-weight: 400;*/
+    color: #fff;
+/*    margin-bottom: 1.5%;*/
+    /*margin-left: 1%;*/
+    float: left;
+    text-align: left;
+    padding-left: 4%;
+}
+
+.checkbox {
+/*    float: left;
+    position: relative;
+    padding: 20px 0 20px 40px;
+    text-align: left;*/
+}
+
+form p {
+  /*margin: 0;*/
+}
+
+input [type=submit] {
+    width: 100%;
+}
+
+headline {
+    /*margin-bottom: -50px;*/
+}
+
+#route-narrative {
+    position: relative;
+    /*border: solid #000 1px;*/
+    font-family: 'Roboto', san-serif;
+    margin-left: 20px;
+}
+
+#directions > h2 {
+    font-family: 'Oswald', 'Roboto', san-serif;
+    text-transform: uppercase;
+    font-size: 33px;
+    font-weight: 200;
+    margin-left: 20px;
+    margin-top: 10px;
+    margin-bottom: 0;
+}
+
+#directions > p {
+    font-family: 'Roboto', san-serif;
+    font-size: 18px;
+    margin-left: 20px;
+    font-style: italic;
+    font-weight: 200;
+    margin-top: 0;
+}
+
+.warnbox-content {
+    display: none;
+}
+
+.warnbox-c1, .warnbox-c2 {
+    display: none;
+}
+
+.adp-agencies {
+    display: none;
+}
+
+div [jstcache="75"] {
+    display: none;
+}
+
+.adp-legal {
+    font-size: 10px;
+}
+
+#print-button {
+    width: 25px;
+    height: 25px;
+    margin-left: 40px;
+}
+
+#print-button > a:link {
+    color: #000;
+    font-family: 'Roboto', san-serif;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+
+.printText {
+    font-family: 'Roboto', san-serif;
+    text-decoration: none;
+    text-transform: uppercase;
+    color: #000;
+}
+
+/*a:link {
+    font-family: 'Roboto', san-serif;
+    text-decoration: none;
+    text-transform: uppercase;
+    color: #000;
+}*/
+
+#print-button a:hover, #print-button a:focus {
+    text-decoration: underline;
+}
+
+.form-label > label {
+    font-family: 'Roboto';
+    font-weight: 300;
+    font-size: 18px;
+    float: left;
+    /*text-align: right;*/
+    display: inline-block;
+    clear: left;
+    width: 15%;
+    color: #fff;
+    position: relative;
+    top: 50%;
+    transform: translateY(30%);
+    vertical-align: middle;
+}
+
+#attractions {
+    display: inline-block;
+    /*width: 90%;*/
+}
+
+#attractions > h2, #timetable > h2 {
+    font-weight: 300;
+    float: left;
+    margin-left: 10px;
+    font-size: 23px;
+    margin-bottom: 5px;
+}
+
+.timetablebtn {
+    border-radius: 7px;
+    font-size: 20px;
+    /*font-style: italic;*/
+    font-family: 'Roboto', san-serif;
+    font-weight: 300;
+    /*width: 70%;*/
+    background: #14a97d;  /*Old browsers*/
+    background: -moz-linear-gradient(top, #14a97d 0%, #1bc693 100%);
+    background: -webkit-linear-gradient(top, #14a97d 0%,#1bc693 100%);
+    background: linear-gradient(to bottom, #14a97d 0%,#1bc693 100%);
+    color: #fff;
+    border: none;
+/*    margin-top: 1px;
+    margin-bottom: 7px;*/
+/*    padding-left: 45px;
+    padding-right: 45px;
+    padding-top: 7px;
+    padding-bottom: 7px;*/
+    padding: 16px;
+    margin-right: 10px;
+    text-transform: capitalize;
+    text-decoration: none;
+    margin-top: 10px;
+    float: right;
+}
+
+.timetablebtn:hover, .timetablebtn:focus {
+    background: #14a97d;
+    cursor: pointer;
+}
+
+.footer, .footer > ul {
+    display: flex;
+    justify-content: center;
+    position: relative;
+    bottom: 0;
+}
+    
+.modeButton {
+    margin-bottom: 10px;
+    width: 70px;
+    /*padding: 10px 15px;*/
+    border: 0 !important;
+    cursor: pointer;
+    background-color: #fff;
+    border-radius: 5px;
+    display: inline-block;
+}
+
+.mode {
+    padding: 10px 10px;
+}
+
+.mode-group {
+    /*height: 3%;*/
+    text-align: center;
+    /*padding: 20px 32px;*/
+    color: #000;
+/*    background-color: #fff;*/
+    border: 0 !important;
+    cursor: pointer;
+}
+
+/*MOBILE CSS*/
+@media screen and (max-width: 700px) {
+    #map {
+        width: 100%;
+    }
+    
+    .form-group > input {
+        width: 60%;
+    }
+    
+    .timedropdown {
+        width: 29.5%;
+    }
+    
+    #route-narrative {
+        font-size: 25px;
+        line-height: 40px;
+    }
+    
+    #directions {
+        font-size: 30px;
+        margin-top: 18px;
+    }
+    
+    #menu {
+        padding-bottom: 20px;
+    }
+    /*HERE THE MENU WILL BE ABOVE THE MAP*/
+    
+    /* DROPDOWN BUTTON STYLING */
+    .dropbtn {
+        border-radius: 5px;
+        color: white;
+        padding: 16px;
+        font-size: 16px;
+        border: none;
+        background: #14a97d;  /*Old browsers*/
+        background: -moz-linear-gradient(top, #14a97d 0%, #1bc693 100%);
+        background: -webkit-linear-gradient(top, #14a97d 0%,#1bc693 100%);
+        background: linear-gradient(to bottom, #14a97d 0%,#1bc693 100%);
+        position: relative;
+        /*z-index: 100 !important;*/
+    }
+    
+    .dropbtn:hover, .dropbtn:focus {
+        background-color: #1bc693;
+        cursor: pointer;
+        position: relative;
+        z-index: 99 !important;
+    }
+    
+    #mobtimetablebtn {
+        border-radius: 5px;
+        color: white;
+        padding: 16px;
+        font-size: 16px;
+        border: none;
+        background: #14a97d;  /*Old browsers*/
+        background: -moz-linear-gradient(top, #14a97d 0%, #1bc693 100%);
+        background: -webkit-linear-gradient(top, #14a97d 0%,#1bc693 100%);
+        background: linear-gradient(to bottom, #14a97d 0%,#1bc693 100%);
+        position: relative;
+    }
+    
+    #mobtimetablebtn:hover, #mobtimetablebtn:focus {
+        background: #1bc693;
+        cursor: pointer;
+        position: relative;
+        z-index: 99 !important;
+    }
+
+    /* The container <div> - needed to position the dropdown content */
+    #dropdown {
+        position: relative;
+        display: inline-block;
+        z-index: 100 !important;
+        float: right;
+        margin-right: 9%;
+        margin-top: 10px;
+    }
+    
+    #mobtimetablebtn {
+        position: relative;
+        display: inline-block;
+        float: right;
+        margin-top: 10px;
+        margin-right: 5px;
+    }
+    
+    #timetable {
+        display: none;
+    }
+
+    /* Dropdown Content (Hidden by Default) */
+    .dropdown-content {
+        display: none;
+        position: absolute;
+        background: #1c2f2f;
+        min-width: 160px;
+        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+        z-index: 99 !important;
+        color: #fff;
+        font-family: 'Roboto', san-serif;
+        font-weight: 200;
+        font-size: 18px;
+        padding: 1px;
+    }
+
+    /* Links inside the dropdown */
+    .dropdown-content p {
+        color: #fff;
+        /*padding: 12px 16px;*/
+        text-decoration: none;
+        display: block;
+    }
+
+    /* Change color of dropdown links on hover */
+    .dropdown-content a:hover, .dropdown-content a:focus {background-color: #ddd;}
+
+    /* Show the dropdown menu on hover */
+    #dropdown:hover .dropdown-content, #dropdown:focus, .dropbtn:focus, .dropdown-content {display: block;}
+
+    /* Change the background color of the dropdown button when the dropdown content is shown */
+    #dropdown:hover .dropbtn, #dropdown:focus .dropbtn {background-color: #3e8e41;}
+
+    #attractions {
+        display: none;
+    }
+    
+    .footer {
+        font-size: 10px;
+    }
+}
+
+@media screen and (min-width: 700px) and (max-width: 1300px){
+    #map {
+        width: 70%;
+    }
+    
+    #menu {
+        position: absolute;
+        width: 30%;
+        height: 60%;
+        top: 94px;
+        left: 70%;
+        float: right;
+        bottom: 0;
+        /*border: solid 1px #000;*/
+    }
+
+    #route-narrative {
+        width: 80%;
+    }
+    
+    #route-narrative {
+        width: 78%;
+        font-size: 25px;
+        line-height: 40px;
+    }
+    
+    #directions {
+        font-size: 30px;
+    }
+    
+    #dropdown, #mobtimetablebtn {
+        display: none;
+    }
+    
+    input[type=text], input[type=date] {
+        width: 70%;
+    }
+    
+    input[type=date] {
+        padding: 8px;
+        color: #7c7e82;
+    }
+    
+    .timedropdown {
+        width: 34%;
+    }
+    
+/*    .modeButton {
+        width: 100px;
+    }    */
+    /*HERE THE MENU WILL BE ABOVE THE MAP*/
+}
+
+@media screen and (min-width: 1300px){
+    #map {
+        width: 70%;
+    }
+    
+    #menu {
+        position: absolute;
+        width: 30%;
+        height: 70%;
+        top: 7%;
+        left: 70%;
+        float: right;
+        bottom: 0;
+        /*border: solid 1px #000;*/
+    }
+    
+    #route-narrative {
+        width: 78%;
+        font-size: 25px;
+        line-height: 40px;
+        margin-left: 50px;
+    }
+    
+    .timedropdown {
+        width: 34%;
+    }
+    
+    #directions {
+        font-size: 30px;
+        margin-left: 50px;
+    }
+    
+    #dropdown, #mobtimetablebtn {
+        display: none;
+    }
+    
+    input[type=text], input[type=date] {
+        width: 70%;
+    }
+    
+    #print-button {
+        margin-left: 50px;
+    }
+}

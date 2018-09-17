@@ -1,0 +1,3 @@
+.mobilenav, .main-menu, #menu, form, #map, .footer, #print-button, a:link, #attractions, .dropdown, #dropdown, #timetable, #mobTimetable {
+    display: none;
+}

@@ -3,30 +3,32 @@
 <div class="container-fluid extmodulescreen">
     <div class="modrow">
         <div class="modcolumn">
-            <p id="toptext">Amend your information:</p>
+            <p class="toptext">Amend your information:</p>
             <form method="post" action="/firstaid">
-                Age
-                <br>
-                <input id="age" type="text" name="age">
-                <br>Height
-                <br>
-                <input id="userheight" type="text" name="userheight">
-                <br>
-                <br>
-                <input id="submit" type="submit">
+                Age<br>
+                <input id="age" type="text" name="age"><br>
+                Height<br>
+                <input id="userheight" type="text" name="userheight"><br>
+                <input id="submit" type="submit"><br>
             </form>
+           <div class="toptext">Info</div>
             <div id="details"></div>
         </div>
         <div class="modcolumn">
-            <div id="food">Yesterday you ate:<br>
-                <% for (var i = 0; i < foods.length; i++) { %>
-                <li>
-                    <%= foods[i] %>
-                </li>
-                <% } %>
+            <div id="food">
+                <p class="toptext">Yesterday you ate:<br></p>
+                <ul>
+                    <% for (var i = 0; i < foods.length; i++) { %>
+                    <li>
+                        <%=foods[i] %></a>
+                    </li>
+                    <% } %>
+                </ul>
             </div>
-            <script type='text/javascript' src="/external_modules/firstaid/firstaid.js"></script>
-            <script>firstAid()</script>
+            
+                <script type='text/javascript' src="/external_modules/firstaid/firstaid.js"></script>
+                <script>firstAid()</script>
+            
         </div>
     </div>
 </div>
