@@ -2,11 +2,24 @@
 var express = require("express");
 var app = express();
 var path = require("path");
+var bodyParser = require("body-parser");
+var filter = require("content-filter");
 
 //Set up view engine and render CSS/JS
 app.use(express.static(path.join(__dirname, "public")));
 app.use(express.static(__dirname));
-app.set('views', [path.join(__dirname, 'views'), path.join(__dirname, 'views/partials/')]);
+var blackList = ["$", "{", "&&", "||"];
+var options = {
+  urlBlackList: blackList,
+  bodyBlackList: blackList
+};
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(filter(options));
+app.set("views", [
+  path.join(__dirname, "views"),
+  path.join(__dirname, "views/partials/")
+]);
 app.set("view engine", "ejs");
 
 //Import all routing for app and modules
