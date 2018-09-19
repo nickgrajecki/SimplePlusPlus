@@ -80,10 +80,22 @@ function readConfig(configJSON) {
   //Based on amount of icons on screen, adapt layout
 
   if (iconCount > 6) {
-    $(".icons").css("width", "21%");
-    $(".icons").css("margin-left", "2%");
-    $(".icons").css("margin-right", "1%");
-    $(".icons").css("margin-top", "0.5%");
+    if (window.innerWidth > window.innerHeight) {
+      $(".icons").css("width", "21%");
+      $(".icons").css("margin-left", "2%");
+      $(".icons").css("margin-right", "1%");
+      $(".icons").css("margin-top", "0.5%");
+    } else {
+      $(".icons").css("width", "40%");
+      $(".icons").css("margin-left", "6%");
+      $(".icons").css("margin-right", "1%");
+      $(".icons").css("margin-top", "5%");
+      $(".icons").css("height", "18vh");
+      $(".icons").css("padding-top", "9%");
+      $(".bottomicons").css("height", "7vh");
+      $(".bottomicons").css("margin-top", "1%");
+      $(".bottomicons").css("padding-top", "2%");
+    }
   }
 
   if (iconCount == 6) {
@@ -217,7 +229,6 @@ function textSize() {
   $("#fontslider").on("touchend", function() {
     toggleModal();
   });
-
 
   $("#fontslider").on("mousemove touchmove", function() {
     var textsize = $(this).val();
