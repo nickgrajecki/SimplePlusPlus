@@ -1,6 +1,8 @@
-# SimplePlusPlus
+# Simple++/SimplePlusPlus
 Simple++ is a hybrid modular application, designed primarily for desktop and tablet browsers, focusing on delivering a healthcare system
 for elderly users. Developed with HTML, CSS, JavaScript, jQuery and Node.js, it uses Phonegap to deploy to mobile devices.
+
+The inspiration behind this project is the application +Simple developed by Buenos Aires Ciudad - check it out at http://www.buenosaires.gob.ar/desarrollohumanoyhabitat/personasmayores/massimple
 
 The main features focus on accessibility - high contrast colours, resizable text and responsive design. The main backend architecture focuses
 on modularity - each of the usable modules are functionally independent and do not need updating when the underlying framework is updated.
