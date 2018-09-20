@@ -11,7 +11,12 @@ try {
     if (err) throw err;
     if (data.length) {
       data = JSON.parse(data);
-      name = data.name;
+      module.exports.age = data.age;
+      module.exports.weight = data.weight;
+      module.exports.home = data.home;
+      module.exports.phone = data.phone;
+      module.exports.medication = data.medication;
+      module.exports.allergies = data.allergies;
       module.exports.name = data.name;
     }
   });
