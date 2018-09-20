@@ -24,171 +24,140 @@
     <link rel="stylesheet" href="/external_modules/bus/print.css" type="text/css" media="print" />
     <!--JQuery Datepicker-->
     <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="css/stylesheet.css">
     <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-ui-timepicker-addon/1.6.3/i18n/jquery-ui-timepicker-uk.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-ui-timepicker-addon/1.6.3/jquery-ui-timepicker-addon.css"></script>
 </head>
 
-<body onLoad="loadBars()">
-    <div id="mainscreen" >
+<body onload="resizeIndividualModule(); loadBars()">
+    <div id="mainscreen">
         <div id="topbar">
-            <span class="textleft">Simple++</span>
-            <span class="textright">Welcome!</span>
+            <span class="textcenter">Simple++</span>
         </div>
         <div class="container-fluid extmodulescreen">
-                <div id="menu">
-                        <h1 id="main">Where would you like to go?</h1>
-                        <form name="directions">
-        
-                            <div class="mode-group">
-                                <div class="modeButton" aria-label="Change transport mode">
-                                    <input type="radio" name="mode" value="WALKING" id="changemode-walking"><i class="fas fa-walking fa-1x mode"
-                                        aria-hidden="true" aria-label="Change mode to walking"></i>
-                                </div>
-                                <div class="modeButton">
-                                    <input type="radio" name="mode" value="TRANSIT" id="changemode-transit" checked="checked"><i
-                                        class="fas fa-bus fa-1x mode" aria-hidden="true" aria-label="Change mode to bus"></i>
-                                </div>
-                            </div>
-        
-                            <div class="form-group">
-                                <label for="origin-input">From</label>
-                                <input id="origin-input" class="controls" type="text" placeholder="Enter an origin location"
-                                    aria-label="Input origin location" autocomplete="off">
-                            </div>
-                            <!--id="location-address"-->
-                            <div class="form-group">
-                                <label for="destination-input">To&nbsp;&nbsp;&nbsp;&nbsp;</label>
-                                <input id="destination-input" class="controls" type="text" placeholder="Enter a destination location"
-                                    aria-label="Input destination location" autocomplete="off">
-                            </div>
-                            <div class="form-group">
-                                <label for="datepicker">Date&nbsp;</label>
-                                <input type="text" id="datepicker" placeholder="06/09/2018" aria-label="Date use format: 6-Sep-18"
-                                    autocomplete="off">
-                            </div>
-                            <script>
-                                $("#datepicker").datepicker({
-                                    showOn: "both",
-                                    //formatDate: "dd-mm-yy",
-                                    minDate: new Date(),
-                                    maxDate: new Date(new Date().setMonth(new Date().getMonth() + 2)),
-                                    onSelect: function () {
-                                        selectedDate = $(this).datepicker("option", "formatDate", "dd,mm,yy").val();
-                                        //selectedDate = formatted.datepicker('getDate'); //unfortunately getting date and time 00:00
-                                    }
-                                });
-                            </script>
-        
-                            <div class="form-group">
-                                <label>Time</label>
-                                <select aria-label="hour" name="hours" class="timedropdown" id="hour" onChange="selectHour();">
-                                    <option selected="" value="00">00</option>
-                                    <option value="01">01</option>
-                                    <option value="02">02</option>
-                                    <option value="03">03</option>
-                                    <option value="04">04</option>
-                                    <option value="05">05</option>
-                                    <option value="06">06</option>
-                                    <option value="07">07</option>
-                                    <option value="08">08</option>
-                                    <option value="09">09</option>
-                                    <option value="10">10</option>
-                                    <option value="11">11</option>
-                                    <option value="12">12</option>
-                                    <option value="13">13</option>
-                                    <option value="14">14</option>
-                                    <option value="15">15</option>
-                                    <option value="16">16</option>
-                                    <option value="17">17</option>
-                                    <option value="18">18</option>
-                                    <option value="19">19</option>
-                                    <option value="20">20</option>
-                                    <option value="21">21</option>
-                                    <option value="22">22</option>
-                                    <option value="23">23</option>
-                                </select>
-                                <select aria-label="minutes" name="minutes" class="timedropdown" id="minute" onChange="selectMinute();">
-                                    <option selected="" value="00">00</option>
-                                    <option value="15">15</option>
-                                    <option value="30">30</option>
-                                    <option value="45">45</option>
-                                </select>
-                            </div>
-        
-                            <script>
-                                function selectHour() {
-                                    var hour = document.getElementById('hour');
-                                    selectedHour = hour.value;
-                                    console.log(hour.value);
-                                }
-        
-                                function selectMinute() {
-                                    var minute = document.getElementById('minute');
-                                    selectedMinute = minute.value;
-                                    console.log(minute.value);
-                                    finalTime = selectedDate + ' ' + selectedHour + ':' + selectedMinute;
-                                    console.log(finalTime);
-                                    navTime = new Date(finalTime);
-                                }
-                            </script>
-                            <button type="button" onclick="getHome()">Home</button>
-                            <button type="button" onclick="initMap()">Navigate</button>
-                            <script>
+            <div id="menu">
+                <h1 id="main">Where would you like to go?</h1>
+                <form name="directions">
 
-                                
-                                function setOrigin() {
-                                    var value = $('#origin-input').val(); //document.getElementById('origin-input').value;
-                                    localStorage.setItem("user_selected_origin", value);
-                                    //$( "#origin-input" ).trigger("change");
-                                }
-                                function getOrigin() {
-                                    if (localStorage.getItem("user_selected_origin") === null) {// Check if there is selected date. 
-                                        return "";
-                                    }
-                                    return localStorage.getItem("user_selected_origin");
-                                }
-                            </script>
-                            <!--</form>-->
-        
-                        </form>
+                    <div class="mode-group">
+                        <div class="modeButton" aria-label="Change transport mode">
+                            <input type="radio" name="mode" value="WALKING" id="changemode-walking"><i class="fas fa-walking fa-1x mode"
+                                aria-hidden="true" aria-label="Change mode to walking"></i>
+                        </div>
+                        <div class="modeButton">
+                            <input type="radio" name="mode" value="TRANSIT" id="changemode-transit" checked="checked"><i
+                                class="fas fa-bus fa-1x mode" aria-hidden="true" aria-label="Change mode to bus"></i>
+                        </div>
                     </div>
-                    <div id="map"></div>
-                    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA9QnFC_OUIiBwYfUI4QEaLLi0haqa5COI&v=3&libraries=places&callback=initMap"
-                        async defer></script>
-                </div>
-        <div id="bottombar">
-            <div class="bottomicons" onclick="document.location.href='/index';">
-                <i class="fontbottom fas fa-home"></i>
-                <span class="bottomtext">Home</span>
-            </div>
 
-            <div class="bottomicons" onclick="document.location.href='/support';">
-                <i class="fontbottom fas fa-hands-helping"></i>
-                <span class="bottomtext">Help</span>
-            </div>
-
-            <div class="bottomicons trigger">
-                <i class="fontbottom fas fa-search-plus"></i>
-                <span class="bottomtext">Enlarge</span>
-                <div class="modalslider">
-                    <div class="modalslider-content">
-                        <h2>Please select your text size:
-                            <br><br>
-                            <input id="fontslider" type="range" step="0.1" value="0" min="1" max="2.5">
-                        </h2>
-                        <script>textSize();</script>
+                    <div class="form-group">
+                        <label for="origin-input">From</label>
+                        <input id="origin-input" class="controls" type="text" placeholder="Enter an origin location"
+                            aria-label="Input origin location" autocomplete="off">
                     </div>
-                </div>
-            </div>
+                    <!--id="location-address"-->
+                    <div class="form-group">
+                        <label for="destination-input">To&nbsp;&nbsp;&nbsp;&nbsp;</label>
+                        <input id="destination-input" class="controls" type="text" placeholder="Enter a destination location"
+                            aria-label="Input destination location" autocomplete="off">
+                    </div>
+                    <div class="form-group">
+                        <label for="datepicker">Date&nbsp;</label>
+                        <input type="text" id="datepicker" placeholder="06/09/2018" aria-label="Date use format: 6-Sep-18"
+                            autocomplete="off">
+                    </div>
+                    <script>
+                        $("#datepicker").datepicker({
+                            showOn: "both",
+                            //formatDate: "dd-mm-yy",
+                            minDate: new Date(),
+                            maxDate: new Date(new Date().setMonth(new Date().getMonth() + 2)),
+                            onSelect: function () {
+                                selectedDate = $(this).datepicker("option", "formatDate", "dd,mm,yy").val();
+                                //selectedDate = formatted.datepicker('getDate'); //unfortunately getting date and time 00:00
+                            }
+                        });
+                    </script>
 
-            <div class="bottomicons" onclick="document.location.href='/settings';">
-                <i class="fontbottom fas fa-cog"></i>
-                <span class="bottomtext">Settings</span>
-            </div>
+                    <div class="form-group">
+                        <label>Time</label>
+                        <select aria-label="hour" name="hours" class="timedropdown" id="hour" onChange="selectHour();">
+                            <option selected="" value="00">00</option>
+                            <option value="01">01</option>
+                            <option value="02">02</option>
+                            <option value="03">03</option>
+                            <option value="04">04</option>
+                            <option value="05">05</option>
+                            <option value="06">06</option>
+                            <option value="07">07</option>
+                            <option value="08">08</option>
+                            <option value="09">09</option>
+                            <option value="10">10</option>
+                            <option value="11">11</option>
+                            <option value="12">12</option>
+                            <option value="13">13</option>
+                            <option value="14">14</option>
+                            <option value="15">15</option>
+                            <option value="16">16</option>
+                            <option value="17">17</option>
+                            <option value="18">18</option>
+                            <option value="19">19</option>
+                            <option value="20">20</option>
+                            <option value="21">21</option>
+                            <option value="22">22</option>
+                            <option value="23">23</option>
+                        </select>
+                        <select aria-label="minutes" name="minutes" class="timedropdown" id="minute" onChange="selectMinute();">
+                            <option selected="" value="00">00</option>
+                            <option value="15">15</option>
+                            <option value="30">30</option>
+                            <option value="45">45</option>
+                        </select>
+                    </div>
 
+                    <script>
+                        function selectHour() {
+                            var hour = document.getElementById('hour');
+                            selectedHour = hour.value;
+                            console.log(hour.value);
+                        }
+
+                        function selectMinute() {
+                            var minute = document.getElementById('minute');
+                            selectedMinute = minute.value;
+                            console.log(minute.value);
+                            finalTime = selectedDate + ' ' + selectedHour + ':' + selectedMinute;
+                            console.log(finalTime);
+                            navTime = new Date(finalTime);
+                        }
+                    </script>
+                    <button class="submitbutton" type="button" onclick="getHome()">Home</button>
+                    <script>
+
+
+                        function setOrigin() {
+                            var value = $('#origin-input').val(); //document.getElementById('origin-input').value;
+                            localStorage.setItem("user_selected_origin", value);
+                            //$( "#origin-input" ).trigger("change");
+                        }
+                        function getOrigin() {
+                            if (localStorage.getItem("user_selected_origin") === null) {// Check if there is selected date. 
+                                return "";
+                            }
+                            return localStorage.getItem("user_selected_origin");
+                        }
+                    </script>
+                    <!--</form>-->
+
+                </form>
+            </div>
+            <div id="map"></div>
+            <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA9QnFC_OUIiBwYfUI4QEaLLi0haqa5COI&v=3&libraries=places&callback=initMap"
+                async defer></script>
         </div>
+        <%- include partials/bottom %>
     </div>
 </body>
 

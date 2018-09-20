@@ -17,7 +17,8 @@ module.exports = function(app) {
           console.log(foods);
           res.render(__dirname + "/main", {
             name: details.name,
-            foods: foods
+            foods: foods,
+            fooditems: ""
           });
         }
       });
@@ -41,6 +42,38 @@ module.exports = function(app) {
         foods.push("(" + insertDate + ")" + " " + food);
         fs.writeFileSync(foodList, JSON.stringify(foods));
         res.redirect("/nutrition");
+      });
+    } catch (ex) {
+      console.log(ex);
+    }
+  });
+
+  app.post("/nutritiondate", urlencodedParser, function(req, res) {
+    var date = xss(req.body.datepicker);
+    console.log(date);
+    var found = false;
+    var foundFood = null;
+    try {
+      fs.readFile(foodList, function(err, data) {
+        if (err) throw err;
+        var foods = JSON.parse(data);
+        for (var i = 0; i < foods.length; i++) {
+          if (foods[i].includes(date)) {
+            found = true;
+            if (foundFood == null) {
+              foundFood = foods[i];
+            } else {
+              foundFood += foods[i];
+            }
+          }
+        }
+        if (found == false) {
+          foundFood = "No food found";
+        }
+        res.render(__dirname + "/main", {
+          foods: foods,
+          fooditems: foundFood
+        });
       });
     } catch (ex) {
       console.log(ex);

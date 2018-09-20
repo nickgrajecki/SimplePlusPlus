@@ -2,14 +2,28 @@
 <div class="container-fluid extmodulescreen">
     <div class="modrow">
         <div class="modcolumn">
-            <p id="toptext">What did you eat yesterday?</p>
+            <p class="toptext">What did you eat yesterday?</p>
+            Note down any meals or snacks below:
             <form method="post" action="/nutrition">
-                <input id="fooddiary" type="text" name="fooddiary">
+                <textarea id="fooddiarytext" name="fooddiary"></textarea><br>
                 <input id="submit" type="submit">
             </form>
+            <p class="toptext">Food history</p>
+            Check what you ate on this day:
+            <script>
+                $(function () {
+                    $("#datepicker").datepicker({ dateFormat: 'yy/mm/dd' });
+                });
+            </script>
+            <form method="post" action="/nutritiondate">
+                <p><input type="text" id="datepicker" name="datepicker" placeholder="(year/month/day)"></p>
+                <input id="submit" type="submit">
+            </form>
+            <div id="foodresult"><p class="highlight">On this day you ate:</p><%= fooditems %></div>
         </div>
+
         <div class="modcolumn">
-                <b>Food Log</b><br>
+            <p class="toptext">Food Log</p>
             <div id="foodlist">
                 <ul>
                     <% for (var i = 0; i < foods.length; i++) { %>

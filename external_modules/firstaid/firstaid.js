@@ -1,13 +1,30 @@
 function firstAid() {
-    $.getJSON('/../../localfiles/details.json', function (json) {
-        if (json.age.length) {
-            var name = json.name;
-            var age = json.age;
-            var height = json.height;
-            $("#details").append("<h2>Hello, " + name + "<br>Your age is: <span class='highlight'>" + age + "</span><br>Your height is:<span class='highlight'>" + height + "</span></h2>");
-            console.log(name + age + height);
-        } else {
-            $("#details").append("<h2>Please fill in your details</h2>");
-        }
-    });
+  $.getJSON("/../../localfiles/details.json", function(json) {
+    if (json.age.length) {
+      var name = json.name;
+      var age = json.age;
+      var weight = json.weight;
+      var address = json.home;
+      var phone = json.phone;
+      var medication = json.medication;
+      var allergies = json.allergies;
+      $("#details").append(
+        "<div class='toptext'>Info</div><span class='highlight'>Age</span>" +
+          age +
+          "<span class='highlight'>Weight</span>" +
+          weight +
+          "<br><span class='highlight'>Home Address</span>" +
+          address +
+          "<br><span class='highlight'>Emergency phone number</span>" +
+          phone +
+          "<br><span class='highlight'>Medication</span>" +
+          medication +
+          "<br><span class='highlight'>Allergies</span>" +
+          allergies
+      );
+      console.log(name + age + height + address + phone + medication + allergies);
+    } else {
+      $("#details").append("<h2>Please fill in your details</h2>");
+    }
+  });
 }

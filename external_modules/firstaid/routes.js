@@ -4,7 +4,6 @@ var details = require(__dirname + "/../../spp_modules/userDetails");
 var foodList = "./localfiles/food.json";
 var fs = require("fs");
 
-
 module.exports = function(app) {
   //First aid module
   app.get("/firstaid", function(req, res) {
@@ -13,7 +12,7 @@ module.exports = function(app) {
         if (err) throw err;
         if (data.length) {
           foods = JSON.parse(data);
-          console.log(foods);
+          console.log(foods.reverse());
           res.render(__dirname + "/main", {
             name: details.name,
             foods: foods

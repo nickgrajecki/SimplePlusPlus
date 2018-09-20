@@ -82,9 +82,9 @@ function readConfig(configJSON) {
   if (iconCount > 6) {
     if (window.innerWidth > window.innerHeight) {
       $(".icons").css("width", "21%");
-      $(".icons").css("margin-left", "2%");
+      $(".icons").css("margin-left", "2.4%");
       $(".icons").css("margin-right", "1%");
-      $(".icons").css("margin-top", "0.5%");
+      $(".icons").css("margin-top", "1.2%");
     } else {
       $(".icons").css("width", "40%");
       $(".icons").css("margin-left", "6%");
@@ -101,14 +101,14 @@ function readConfig(configJSON) {
   if (iconCount == 6) {
     $(".icons").css("width", "25%");
     $(".icons").css("margin-left", "5%");
-    $(".icons").css("margin-right", "1em");
+    $(".icons").css("margin-right", "2%");
     $(".icons").css("margin-top", "1em");
   }
   if (iconCount == 5) {
     $(".icons").css("width", "25%");
     $(".icons").css("margin-left", "5%");
     $(".icons").css("margin-right", "2%");
-    $(".icons").css("margin-top", "1%");
+    $(".icons").css("margin-top", "1.2%");
   } else if (iconCount == 4) {
     $(".icons").css("width", "30%");
     $(".icons").css("margin-left", "11%");
@@ -124,7 +124,7 @@ function readConfig(configJSON) {
   } else if (iconCount == 2) {
     $(".icons").css("width", "41%");
     $(".icons").css("height", "22vw");
-    $(".icons").css("margin-left", "5%");
+    $(".icons").css("margin-left", "5.5%");
     $(".icons").css("padding-top", "4%");
     $(".icons").css("margin-top", "5%");
     $("#iconscreen1").css("padding-top", "7%");
@@ -286,7 +286,7 @@ function textSize() {
       $("#settingscreen").css("height", "79%");
       $("#modulescreen").css("height", "79%");
       $("#supportscreen").css("height", "79%");
-      $(".extmodulescreen").css("height", "79%");
+      $(".extmodulescreen").css("height", "79.5%");
       $("#bottombar").css("height", "18%");
       $(".icontext").css("margin-top", "0.2%");
       $(".mselect").css("margin-top", "0.1%");
@@ -298,7 +298,7 @@ function textSize() {
       supportscreen = "79%";
       paddingtop = "1%";
       margintop = "0.1%";
-      individualmodule = "79%";
+      individualmodule = "79.5%";
       optionsscreen = "79%";
     }
 
@@ -311,9 +311,6 @@ function textSize() {
       $(".icontext").css("font-size", textsize + "vw");
       $(".bottomtext").css("font-size", textsize + "vw");
       $(".icons").css("margin-top", "1.1%");
-      if (textsize > 20) {
-        $(".icons").css("margin-top", "0.6%");
-      }
     } else if (iconCount == 4) {
       $("#mainscreen").css("font-size", textsize + "vw");
       $(".icontext").css("font-size", textsize + "vw");
