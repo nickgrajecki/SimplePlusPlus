@@ -3,6 +3,10 @@ function loadBars() {
   $("#topbar").show();
 }
 
+function refreshPage(){
+  window.onorientationchange = function() { location.reload() };
+}
+
 function clickSound() {
   setTimeout(function() {
     zounds.playURL("click.mp3");
@@ -208,7 +212,7 @@ function textSize() {
   var iconCount = localStorage.getItem("modules");
   var modal = document.querySelector(".modalslider");
   var trigger = document.querySelector(".trigger");
-
+  
   function toggleModal() {
     modal.classList.toggle("show-modalslider");
   }
@@ -242,9 +246,9 @@ function textSize() {
     var paddingtop = "2%";
     var margintop = "1%";
 
-    $("#iconscreen1").css("height", "83.5%");
+    $("#iconscreen1").css("height", "84.5%");
     $(".icontext").css("margin-top", "1%");
-    $("#bottombar").css("height", "13.5%");
+    $("#bottombar").css("height", "14.5%");
 
     if (textsize > 1.2) {
       $("#bottombar").css("height", "14.5%");
@@ -286,7 +290,7 @@ function textSize() {
       $("#settingscreen").css("height", "79%");
       $("#modulescreen").css("height", "79%");
       $("#supportscreen").css("height", "79%");
-      $(".extmodulescreen").css("height", "79.5%");
+      $(".extmodulescreen").css("height", "79%");
       $("#bottombar").css("height", "18%");
       $(".icontext").css("margin-top", "0.2%");
       $(".mselect").css("margin-top", "0.1%");
@@ -298,7 +302,7 @@ function textSize() {
       supportscreen = "79%";
       paddingtop = "1%";
       margintop = "0.1%";
-      individualmodule = "79.5%";
+      individualmodule = "79%";
       optionsscreen = "79%";
     }
 

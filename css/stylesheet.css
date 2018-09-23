@@ -145,6 +145,7 @@ input[type="range"]::-webkit-slider-thumb {
 }
 
 #mainscreen {
+  overflow: hidden;
   position: relative;
   background-color: #e8e7e6;
   width: 100%;
@@ -171,6 +172,7 @@ input[type="range"]::-webkit-slider-thumb {
 
 #bottombar {
   position: absolute;
+  overflow: auto;
   display: block;
   display: none;
   padding-top: 0.01%;
@@ -223,6 +225,7 @@ input[type="range"]::-webkit-slider-thumb {
 }
 
 #iconscreen1 {
+  overflow: auto;
   display: block;
   height: 83.5%;
   padding-bottom: 4.5%;
@@ -520,7 +523,6 @@ input[type="range"]::-webkit-slider-thumb {
     margin-bottom: 0.5%;
     display: inline-block;
     text-align: center;
-    border-radius: 3.7vw;
     width: 10vw;
     height: 18vw;
     font-weight: bold;
@@ -538,7 +540,7 @@ input[type="range"]::-webkit-slider-thumb {
 }
 
 /* Small height screens */
-@media (max-height: 700px) and (min-width: 1000px) {
+@media (max-height: 700px) and (max-width: 1000px) {
   .bottomtext {
     display: none;
   }
@@ -548,34 +550,10 @@ input[type="range"]::-webkit-slider-thumb {
   .icontext {
     display: none;
   }
-
-  .icons {
-    margin-left: 2%;
-    margin-right: 1%;
-    margin-top: 20%;
-    padding-top: 1%;
-    margin-bottom: 0.5%;
-    display: inline-block;
-    text-align: center;
-    border-radius: 3.7vw;
-    width: 40%;
-    height: 14vw;
-    font-weight: bold;
-    font-size: 1vw;
-    justify-content: center;
-  }
-
-  #iconscreen1 {
-    height: 89%;
-  }
-  #bottombar {
-    margin-top: 1%;
-    height: 7%;
-  }
 }
 
 /* iPad */
-@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) and (-webkit-min-device-pixel-ratio: 2) {
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) and (-webkit-min-device-pixel-ratio: 2) and (min-device-height: 768px) {
   .icons {
     margin-left: 2%;
     margin-right: 1%;
@@ -584,7 +562,6 @@ input[type="range"]::-webkit-slider-thumb {
     margin-bottom: 3%;
     display: inline-block;
     text-align: center;
-    border-radius: 3.7vw;
     width: 40%;
     height: 26vw;
     font-weight: bold;
@@ -593,7 +570,6 @@ input[type="range"]::-webkit-slider-thumb {
   }
 
   #bottombar {
-    margin-top: 1%;
     height: 20%;
   }
   .bottomicons {
@@ -614,7 +590,6 @@ input[type="range"]::-webkit-slider-thumb {
     height: 80%;
   }
   #bottombar {
-    margin-top: 1%;
     height: 20%;
   }
   .bottomicons {
