@@ -306,6 +306,7 @@ input[type="range"]::-webkit-slider-thumb {
 
 .extmodulescreen {
   display: block;
+  overflow: auto;
   height: 84%;
   padding-bottom: 4.5%;
   padding-top: 2%;
