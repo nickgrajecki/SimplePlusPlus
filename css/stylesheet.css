@@ -145,7 +145,6 @@ input[type="range"]::-webkit-slider-thumb {
 }
 
 #mainscreen {
-  overflow: hidden;
   position: relative;
   background-color: #e8e7e6;
   width: 100%;
