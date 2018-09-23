@@ -171,7 +171,6 @@ input[type="range"]::-webkit-slider-thumb {
 
 #bottombar {
   position: absolute;
-  overflow: auto;
   display: block;
   display: none;
   padding-top: 0.01%;
@@ -310,7 +309,6 @@ input[type="range"]::-webkit-slider-thumb {
   height: 84%;
   padding-bottom: 4.5%;
   padding-top: 2%;
-  overflow: auto;
 }
 
 .module {
@@ -511,7 +509,6 @@ input[type="range"]::-webkit-slider-thumb {
   }
 
   #iconscreen1 {
-    overflow: auto;
     height: 89%;
   }
   .icons {
@@ -587,7 +584,6 @@ input[type="range"]::-webkit-slider-thumb {
 @media only screen and (min-device-width: 375px) and (max-device-width: 667px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: landscape) {
   #iconscreen1 {
     height: 80%;
-    overflow: auto;
   }
   #bottombar {
     height: 20%;
