@@ -205,8 +205,14 @@ input[type="range"]::-webkit-slider-thumb {
   width: 50%;
   font-weight: bold;
   color: white;
-
 }
+
+#highlightdiet {
+  background-color: rgb(134, 181, 212);
+  font-weight: bold;
+  color: white;
+}
+
 .bottomicons {
   color: white;
   margin-left: 1%;
@@ -310,6 +316,14 @@ input[type="range"]::-webkit-slider-thumb {
   height: 84%;
   padding-bottom: 4.5%;
   padding-top: 2%;
+}
+
+.otherscreen {
+  display: block;
+  height: 80%;
+  padding-bottom: 4.5%;
+  padding-top: 2%;
+  overflow: auto;
 }
 
 .module {
@@ -491,8 +505,12 @@ input[type="range"]::-webkit-slider-thumb {
   background-color: white;
 }
 
-#foodlist{
+#foodlist {
   word-wrap: break-word;
+}
+
+#foodlist li:last-child {
+ padding-bottom: 4.7%;
 }
 
 #food {

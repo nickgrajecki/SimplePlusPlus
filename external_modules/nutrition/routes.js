@@ -2,6 +2,7 @@ var bodyParser = require("body-parser");
 var urlencodedParser = bodyParser.urlencoded({ extended: false });
 var fs = require("fs");
 var details = require(__dirname + "/../../spp_modules/userDetails");
+var foodImport = require(__dirname + "/../../spp_modules/foodLog");
 var foodList = "./localfiles/food.json";
 var xss = require("xss");
 
@@ -9,39 +10,40 @@ var xss = require("xss");
 module.exports = function(app) {
   //Main page
   app.get("/nutrition", function(req, res) {
-    try {
-      fs.readFile(foodList, function(err, data) {
-        if (err) throw err;
-        if (data.length) {
-          foods = JSON.parse(data);
-          console.log(foods);
-          res.render(__dirname + "/main", {
-            name: details.name,
-            foods: foods,
-            fooditems: ""
-          });
-        }
-      });
-    } catch (ex) {
-      console.log(ex);
-    }
+    res.render(__dirname + "/main", {
+      name: details.name,
+      foods: foodImport.foodList,
+      fooditems: "",
+      lastFood: foodImport.lastFood
+    });
   });
 
   //After submmitting form
   app.post("/nutrition", urlencodedParser, function(req, res) {
-    var food = xss(req.body.fooddiary);
+    //Check string for XSS attempt
+    var foodItem = xss(req.body.fooddiary);
     var insertDate = new Date()
       .toISOString()
       .replace("-", "/")
       .split("T")[0]
       .replace("-", "/");
     try {
-      fs.readFile(foodList, function(err, data) {
+      //Read in food file
+        fs.readFile(foodList, function(err, data) {
         if (err) throw err;
-        foods = JSON.parse(data);
-        foods.push("(" + insertDate + ")" + " " + food);
-        fs.writeFileSync(foodList, JSON.stringify(foods));
-        res.redirect("/nutrition");
+        //Parse data
+        foodItems = JSON.parse(data);
+        //Add new food item with date
+        foodItems.push("(" + insertDate + ")" + " " + foodItem);
+        //Save new file
+        fs.writeFileSync(foodList, JSON.stringify(foodItems));
+        //Redirect back with the new data
+        res.render(__dirname + "/main", {
+          name: details.name,
+          foods: foodImport.foodList,
+          fooditems: "",
+          lastFood: foodImport.lastFood
+        });
       });
     } catch (ex) {
       console.log(ex);
@@ -71,8 +73,9 @@ module.exports = function(app) {
           foundFood = "No food found";
         }
         res.render(__dirname + "/main", {
-          foods: foods,
-          fooditems: foundFood
+          foods: foodImport.foodList,
+          fooditems: foundFood,
+          lastFood: foodImport.lastFood
         });
       });
     } catch (ex) {

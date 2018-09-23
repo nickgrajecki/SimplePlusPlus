@@ -1,15 +1,17 @@
 var fs = require("fs");
 var detailsFile = "./localfiles/details.json";
 var db = require("./dbconnect");
-var dbUser = db.user;
-var name;
+var dbUser = db.user;;
 
 
 //Read user details file
 try {
+  //Read in personal details file
   fs.readFile(detailsFile, function(err, data) {
+    //Throw error if necessary
     if (err) throw err;
     if (data.length) {
+      //If file isn't empty, parse JSON data and set export values
       data = JSON.parse(data);
       module.exports.age = data.age;
       module.exports.weight = data.weight;

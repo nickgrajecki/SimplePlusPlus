@@ -23,16 +23,18 @@
         </div>
 
         <div class="modcolumn">
-            <p class="toptext">Food Log</p>
+            <p class="toptext">Food Log - last 10 meals</p>
             <div id="foodlist">
                 <ul>
-                    <% for (var i = 0; i < foods.length; i++) { %>
+                    <% for (var i = 0; i < 10; i++) { %>
                     <li>
                         <%= foods[i] %>
                     </li>
                     <% } %>
                 </ul>
             </div>
+            <p class='toptext'>Diet recommendation</p>
+            <p>Your last meal was: <span id="highlightdiet"><%= lastFood %></span></p>
             <div id="detailsdiv"></div>
             <script src="/external_modules/nutrition/nutrition.js"></script>
             <script>food()</script>

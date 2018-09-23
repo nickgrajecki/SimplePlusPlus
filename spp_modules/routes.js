@@ -18,25 +18,36 @@ module.exports = function(app) {
   });
 
   //Page routing
+
+  //Home
   app.get("/index", function(req, res) {
     res.render("home", { name: details.name });
   });
 
+  //Settings
   app.get("/settings", function(req, res) {
     res.render("settings", { name: details.name });
   });
 
+  //Help page
   app.get("/support", function(req, res) {
     res.render("support", { name: details.name });
   });
 
+  //Audiovisual settings redirect
   app.get("/config", function(req, res) {
     res.render("config", { name: details.name });
   });
 
+  //Audiovisual form action
   app.post("/config", urlencodedParser, function(req, res) {
     require(__dirname + "/configSelect")(req);
     res.render("config", { name: details.name });
+  });
+
+  //Other settings page
+  app.get("/other", function(req, res) {
+    res.render("other", { name: details.name });
   });
 
   //Module selection under settings redirect

@@ -1,9 +1,8 @@
 var fs = require('fs');
 var file = './localfiles/selectedmodules.json';
 
-
+//Export module selection
 module.exports = function (req) {
-
     //Read user selection
     var firstaid = req.body.firstaidc;
     //If checked

@@ -1,27 +1,16 @@
 var bodyParser = require("body-parser");
 var urlencodedParser = bodyParser.urlencoded({ extended: false });
 var details = require(__dirname + "/../../spp_modules/userDetails");
-var foodList = "./localfiles/food.json";
+var foods = require(__dirname + "/../../spp_modules/foodLog");
 var fs = require("fs");
 
 module.exports = function(app) {
-  //First aid module
+  //First aid module redirect /GET
   app.get("/firstaid", function(req, res) {
-    try {
-      fs.readFile(foodList, function(err, data) {
-        if (err) throw err;
-        if (data.length) {
-          foods = JSON.parse(data);
-          console.log(foods.reverse());
-          res.render(__dirname + "/main", {
-            name: details.name,
-            foods: foods
-          });
-        }
-      });
-    } catch (ex) {
-      console.log(ex);
-    }
+    res.render(__dirname + "/main", {
+      name: details.name,
+      foods: foods.foodList
+    });
   });
 
   //Process firstaid module

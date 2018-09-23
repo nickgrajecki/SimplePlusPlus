@@ -4,6 +4,7 @@ var details = require(__dirname + "/../../spp_modules/userDetails");
 var xss = require("xss");
 
 module.exports = function(req, res) {
+  //Process all request strings, check for XSS attempts
   var age = xss(req.body.age);
   var weight = xss(req.body.userweight);
   var home = xss(req.body.userhome);
@@ -13,6 +14,7 @@ module.exports = function(req, res) {
   // details.updateAge(age);
   // details.updateHeight(height);
 
+  //Read file, update value if new one was added, then push to file.
   fs.readFile(detailsFile, function(err, data) {
     if (err) throw err;
     var detailsJSON = JSON.parse(data);

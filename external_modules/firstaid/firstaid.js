@@ -1,4 +1,5 @@
 function firstAid() {
+  //Retrieve details file
   $.getJSON("/../../localfiles/details.json", function(json) {
     if (json.age.length) {
       var name = json.name;
@@ -8,6 +9,7 @@ function firstAid() {
       var phone = json.phone;
       var medication = json.medication;
       var allergies = json.allergies;
+      //Add details to page view
       $("#details").append(
         "<div class='toptext'>Info</div><span class='highlight'>Age</span>" +
           age +
