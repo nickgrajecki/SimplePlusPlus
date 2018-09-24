@@ -7,6 +7,7 @@ function loadBars() {
 function refreshPage() {
   window.onorientationchange = function() {
     location.reload();
+    localStorage.clear();
   };
 }
 
@@ -98,7 +99,6 @@ function readConfig(configJSON) {
     document.getElementById("emergency").style.display = "none";
     iconCount--;
   }
-
 
   //Based on amount of icons on screen, adapt CSS layout
   switch (iconCount) {
@@ -272,85 +272,87 @@ function textSize() {
   $("#fontslider").on("mousemove touchmove", function() {
     //Default values as placeholder
     var textsize = $(this).val();
-    var bottombar = "13.5%";
-    var iconscreen = "83.5%";
-    var settingscreen = "83.5%";
-    var modulesscreen = "83.5%";
-    var individualmodule = "83.5%";
-    var supportscreen = "83.5%";
-    var optionsscreen = "83.5%";
-    var soundanimation = "83.5%";
-    var paddingtop = "2%";
-    var margintop = "1%";
 
-    //Set default values first
-    $("#iconscreen1").css("height", "84.5%");
-    $(".icontext").css("margin-top", "1%");
-    $("#bottombar").css("height", "14.5%");
+    if (window.innerWidth > window.innerHeight) {
+      var bottombar = "13.5%";
+      var iconscreen = "83.5%";
+      var settingscreen = "83.5%";
+      var modulesscreen = "83.5%";
+      var individualmodule = "83.5%";
+      var supportscreen = "83.5%";
+      var optionsscreen = "83.5%";
+      var soundanimation = "83.5%";
+      var paddingtop = "2%";
+      var margintop = "1%";
 
-    if (textsize > 1.2) {
-      //First set the CSS for current page
+      //Set default values first
+      $("#iconscreen1").css("height", "84.5%");
+      $(".icontext").css("margin-top", "1%");
       $("#bottombar").css("height", "14.5%");
-      $("#iconscreen1").css("height", "82.5%");
-      $("#settingscreen").css("height", "82.5%");
-      $("#modulescreen").css("height", "82.5%");
-      $("#supportscreen").css("height", "82.5%");
-      $(".extmodulescreen").css("height", "82.5%");
-      $("#optionsscreen").css("height", "82.5%");
-      $("#soundanimation").css("height", "82.5%");
-      //Then set the values for the variables to be set for localstorage
-      bottombar = "14.5%";
-      iconscreen = "82.5%";
-      settingscreen = "82.5%";
-      modulesscreen = "82.5%";
-      individualmodule = "82.5%";
-      supportscreen = "82.5%";
-      optionsscreen = "82.5%";
-      soundanimation = "82.5%";
-    }
 
-    if (textsize > 1.7) {
-      $("#iconscreen1").css("height", "79.5%");
-      $("#bottombar").css("height", "17.5%");
-      $("#settingscreen").css("height", "79.5%");
-      $("#modulescreen").css("height", "79.5%");
-      $("#supportscreen").css("height", "79.5%");
-      $(".extmodulescreen").css("height", "79.5%");
-      $("#optionsscreen").css("height", "79.5%");
-      $("#soundanimation").css("height", "79.5%");
-      bottombar = "17.5%";
-      iconscreen = "79.5%";
-      settingscreen = "79.5%";
-      modulesscreen = "79.5%";
-      supportscreen = "79.5%";
-      individualmodule = "79.5%";
-      optionsscreen = "79.5%";
-      soundanimation = "79.5%";
-    }
+      if (textsize > 1.2) {
+        //First set the CSS for current page
+        $("#bottombar").css("height", "14.5%");
+        $("#iconscreen1").css("height", "82.5%");
+        $("#settingscreen").css("height", "82.5%");
+        $("#modulescreen").css("height", "82.5%");
+        $("#supportscreen").css("height", "82.5%");
+        $(".extmodulescreen").css("height", "82.5%");
+        $("#optionsscreen").css("height", "82.5%");
+        $("#soundanimation").css("height", "82.5%");
+        //Then set the values for the variables to be set for localstorage
+        bottombar = "14.5%";
+        iconscreen = "82.5%";
+        settingscreen = "82.5%";
+        modulesscreen = "82.5%";
+        individualmodule = "82.5%";
+        supportscreen = "82.5%";
+        optionsscreen = "82.5%";
+        soundanimation = "82.5%";
+      }
 
-    if (textsize > 2) {
-      $("#iconscreen1").css("height", "79%");
-      $("#settingscreen").css("height", "79%");
-      $("#modulescreen").css("height", "79%");
-      $("#supportscreen").css("height", "79%");
-      $(".extmodulescreen").css("height", "79%");
-      $("#bottombar").css("height", "18%");
-      $(".icontext").css("margin-top", "0.2%");
-      $(".mselect").css("margin-top", "0.1%");
-      $("#optionsscreen").css("height", "79%");
-      $("#soundanimation").css("height", "79%");
-      bottombar = "18%";
-      iconscreen = "79%";
-      settingscreen = "79%";
-      modulesscreen = "79%";
-      supportscreen = "79%";
-      paddingtop = "1%";
-      margintop = "0.1%";
-      individualmodule = "79%";
-      optionsscreen = "79%";
-      soundanimation = "79%";
-    }
+      if (textsize > 1.7) {
+        $("#iconscreen1").css("height", "79.5%");
+        $("#bottombar").css("height", "17.5%");
+        $("#settingscreen").css("height", "79.5%");
+        $("#modulescreen").css("height", "79.5%");
+        $("#supportscreen").css("height", "79.5%");
+        $(".extmodulescreen").css("height", "79.5%");
+        $("#optionsscreen").css("height", "79.5%");
+        $("#soundanimation").css("height", "79.5%");
+        bottombar = "17.5%";
+        iconscreen = "79.5%";
+        settingscreen = "79.5%";
+        modulesscreen = "79.5%";
+        supportscreen = "79.5%";
+        individualmodule = "79.5%";
+        optionsscreen = "79.5%";
+        soundanimation = "79.5%";
+      }
 
+      if (textsize > 2) {
+        $("#iconscreen1").css("height", "79%");
+        $("#settingscreen").css("height", "79%");
+        $("#modulescreen").css("height", "79%");
+        $("#supportscreen").css("height", "79%");
+        $(".extmodulescreen").css("height", "79%");
+        $("#bottombar").css("height", "18%");
+        $(".icontext").css("margin-top", "0.2%");
+        $(".mselect").css("margin-top", "0.1%");
+        $("#optionsscreen").css("height", "79%");
+        $("#soundanimation").css("height", "79%");
+        bottombar = "18%";
+        iconscreen = "79%";
+        settingscreen = "79%";
+        modulesscreen = "79%";
+        supportscreen = "79%";
+        paddingtop = "1%";
+        margintop = "0.1%";
+        individualmodule = "79%";
+        optionsscreen = "79%";
+        soundanimation = "79%";
+      }
+    }
     if (iconCount > 6) {
       $("#mainscreen").css("font-size", textsize + "vw");
       $(".icontext").css("font-size", textsize + "vw");
@@ -359,21 +361,28 @@ function textSize() {
       $("#mainscreen").css("font-size", textsize + "vw");
       $(".icontext").css("font-size", textsize + "vw");
       $(".bottomtext").css("font-size", textsize + "vw");
-      $(".icons").css("margin-top", "1.1%");
+      if (window.innerWidth > window.innerHeight) {
+        $(".icons").css("margin-top", "1.1%");
+      }
     } else if (iconCount == 4) {
       $("#mainscreen").css("font-size", textsize + "vw");
       $(".icontext").css("font-size", textsize + "vw");
       $(".bottomtext").css("font-size", textsize + "vw");
-      $(".icons").css("margin-top", "1.1%");
+      if (window.innerWidth > window.innerHeight) {
+        $(".icons").css("margin-top", "1.1%");
+      }
     } else {
       $("#mainscreen").css("font-size", textsize + "vw");
       $(".icontext").css("font-size", textsize + "vw");
       $(".bottomtext").css("font-size", textsize + "vw");
-      $(".icons").css("margin-top", "5%");
-      $(".icons").css("margin-bottom", "5%");
-      $(".icons").css("padding-top", "5%");
-      $(".icons").css("padding-bottom", "3%");
+      if (window.innerWidth > window.innerHeight) {
+        $(".icons").css("margin-top", "5%");
+        $(".icons").css("margin-bottom", "5%");
+        $(".icons").css("padding-top", "5%");
+        $(".icons").css("padding-bottom", "3%");
+      }
     }
+
     localStorage.setItem("fontsize", textsize);
     localStorage.setItem("iconscreen", iconscreen);
     localStorage.setItem("settingscreen", settingscreen);
