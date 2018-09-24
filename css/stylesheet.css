@@ -585,7 +585,7 @@ input[type="range"]::-webkit-slider-thumb {
 }
 
 /* Small height screens */
-@media (max-height: 700px) and (max-width: 1200px) {
+@media (max-height: 700px) and (max-width: 800px) {
   .bottomtext {
     display: none;
   }
@@ -647,7 +647,7 @@ input[type="range"]::-webkit-slider-thumb {
   }
 }
 
-@media (max-device-width: 280px) and (max-device-height: 570px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: landscape) {
+@media (max-device-width: 280px) and (max-device-height: 570px) and (-webkit-min-device-pixel-ratio: 3) and (orientation: landscape) {
   #iconscreen1 {
     height: 80%;
     overflow: auto;
