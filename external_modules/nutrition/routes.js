@@ -10,11 +10,18 @@ var xss = require("xss");
 module.exports = function(app) {
   //Main page
   app.get("/nutrition", function(req, res) {
-    res.render(__dirname + "/main", {
-      name: details.name,
-      foods: foodImport.foodList,
-      fooditems: "",
-      lastFood: foodImport.lastFood
+    fs.readFile(foodList, function(err, data) {
+      if (data.length) {
+        data = JSON.parse(data);
+        var lastFood = data[data.length - 1];
+        var newFood = data.reverse();
+        res.render(__dirname + "/main", {
+          name: details.name,
+          foods: newFood,
+          fooditems: "",
+          lastFood: lastFood
+        });
+      }
     });
   });
 
@@ -44,7 +51,7 @@ module.exports = function(app) {
     } catch (ex) {
       console.log(ex);
     }
-    res.redirect('/nutrition')
+    res.redirect("back");
   });
 
   app.post("/nutritiondate", urlencodedParser, function(req, res) {
