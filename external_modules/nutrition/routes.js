@@ -32,17 +32,13 @@ module.exports = function(app) {
       fs.readFile(foodList, function(err, data) {
         if (err) throw err;
         //Parse data
-        if (data == "Empty") {
-          foodItems = '["(' + insertDate + ')' + ' ' + foodItem + '"]';
-          fs.writeFileSync(foodList, foodItems);
-        } else {
-          foodItems = JSON.parse(data);
-          //Add new food item with date
-          foodItems.push("(" + insertDate + ")" + " " + foodItem);
-          //Save new file
-          fs.writeFileSync(foodList, JSON.stringify(foodItems));
-        }
-        
+
+        foodItems = JSON.parse(data);
+        //Add new food item with date
+        foodItems.push("(" + insertDate + ")" + " " + foodItem);
+        //Save new file
+        fs.writeFileSync(foodList, JSON.stringify(foodItems));
+
         //Redirect back with the new data
         res.render(__dirname + "/main", {
           name: details.name,
@@ -71,7 +67,7 @@ module.exports = function(app) {
             if (foundFood == null) {
               foundFood = foods[i];
             } else {
-              foundFood += foods[i];
+              foundFood += " " + foods[i];
             }
           }
         }
