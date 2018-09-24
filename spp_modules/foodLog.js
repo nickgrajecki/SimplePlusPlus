@@ -5,7 +5,7 @@ try {
   fs.readFile(foodFile, function(err, data) {
     //Throw error if necessary
     if (err) throw err;
-    if (data.length) {
+    if (data.length && data != "Empty") {
       //If file isn't empty, parse JSON data and set export values
       data = JSON.parse(data);
       module.exports.lastFood = data[(data.length)-1];

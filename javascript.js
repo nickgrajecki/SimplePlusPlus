@@ -3,6 +3,10 @@ function loadBars() {
   $("#bottombar").show();
   $("#topbar").show();
 }
+//Clear food log file
+function clearFood() {
+  window.location = "/clearfood";
+}
 
 //Refresh page to load new layout when changing screen orientation
 function refreshPage() {
@@ -275,6 +279,7 @@ function textSize() {
     var individualmodule = "83.5%";
     var supportscreen = "83.5%";
     var optionsscreen = "83.5%";
+    var soundanimation = "83.5%";
     var paddingtop = "2%";
     var margintop = "1%";
 
@@ -292,6 +297,7 @@ function textSize() {
       $("#supportscreen").css("height", "82.5%");
       $(".extmodulescreen").css("height", "82.5%");
       $("#optionsscreen").css("height", "82.5%");
+      $("#soundanimation").css("height", "82.5%");
       //Then set the values for the variables to be set for localstorage
       bottombar = "14.5%";
       iconscreen = "82.5%";
@@ -300,6 +306,7 @@ function textSize() {
       individualmodule = "82.5%";
       supportscreen = "82.5%";
       optionsscreen = "82.5%";
+      soundanimation = "82.5%";
     }
 
     if (textsize > 1.7) {
@@ -310,6 +317,7 @@ function textSize() {
       $("#supportscreen").css("height", "79.5%");
       $(".extmodulescreen").css("height", "79.5%");
       $("#optionsscreen").css("height", "79.5%");
+      $("#soundanimation").css("height", "79.5%");
       bottombar = "17.5%";
       iconscreen = "79.5%";
       settingscreen = "79.5%";
@@ -317,6 +325,7 @@ function textSize() {
       supportscreen = "79.5%";
       individualmodule = "79.5%";
       optionsscreen = "79.5%";
+      soundanimation = "79.5%";
     }
 
     if (textsize > 2) {
@@ -329,6 +338,7 @@ function textSize() {
       $(".icontext").css("margin-top", "0.2%");
       $(".mselect").css("margin-top", "0.1%");
       $("#optionsscreen").css("height", "79%");
+      $("#soundanimation").css("height", "79%");
       bottombar = "18%";
       iconscreen = "79%";
       settingscreen = "79%";
@@ -338,6 +348,7 @@ function textSize() {
       margintop = "0.1%";
       individualmodule = "79%";
       optionsscreen = "79%";
+      soundanimation = "79%";
     }
 
     if (iconCount > 6) {
@@ -373,6 +384,7 @@ function textSize() {
     localStorage.setItem("margintop", margintop);
     localStorage.setItem("paddingtop", paddingtop);
     localStorage.setItem("optionsscreen", optionsscreen);
+    localStorage.setItem("soundanimation", soundanimation);
   });
 }
 
@@ -411,11 +423,13 @@ function resizeSettings() {
   var bottombar = localStorage.getItem("bottombar");
   var settingscreen = localStorage.getItem("settingscreen");
   var optionsscreen = localStorage.getItem("optionsscreen");
+  var soundanimation = localStorage.getItem("optionsscreen");
   var animationOn = localStorage.getItem("animation");
   var soundOn = localStorage.getItem("sound");
 
   $("#settingscreen").css("height", settingscreen);
   $("#optionsscreen").css("height", optionsscreen);
+  $("#soundanimation").css("height", soundanimation);
   $(".icontext").css("font-size", textsize + "vw");
   $(".bottomtext").css("font-size", textsize + "vw");
   $("#bottombar").css("height", bottombar);
@@ -424,7 +438,7 @@ function resizeSettings() {
     $("#settingscreen").on("click", clickSound);
     $("#optionsscreen").on("click", clickSound);
   }
-
+  $("#soundanimation").show();
   if (animationOn == "true") {
     $("#settingscreen").on("click", clickAnimation);
     $("#optionsscreen").on("click", clickAnimation);
@@ -469,7 +483,6 @@ function resizeIndividualModule() {
   var textsize = localStorage.getItem("fontsize");
   var bottombar = localStorage.getItem("bottombar");
   var individualmodule = localStorage.getItem("individualmodule");
-  var soundOn = localStorage.getItem("sound");
   var animationOn = localStorage.getItem("animation");
 
   if (animationOn == "true") {

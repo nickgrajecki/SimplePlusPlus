@@ -6,7 +6,7 @@
     <meta charset="utf-8">
     <meta id="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="css/stylesheet.css">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp"
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU"
         crossorigin="anonymous">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script type="text/javascript" src="javascript.js"></script>
@@ -22,9 +22,13 @@
             <span class="textcenter">Choose your settings</span>
         </div>
         <div class="container-fluid" id="settingscreen">
-            <div class="icons" id="firstaid" onclick="clearLocalStorage()">
-                <i class="fontbody fas fa-medkit"></i>
-                <span class="icontext">FIRST AID</span>
+            <div class="miscicons" id="firstaid" onclick="clearLocalStorage()">
+                <i class="fontbody fas fa-trash-alt"></i>
+                <span class="icontext">Clear local storage</span>
+            </div>
+            <div class="miscicons" id="firstaid" onclick="clearFood()">
+                <i class="fontbody fas fa-cookie"></i>
+                <span class="icontext">Clear food list</span>
             </div>
         </div>
         <% include partials/bottom.ejs %>

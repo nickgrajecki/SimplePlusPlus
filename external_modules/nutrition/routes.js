@@ -29,14 +29,20 @@ module.exports = function(app) {
       .replace("-", "/");
     try {
       //Read in food file
-        fs.readFile(foodList, function(err, data) {
+      fs.readFile(foodList, function(err, data) {
         if (err) throw err;
         //Parse data
-        foodItems = JSON.parse(data);
-        //Add new food item with date
-        foodItems.push("(" + insertDate + ")" + " " + foodItem);
-        //Save new file
-        fs.writeFileSync(foodList, JSON.stringify(foodItems));
+        if (data == "Empty") {
+          foodItems = '["(' + insertDate + ')' + ' ' + foodItem + '"]';
+          fs.writeFileSync(foodList, foodItems);
+        } else {
+          foodItems = JSON.parse(data);
+          //Add new food item with date
+          foodItems.push("(" + insertDate + ")" + " " + foodItem);
+          //Save new file
+          fs.writeFileSync(foodList, JSON.stringify(foodItems));
+        }
+        
         //Redirect back with the new data
         res.render(__dirname + "/main", {
           name: details.name,

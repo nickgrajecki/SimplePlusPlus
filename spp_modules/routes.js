@@ -1,6 +1,8 @@
 var bodyParser = require("body-parser");
 var urlencodedParser = bodyParser.urlencoded({ extended: false });
 var details = require(__dirname + "/../spp_modules/userDetails");
+var fs = require("fs");
+var foodList = "./localfiles/food.json";
 
 module.exports = function(app) {
   //Action after attempting to login
@@ -39,6 +41,10 @@ module.exports = function(app) {
     res.render("config", { name: details.name });
   });
 
+  app.get("/demo", function(req, res) {
+    res.render("demo", { name: details.name });
+  });
+
   //Audiovisual form action
   app.post("/config", urlencodedParser, function(req, res) {
     require(__dirname + "/configSelect")(req);
@@ -55,9 +61,17 @@ module.exports = function(app) {
     res.render("modules", { name: details.name });
   });
 
+  app.get("/clearfood", function(req, res) {
+    fs.readFile(foodList, function(err, data) {
+      if (err) throw err;
+      var newFoods = "Empty";
+      fs.writeFileSync(foodList, newFoods);
+      res.render("other", { name: details.name });
+    });
+  });
   //Process module selection
   app.post("/modules", urlencodedParser, function(req, res) {
     require(__dirname + "/moduleSelect")(req);
     res.render("modules", { name: details.name });
   });
-}
+};
