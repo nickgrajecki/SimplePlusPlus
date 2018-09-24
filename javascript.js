@@ -10,6 +10,11 @@ function refreshPage() {
   };
 }
 
+//Clear food log file
+function clearFood() {
+  window.location = "/clearfood";
+}
+
 //Enable sound when clicking outside of target area
 function clickSound() {
   setTimeout(function() {

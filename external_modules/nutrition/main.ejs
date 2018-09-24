@@ -26,11 +26,11 @@
             <p class="toptext">Food Log - last 10 meals</p>
             <div id="foodlist">
                 <ul>
-                    <% for (var i = 0; i < 10; i++) { %>
+                    <% if (foods !== undefined) { for (var i = 0; i < 10; i++) { %>
                     <li>
                         <%= foods[i] %>
                     </li>
-                    <% } %>
+                    <% } } %>
                 </ul>
             </div>
             <p class='toptext'>Diet recommendation</p>

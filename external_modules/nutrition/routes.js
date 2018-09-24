@@ -11,17 +11,17 @@ module.exports = function(app) {
   //Main page
   app.get("/nutrition", function(req, res) {
     fs.readFile(foodList, function(err, data) {
-      if (data.length) {
+      if (data.length && data != "Empty") {
         data = JSON.parse(data);
         var lastFood = data[data.length - 1];
         var newFood = data.reverse();
-        res.render(__dirname + "/main", {
-          name: details.name,
-          foods: newFood,
-          fooditems: "",
-          lastFood: lastFood
-        });
       }
+      res.render(__dirname + "/main", {
+        name: details.name,
+        foods: newFood,
+        fooditems: "",
+        lastFood: lastFood
+      });
     });
   });
 
@@ -40,11 +40,16 @@ module.exports = function(app) {
       fs.readFile(foodList, function(err, data) {
         if (err) throw err;
         //Parse data
-        foodItems = JSON.parse(data);
-        //Add new food item with date
-        foodItems.push("(" + insertDate + ")" + " " + foodItem);
-        //Save new file
-        fs.writeFileSync(foodList, JSON.stringify(foodItems));
+        if (data == "Empty") {
+          foodItems = '["(' + insertDate + ")" + " " + foodItem + '"]';
+          fs.writeFileSync(foodList, foodItems);
+        } else {
+          foodItems = JSON.parse(data);
+          //Add new food item with date
+          foodItems.push("(" + insertDate + ")" + " " + foodItem);
+          //Save new file
+          fs.writeFileSync(foodList, JSON.stringify(foodItems));
+        }
 
         //Redirect back with the new data
       });

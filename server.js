@@ -30,6 +30,7 @@ require("./spp_modules/routes")(app);
 require("./external_modules/firstaid/routes")(app);
 require("./external_modules/nutrition/routes")(app);
 require("./external_modules/bus/routes")(app);
+require("./external_modules/medication/routes")(app);
 
 //Port
 app.listen(process.env.PORT || 3000);

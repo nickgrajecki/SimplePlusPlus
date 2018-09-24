@@ -26,11 +26,11 @@
             <div id="food">
                 <p class="toptext">In the last 5 days you ate:<br></p>
                 <ul>
-                    <% for (var i = 0; i < 5; i++) { %>
+                    <%  if (foods !== undefined) { for (var i = 0; i < 5; i++) { %>
                     <li>
                         <%=foods[i] %></a>
                     </li>
-                    <% } %>
+                    <% } } %>
                 </ul>
             </div>
             <div id="details"></div>

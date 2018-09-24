@@ -65,4 +65,14 @@ module.exports = function(app) {
     require(__dirname + "/moduleSelect")(req);
     res.render("modules", { name: details.name });
   });
+
+  app.get("/clearfood", function(req, res) {
+    fs.readFile(foodList, function(err, data) {
+      if (err) throw err;
+      var newFoods = "Empty";
+      fs.writeFileSync(foodList, newFoods);
+      res.render("other", { name: details.name });
+    });
+  });
+  
 };
