@@ -181,6 +181,7 @@ input[type="range"]::-webkit-slider-thumb {
   color: white;
   text-align: center;
   border-top-right-radius: 2vw;
+  overflow: hidden;
   border-top-left-radius: 2vw;
 }
 
@@ -229,6 +230,7 @@ input[type="range"]::-webkit-slider-thumb {
 }
 
 #iconscreen1 {
+  overflow: auto;
   display: block;
   height: 83.5%;
   padding-bottom: 4.5%;
@@ -265,6 +267,7 @@ input[type="range"]::-webkit-slider-thumb {
 }
 
 #settingscreen {
+  overflow: auto;
   display: block;
   height: 83.5%;
   padding-bottom: 4.5%;
@@ -286,10 +289,10 @@ input[type="range"]::-webkit-slider-thumb {
   font-size: 1vw;
   justify-content: center;
   border-radius: 20px;
-  
 }
 
 #modulescreen {
+  overflow: auto;
   display: block;
   display: none;
   height: 83.5%;
@@ -319,7 +322,6 @@ input[type="range"]::-webkit-slider-thumb {
   padding-top: 2%;
 }
 
-
 .otherscreen {
   display: block;
   height: 80%;
@@ -333,6 +335,7 @@ input[type="range"]::-webkit-slider-thumb {
 }
 
 #supportscreen {
+  overflow: auto;
   display: block;
   display: none;
   height: 83.5%;
@@ -348,21 +351,23 @@ input[type="range"]::-webkit-slider-thumb {
   margin-bottom: 2%;
   display: inline-block;
   text-align: center;
-  border-radius: 160px;
   width: 25%;
   font-weight: bold;
   font-size: 1vw;
+  border-radius: 1.7vw;
   justify-content: center;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 #optionsscreen {
+  overflow: auto;
   display: block;
   height: 83.5%;
   display: none;
 }
 
 #soundanimation {
+  overflow: auto;
   display: block;
   height: 83.5%;
   display: none;
@@ -549,13 +554,71 @@ input[type="range"]::-webkit-slider-thumb {
     display: none;
   }
   .fontbottom {
-    font-size: 7vw;
+    font-size: 12vw;
   }
   .icontext {
     display: none;
   }
 
+  .fontbody {
+    font-size: 12vw;
+    color: rgb(250, 250, 250);
+  }
+  
+  .fontselectscreen {
+    font-size: 12vw;
+  }
+  
+  .fonthelp {
+    font-size: 12vw;
+  }
+
+  #configbutton {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 8%;
+    width: 35%;
+    height: 30%;
+    font-size: 1.8vw;
+  }
+  
+
+  #submit {
+    width: 80%;
+    height: 20%;
+    margin-bottom: 5%;
+  }
+
   #iconscreen1 {
+    height: 89%;
+    overflow: auto;
+  }
+
+  #settingscreen {
+    height: 89%;
+    overflow: auto;
+  }
+
+  #supportscreen {
+    height: 89%;
+    overflow: auto;
+  }
+
+  .bottomicons {
+    height: 94%;
+    padding-top: 3%;
+  }
+
+  .extmodulescreen {
+    height: 89%;
+    overflow: auto;
+  }
+
+  #modulescreen {
+    height: 89%;
+    overflow: auto;
+  }
+  #soundanimation{
     height: 89%;
     overflow: auto;
   }
@@ -574,9 +637,69 @@ input[type="range"]::-webkit-slider-thumb {
     justify-content: center;
   }
 
+  .settingoption{
+    margin-left: 10%;
+    margin-right: 10%;
+    margin-top: 6%;
+    padding-top: 13%;
+    margin-bottom: 4%;
+    display: inline-block;
+    text-align: center;
+    width: 80%;
+    height: 27%;
+    font-weight: bold;
+    font-size: 1vw;
+    justify-content: center;
+  }
+
+  .configoption{
+    margin-left: 10%;
+    margin-right: 10%;
+    margin-top: 6%;
+    padding-top: 20%;
+    padding-bottom: 20%;
+    margin-bottom: 4%;
+    display: inline-block;
+    text-align: center;
+    width: 80%;
+    height: 80%;
+    font-weight: bold;
+    font-size: 1vw;
+    justify-content: center;
+  }
+
+  .iconssupport{
+    margin-left: 10%;
+    margin-right: 10%;
+    margin-top: 6%;
+    padding-top: 15%;
+    margin-bottom: 4%;
+    display: inline-block;
+    text-align: center;
+    width: 80%;
+    height: 27%;
+    font-weight: bold;
+    font-size: 1vw;
+    justify-content: center;
+  }
+  .mselect{
+    margin-left: 5%;
+    margin-right: 0.5%;
+    margin-top: 10%;
+    padding-top: 5%;
+    margin-bottom: 0.5%;
+    display: inline-block;
+    text-align: center;
+    width: 40vw;
+    height: 23vw;
+    font-weight: bold;
+    font-size: 1vw;
+    justify-content: center;
+  }
+
   #bottombar {
     height: 8%;
-    overflow: auto;
+    overflow: hidden;
   }
 
   .fontbottom {
@@ -638,7 +761,7 @@ input[type="range"]::-webkit-slider-thumb {
   }
   #bottombar {
     height: 20%;
-    overflow: auto;
+    overflow: hidden;
   }
   .bottomicons {
     height: 70%;
@@ -652,12 +775,12 @@ input[type="range"]::-webkit-slider-thumb {
     height: 80%;
     overflow: auto;
   }
-  .icons{
+  .icons {
     height: 20vw;
   }
   #bottombar {
     height: 15%;
-    overflow: auto;
+    overflow: hidden;
   }
   .bottomicons {
     height: 90%;
@@ -665,4 +788,3 @@ input[type="range"]::-webkit-slider-thumb {
     padding-top: 0.2%;
   }
 }
-
