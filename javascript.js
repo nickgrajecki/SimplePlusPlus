@@ -286,7 +286,7 @@ function textSize() {
       var margintop = "1%";
 
       //Set default values first
-      $("#iconscreen1").css("height", "84.5%");
+      $("#iconscreen1").css("height", "83.5%");
       $(".icontext").css("margin-top", "1%");
       $("#bottombar").css("height", "14.5%");
 
