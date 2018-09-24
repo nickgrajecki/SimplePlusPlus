@@ -60,15 +60,6 @@ module.exports = function(app) {
   app.get("/modules", function(req, res) {
     res.render("modules", { name: details.name });
   });
-
-  app.get("/clearfood", function(req, res) {
-    fs.readFile(foodList, function(err, data) {
-      if (err) throw err;
-      var newFoods = "Empty";
-      fs.writeFileSync(foodList, newFoods);
-      res.render("other", { name: details.name });
-    });
-  });
   //Process module selection
   app.post("/modules", urlencodedParser, function(req, res) {
     require(__dirname + "/moduleSelect")(req);

@@ -3,11 +3,6 @@ function loadBars() {
   $("#bottombar").show();
   $("#topbar").show();
 }
-//Clear food log file
-function clearFood() {
-  window.location = "/clearfood";
-}
-
 //Refresh page to load new layout when changing screen orientation
 function refreshPage() {
   window.onorientationchange = function() {

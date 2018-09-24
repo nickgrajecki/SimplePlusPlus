@@ -5,10 +5,10 @@ try {
   fs.readFile(foodFile, function(err, data) {
     //Throw error if necessary
     if (err) throw err;
-    if (data.length && data != "Empty") {
-      //If file isn't empty, parse JSON data and set export values
+    //If file isn't empty, parse JSON data and set export values
+    if (data.length) {
       data = JSON.parse(data);
-      module.exports.lastFood = data[(data.length)-1];
+      module.exports.lastFood = data[data.length - 1];
       module.exports.foodList = data.reverse();
     }
   });

@@ -32,7 +32,6 @@ module.exports = function(app) {
       fs.readFile(foodList, function(err, data) {
         if (err) throw err;
         //Parse data
-
         foodItems = JSON.parse(data);
         //Add new food item with date
         foodItems.push("(" + insertDate + ")" + " " + foodItem);
