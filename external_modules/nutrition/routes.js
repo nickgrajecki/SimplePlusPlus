@@ -21,6 +21,7 @@ module.exports = function(app) {
   //After submmitting form
   app.post("/nutrition", urlencodedParser, function(req, res) {
     //Check string for XSS attempt
+    var foodItems;
     var foodItem = xss(req.body.fooddiary);
     var insertDate = new Date()
       .toISOString()
@@ -39,16 +40,11 @@ module.exports = function(app) {
         fs.writeFileSync(foodList, JSON.stringify(foodItems));
 
         //Redirect back with the new data
-        res.render(__dirname + "/main", {
-          name: details.name,
-          foods: foodImport.foodList,
-          fooditems: "",
-          lastFood: foodImport.lastFood
-        });
       });
     } catch (ex) {
       console.log(ex);
     }
+    res.redirect('/nutrition')
   });
 
   app.post("/nutritiondate", urlencodedParser, function(req, res) {
